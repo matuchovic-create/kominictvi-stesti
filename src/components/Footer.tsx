@@ -38,7 +38,7 @@ export default function Footer() {
             <div style={{ fontFamily: "var(--font-ui)", fontSize: "0.58rem", letterSpacing: "0.4em", color: "var(--ember)", textTransform: "uppercase", marginBottom: "1.5rem" }}>Kontakt</div>
             {[
               { t: "+420 778 098 717", h: "tel:+420778098717" },
-              { t: "info@kominictvi-stesti.cz", h: "mailto:info@kominictvi-stesti.cz" },
+              { t: "Kominicektom@email.cz", h: "mailto:Kominicektom@email.cz" },
               { t: "Mladá Boleslav" },
               { t: "Střed. & Liberecký kraj" },
               { t: "Po–Pá: 7:00–18:00" },
