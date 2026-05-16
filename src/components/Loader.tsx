@@ -57,6 +57,7 @@ export default function Loader() {
       transition: fadeOut ? "opacity 0.8s cubic-bezier(0.4,0,0.2,1)" : "none",
       overflow: "hidden",
     }}>
+      <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.78)", zIndex: 0 }} />
 
       {/* ── SCANLINE TEXTURE ── */}
       <div style={{
