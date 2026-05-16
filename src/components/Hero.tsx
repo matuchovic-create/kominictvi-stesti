@@ -33,14 +33,6 @@ export default function Hero() {
           <div style={{ position: "absolute", right: "-10%", top: "50%", transform: "translateY(-50%)", width: 420, height: 420, borderRadius: "50%", border: "1px solid rgba(232,101,10,0.1)", animation: "rotateSlow 28s linear infinite reverse" }} />
           <div style={{ position: "absolute", right: "-5%", top: "50%", transform: "translateY(-50%)", width: 300, height: 300, borderRadius: "50%", border: "1px solid rgba(232,101,10,0.14)", animation: "rotateSlow 18s linear infinite" }} />
           <div style={{ position: "absolute", right: "12%", top: "50%", transform: "translateY(-50%)", width: 180, height: 180, borderRadius: "50%", background: "radial-gradient(circle, rgba(232,101,10,0.22) 0%, rgba(232,101,10,0.06) 50%, transparent 70%)", animation: "floatY 7s ease-in-out infinite" }} />
-          <svg style={{ position: "absolute", right: "8%", top: "50%", transform: "translateY(-50%)", opacity: 0.12, width: 200, height: 400 }} viewBox="0 0 200 400">
-            <rect x="70" y="60" width="60" height="280" fill="rgba(255,255,255,0.8)" rx="1"/>
-            <rect x="50" y="48" width="100" height="24" fill="rgba(255,255,255,0.9)" rx="1"/>
-            <rect x="62" y="32" width="30" height="22" fill="white" rx="1"/>
-            <rect x="108" y="32" width="30" height="22" fill="white" rx="1"/>
-            <rect x="58" y="120" width="22" height="6" fill="rgba(232,101,10,0.9)" rx="1"/>
-            <rect x="120" y="136" width="22" height="6" fill="rgba(232,101,10,0.7)" rx="1"/>
-          </svg>
           {/* Smoke + embers */}
           <div style={{ position: "absolute", right: "calc(8% + 76px + 4%)", top: 0, bottom: 0, width: 160 }}>
             {[
