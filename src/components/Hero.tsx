@@ -58,7 +58,7 @@ export default function Hero() {
       <div style={{ position: "absolute", bottom: "20%", left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.04) 20%, rgba(232,101,10,0.08) 50%, rgba(255,255,255,0.04) 80%, transparent 100%)", pointerEvents: "none" }} />
 
       {/* Content */}
-      <div style={{ position: "relative", zIndex: 2, padding: "0 clamp(1.5rem, 5vw, 5rem)", maxWidth: 760, marginTop: "5rem" }}>
+      <div style={{ position: "relative", zIndex: 2, padding: "0 clamp(1.5rem, 5vw, 5rem)", maxWidth: 760, marginTop: "5rem", paddingBottom: "8rem" }}>
 
         {/* Eyebrow */}
         <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "2.5rem", opacity: 0, animation: "revealUp 1s 2.5s cubic-bezier(0.16,1,0.3,1) forwards" }}>
@@ -75,7 +75,7 @@ export default function Hero() {
             která{" "}
             <em style={{ fontStyle: "italic", background: "linear-gradient(135deg, #E8650A 0%, #FF8C42 45%, #C9A96E 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>hoří</em>
           </span>
-          <span style={{ display: "block", color: "var(--text-secondary)", fontWeight: 300 }}>vášní</span>
+          <span style={{ display: "block", color: "var(--text-primary)", fontWeight: 300, opacity: 0.55 }}>vášní</span>
         </h1>
 
         {/* Divider */}
