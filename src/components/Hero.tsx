@@ -19,27 +19,18 @@ export default function Hero() {
       alignItems: "center",
       overflow: "hidden",
       paddingTop: "80px",
-      paddingBottom: isMobile ? "2rem" : "5rem",
+      paddingBottom: "5rem",
     }}>
-
-      {/* Photo background */}
       <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center 30%" }} />
-      {/* Overlay — left dark for text, right transparent to show photo */}
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(100deg, rgba(5,5,5,0.88) 0%, rgba(5,5,5,0.65) 45%, rgba(5,5,5,0.2) 100%)" }} />
-      {/* Bottom fade */}
       <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "40%", background: "linear-gradient(0deg, #080808 0%, transparent 100%)", pointerEvents: "none" }} />
 
-      {/* Photo provides right side visual — no extra decoration needed */}
-
-      {/* Content */}
       <div style={{
         position: "relative", zIndex: 2,
         padding: isMobile ? "0 1.5rem" : "0 clamp(1.5rem, 5vw, 5rem)",
         width: "100%",
         maxWidth: isMobile ? "100%" : 760,
       }}>
-
-        {/* Eyebrow */}
         <div style={{
           display: "flex", alignItems: "center", gap: "0.8rem",
           marginBottom: isMobile ? "1.5rem" : "2.5rem",
@@ -55,7 +46,6 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* Headline */}
         <h1 style={{
           fontFamily: "var(--font-cormorant)", fontWeight: 300,
           fontSize: isMobile ? "clamp(3rem, 13vw, 4.5rem)" : "clamp(3.8rem, 7.5vw, 7.5rem)",
@@ -70,7 +60,6 @@ export default function Hero() {
           <span style={{ display: "block", color: "var(--text-primary)", fontWeight: 300, opacity: 0.5 }}>vášní</span>
         </h1>
 
-        {/* Divider */}
         <div style={{
           width: 40, height: 1,
           background: "linear-gradient(90deg, var(--ember), transparent)",
@@ -78,7 +67,6 @@ export default function Hero() {
           opacity: 0, animation: "revealUp 1s 2.9s cubic-bezier(0.16,1,0.3,1) forwards",
         }} />
 
-        {/* Sub */}
         <p style={{
           fontFamily: "var(--font-ui)",
           fontSize: isMobile ? "0.88rem" : "0.95rem",
@@ -89,4 +77,7 @@ export default function Hero() {
         }}>
           Prémiový komínový servis s přesností švýcarských hodinářů. Každý komín je pro nás dílem — čistý, bezpečný, perfektní.
         </p>
-
+      </div>
+    </section>
+  );
+}
