@@ -1,66 +1,65 @@
-"use client";
-import { useEffect, useRef } from "react";
-
 export default function Clover() {
   return (
-    <svg width="40" height="40" viewBox="0 0 80 80" style={{ display: "inline-block", verticalAlign: "middle", marginLeft: "6px" }}>
-        <defs>
-          <radialGradient id="cl1g" cx="35%" cy="35%" r="75%">
-            <stop offset="0%" stopColor="#bbf7d0"/>
-            <stop offset="35%" stopColor="#4ade80"/>
-            <stop offset="70%" stopColor="#16a34a"/>
-            <stop offset="100%" stopColor="#14532d"/>
-          </radialGradient>
-          <radialGradient id="cl2g" cx="65%" cy="35%" r="75%">
-            <stop offset="0%" stopColor="#86efac"/>
-            <stop offset="35%" stopColor="#22c55e"/>
-            <stop offset="70%" stopColor="#15803d"/>
-            <stop offset="100%" stopColor="#14532d"/>
-          </radialGradient>
-          <radialGradient id="cl3g" cx="35%" cy="65%" r="75%">
-            <stop offset="0%" stopColor="#86efac"/>
-            <stop offset="35%" stopColor="#22c55e"/>
-            <stop offset="70%" stopColor="#166534"/>
-            <stop offset="100%" stopColor="#052e16"/>
-          </radialGradient>
-          <radialGradient id="cl4g" cx="65%" cy="65%" r="75%">
-            <stop offset="0%" stopColor="#bbf7d0"/>
-            <stop offset="35%" stopColor="#4ade80"/>
-            <stop offset="70%" stopColor="#16a34a"/>
-            <stop offset="100%" stopColor="#052e16"/>
-          </radialGradient>
-          <radialGradient id="clcg" cx="35%" cy="35%" r="80%">
-            <stop offset="0%" stopColor="#86efac"/>
-            <stop offset="100%" stopColor="#14532d"/>
-          </radialGradient>
-        </defs>
-        <g >
-          <g >
-            <path d="M0,0 C1,-2 2,-12 0,-16 C-3,-20 -10,-19 -14,-15 C-17,-12 -16,-6 -12,-3 C-9,-1 3,2 0,0 Z" fill="url(#cl1g)" transform="translate(40,40) rotate(-45)"/>
-            <ellipse  cx="29" cy="27" rx="5" ry="3" fill="#d1fae5" transform="rotate(-45 29 27)"/>
-          </g>
-          <g >
-            <path d="M0,0 C1,-2 2,-12 0,-16 C-3,-20 -10,-19 -14,-15 C-17,-12 -16,-6 -12,-3 C-9,-1 3,2 0,0 Z" fill="url(#cl2g)" transform="translate(40,40) rotate(45)"/>
-            <ellipse  cx="51" cy="27" rx="5" ry="3" fill="#d1fae5" transform="rotate(45 51 27)"/>
-          </g>
-          <g >
-            <path d="M0,0 C1,-2 2,-12 0,-16 C-3,-20 -10,-19 -14,-15 C-17,-12 -16,-6 -12,-3 C-9,-1 3,2 0,0 Z" fill="url(#cl3g)" transform="translate(40,40) rotate(-135)"/>
-            <ellipse  cx="29" cy="53" rx="5" ry="3" fill="#d1fae5" transform="rotate(135 29 53)"/>
-          </g>
-          <g >
-            <path d="M0,0 C1,-2 2,-12 0,-16 C-3,-20 -10,-19 -14,-15 C-17,-12 -16,-6 -12,-3 C-9,-1 3,2 0,0 Z" fill="url(#cl4g)" transform="translate(40,40) rotate(135)"/>
-            <ellipse  cx="51" cy="53" rx="5" ry="3" fill="#d1fae5" transform="rotate(-135 51 53)"/>
-          </g>
-          <g >
-            <circle cx="40" cy="40" r="5" fill="#052e16"/>
-            <circle cx="40" cy="40" r="3" fill="url(#clcg)"/>
-            <circle cx="39" cy="39" r="1.2" fill="#bbf7d0" opacity="0.95"/>
-          </g>
-          <polygon  points="28,26 29,23 30,26 27,24 31,24" fill="#86efac"/>
-          <polygon  points="52,22 53,19 54,22 51,20 55,20" fill="#4ade80"/>
-          <polygon  points="22,53 23,50 24,53 21,51 25,51" fill="#86efac"/>
-          <polygon  points="56,51 57,48 58,51 55,49 59,49" fill="#4ade80"/>
-        </g>
-      </svg>
+    <svg width="22" height="22" viewBox="0 0 100 100" style={{ display: "inline-block", verticalAlign: "middle", marginLeft: "5px" }}>
+      <defs>
+        <radialGradient id="lg1" cx="38%" cy="32%" r="65%">
+          <stop offset="0%" stopColor="#6ee7b7"/>
+          <stop offset="45%" stopColor="#10b981"/>
+          <stop offset="100%" stopColor="#064e3b"/>
+        </radialGradient>
+        <radialGradient id="lg2" cx="62%" cy="32%" r="65%">
+          <stop offset="0%" stopColor="#34d399"/>
+          <stop offset="45%" stopColor="#059669"/>
+          <stop offset="100%" stopColor="#064e3b"/>
+        </radialGradient>
+        <radialGradient id="lg3" cx="38%" cy="68%" r="65%">
+          <stop offset="0%" stopColor="#34d399"/>
+          <stop offset="45%" stopColor="#059669"/>
+          <stop offset="100%" stopColor="#022c22"/>
+        </radialGradient>
+        <radialGradient id="lg4" cx="62%" cy="68%" r="65%">
+          <stop offset="0%" stopColor="#6ee7b7"/>
+          <stop offset="45%" stopColor="#10b981"/>
+          <stop offset="100%" stopColor="#022c22"/>
+        </radialGradient>
+        <radialGradient id="cgr" cx="40%" cy="35%" r="75%">
+          <stop offset="0%" stopColor="#6ee7b7"/>
+          <stop offset="100%" stopColor="#064e3b"/>
+        </radialGradient>
+      </defs>
+
+      {/* Lístek nahoře */}
+      <circle cx="50" cy="28" r="22" fill="url(#lg1)"/>
+      <path d="M50,50 Q44,38 46,22" stroke="#064e3b" strokeWidth="0.9" fill="none" opacity="0.45"/>
+      <path d="M46,34 Q40,32 36,27" stroke="#064e3b" strokeWidth="0.6" fill="none" opacity="0.3"/>
+      <ellipse cx="43" cy="20" rx="7" ry="4" fill="#a7f3d0" opacity="0.3" transform="rotate(-25 43 20)"/>
+      <circle cx="52" cy="10" r="2.8" fill="#a7f3d0" opacity="0.65"/>
+
+      {/* Lístek vpravo */}
+      <circle cx="72" cy="50" r="22" fill="url(#lg2)"/>
+      <path d="M50,50 Q62,44 78,46" stroke="#064e3b" strokeWidth="0.9" fill="none" opacity="0.45"/>
+      <path d="M66,46 Q68,40 72,36" stroke="#064e3b" strokeWidth="0.6" fill="none" opacity="0.3"/>
+      <ellipse cx="80" cy="43" rx="7" ry="4" fill="#a7f3d0" opacity="0.3" transform="rotate(65 80 43)"/>
+      <circle cx="90" cy="51" r="2.5" fill="#a7f3d0" opacity="0.6"/>
+
+      {/* Lístek dole */}
+      <circle cx="50" cy="72" r="22" fill="url(#lg3)"/>
+      <path d="M50,50 Q44,62 46,78" stroke="#064e3b" strokeWidth="0.9" fill="none" opacity="0.45"/>
+      <path d="M46,66 Q40,68 36,73" stroke="#064e3b" strokeWidth="0.6" fill="none" opacity="0.3"/>
+      <ellipse cx="43" cy="80" rx="7" ry="4" fill="#a7f3d0" opacity="0.3" transform="rotate(25 43 80)"/>
+      <circle cx="51" cy="90" r="2.5" fill="#a7f3d0" opacity="0.6"/>
+
+      {/* Lístek vlevo */}
+      <circle cx="28" cy="50" r="22" fill="url(#lg4)"/>
+      <path d="M50,50 Q38,44 22,46" stroke="#064e3b" strokeWidth="0.9" fill="none" opacity="0.45"/>
+      <path d="M34,46 Q32,40 28,36" stroke="#064e3b" strokeWidth="0.6" fill="none" opacity="0.3"/>
+      <ellipse cx="20" cy="43" rx="7" ry="4" fill="#a7f3d0" opacity="0.3" transform="rotate(-65 20 43)"/>
+      <circle cx="10" cy="51" r="2.8" fill="#a7f3d0" opacity="0.65"/>
+
+      {/* Střed */}
+      <circle cx="50" cy="50" r="8" fill="#052e16"/>
+      <circle cx="50" cy="50" r="5" fill="url(#cgr)"/>
+      <circle cx="48" cy="48" r="2" fill="#bbf7d0" opacity="0.85"/>
+    </svg>
   );
 }
