@@ -158,7 +158,7 @@ export default function Hero() {
       {/* Stats bar — desktop only */}
       {!isMobile && (
         <div style={{
-          position: "absolute", bottom: 0, left: 0, right: 0, zIndex: 2,
+          position: "relative", zIndex: 2,
           borderTop: "1px solid rgba(232,101,10,0.3)", background: "rgba(5,5,5,0.95)", backdropFilter: "blur(10px)",
           display: "flex",
           opacity: 0, animation: "revealUp 1s 3.6s cubic-bezier(0.16,1,0.3,1) forwards",
