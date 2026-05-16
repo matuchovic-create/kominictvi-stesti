@@ -38,7 +38,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <a href="#hero" style={{ textDecoration: "none", display: "flex", flexDirection: "column", gap: "2px", zIndex: 1001 }}>
-          <span style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.15rem", fontWeight: 400, letterSpacing: "0.2em", color: menuOpen ? "var(--text-primary)" : "var(--text-primary)", lineHeight: 1 }}>
+          <span style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.15rem", fontWeight: 400, letterSpacing: "0.2em", color: "var(--text-primary)", lineHeight: 1 }}>
             KOMINICTVÍ <span style={{ color: "var(--ember)" }}>ŠTĚSTÍ</span>
           </span>
           <span style={{ fontFamily: "var(--font-ui)", fontSize: "0.52rem", letterSpacing: "0.4em", color: "var(--text-muted)", textTransform: "uppercase" }}>
@@ -67,7 +67,7 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Hamburger — 3 lines, top right, mobile only */}
+        {/* Hamburger — mobile only, 3 lines top right */}
         <button
           className="md:hidden"
           onClick={() => setMenuOpen(m => !m)}
@@ -82,7 +82,7 @@ export default function Navbar() {
           <span style={{
             display: "block", width: 24, height: 1.5, background: "var(--text-primary)",
             transformOrigin: "center",
-            transition: "transform 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.3s",
+            transition: "transform 0.35s cubic-bezier(0.16,1,0.3,1)",
             transform: menuOpen ? "translateY(6.5px) rotate(45deg)" : "none",
           }} />
           <span style={{
@@ -94,13 +94,13 @@ export default function Navbar() {
           <span style={{
             display: "block", width: 24, height: 1.5, background: "var(--text-primary)",
             transformOrigin: "center",
-            transition: "transform 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.3s",
+            transition: "transform 0.35s cubic-bezier(0.16,1,0.3,1)",
             transform: menuOpen ? "translateY(-6.5px) rotate(-45deg)" : "none",
           }} />
         </button>
       </nav>
 
-      {/* ─── FULLSCREEN MOBILE MENU ─── */}
+      {/* Fullscreen mobile menu */}
       <div style={{
         position: "fixed", inset: 0, zIndex: 998,
         background: "#080808",
@@ -109,25 +109,16 @@ export default function Navbar() {
         visibility: menuOpen ? "visible" : "hidden",
         transition: "opacity 0.4s cubic-bezier(0.16,1,0.3,1), visibility 0.4s",
       }}>
-
-        {/* Ember glow top */}
         <div style={{
           position: "absolute", top: 0, left: 0, right: 0, height: 1,
           background: "linear-gradient(90deg, transparent, rgba(232,101,10,0.5), transparent)",
         }} />
-
-        {/* Ambient */}
         <div style={{
           position: "absolute", inset: 0, pointerEvents: "none",
           background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(232,101,10,0.07) 0%, transparent 70%)",
         }} />
 
-        {/* Nav links — centered */}
-        <div style={{
-          flex: 1, display: "flex", flexDirection: "column",
-          justifyContent: "center",
-          padding: "6rem 2rem 2rem",
-        }}>
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", padding: "6rem 2rem 2rem" }}>
           {links.map((l, i) => (
             <a
               key={l.href}
@@ -152,12 +143,11 @@ export default function Navbar() {
               onMouseOut={e => (e.currentTarget as HTMLElement).style.color = "var(--text-primary)"}
             >
               <span>{l.label}</span>
-              <span style={{ fontSize: "1.2rem", color: "var(--ember)", opacity: 0.6, fontWeight: 300 }}>→</span>
+              <span style={{ fontSize: "1.2rem", color: "var(--ember)", opacity: 0.6 }}>→</span>
             </a>
           ))}
         </div>
 
-        {/* Bottom — contact */}
         <div style={{
           padding: "1.5rem 2rem",
           borderTop: "1px solid rgba(255,255,255,0.05)",
@@ -166,19 +156,13 @@ export default function Navbar() {
           transform: menuOpen ? "translateY(0)" : "translateY(10px)",
           transition: "opacity 0.45s 0.35s ease, transform 0.45s 0.35s cubic-bezier(0.16,1,0.3,1)",
         }}>
-          <a href="tel:+420778098717" style={{
-            display: "block",
-            fontFamily: "var(--font-cormorant)", fontSize: "1.6rem",
-            fontWeight: 400, color: "var(--ember)", textDecoration: "none",
-            letterSpacing: "0.05em", marginBottom: "0.4rem",
-          }}>
+          <a href="tel:+420778098717" style={{ display: "block", fontFamily: "var(--font-cormorant)", fontSize: "1.6rem", fontWeight: 400, color: "var(--ember)", textDecoration: "none", letterSpacing: "0.05em", marginBottom: "0.4rem" }}>
             +420 778 098 717
           </a>
           <div style={{ fontFamily: "var(--font-ui)", fontSize: "0.62rem", color: "var(--text-muted)", letterSpacing: "0.2em", marginBottom: "1.5rem" }}>
             Mladá Boleslav — Po–Pá 7:00–18:00
           </div>
-          <a href="#kontakt" onClick={() => setMenuOpen(false)} className="btn-primary"
-            style={{ display: "block", textAlign: "center", width: "100%" }}>
+          <a href="#kontakt" onClick={() => setMenuOpen(false)} className="btn-primary" style={{ display: "block", textAlign: "center", width: "100%" }}>
             <span>Objednat kontrolu →</span>
           </a>
         </div>
