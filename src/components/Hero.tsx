@@ -90,18 +90,3 @@ export default function Hero() {
           Prémiový komínový servis s přesností švýcarských hodinářů. Každý komín je pro nás dílem — čistý, bezpečný, perfektní.
         </p>
 
-        {/* CTAs */}
-        <div style={{
-          display: "flex", gap: "0.8rem",
-          marginTop: isMobile ? "2rem" : "3rem",
-          flexDirection: isMobile ? "column" : "row",
-          opacity: 0, animation: "revealUp 1s 3.3s cubic-bezier(0.16,1,0.3,1) forwards",
-        }}>
-          <a href="#kontakt" className="btn-primary" style={{ textAlign: "center" }}>
-            <span>Objednat kontrolu</span>
-          </a>
-          <a href="tel:+420778098717" className="btn-ghost" style={{ textAlign: "center" }}>
-            Zavolat ihned
-          </a>
-        </div>
-
