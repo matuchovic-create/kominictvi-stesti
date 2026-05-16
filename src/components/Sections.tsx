@@ -122,11 +122,18 @@ export function Reviews() {
 }
 
 const gallery = [
-  { label: "Čištění komínu — Mladá Boleslav 2024", bg: "linear-gradient(135deg,#1a0e06,#2d1a08)", span: true },
-  { label: "Revize spalinových cest — Liberec", bg: "linear-gradient(135deg,#06120e,#0a1c16)", span: false },
-  { label: "Oprava komínového tělesa — Mnichovo Hradiště", bg: "linear-gradient(135deg,#140808,#200e0a)", span: false },
-  { label: "Vložkování nerezové — Nymburk", bg: "linear-gradient(135deg,#080a14,#0c1020)", span: false },
-  { label: "Rekonstrukce komínu — Jičín 2024", bg: "linear-gradient(135deg,#0a1208,#10180a)", span: false },
+  { src: "/gallery/photo-1.jpg",  label: "Čištění komínu", span: true },
+  { src: "/gallery/photo-2.jpg",  label: "Revize spalinových cest", span: false },
+  { src: "/gallery/photo-3.jpg",  label: "Oprava komínového tělesa", span: false },
+  { src: "/gallery/photo-4.jpg",  label: "Vložkování nerezové", span: false },
+  { src: "/gallery/photo-5.jpg",  label: "Rekonstrukce komínu", span: false },
+  { src: "/gallery/photo-6.jpg",  label: "Kontrola spalinových cest", span: true },
+  { src: "/gallery/photo-7.jpg",  label: "Čištění kotle", span: false },
+  { src: "/gallery/photo-8.jpg",  label: "Montáž komínového systému", span: false },
+  { src: "/gallery/photo-9.jpg",  label: "Oprava spár komínu", span: false },
+  { src: "/gallery/photo-10.jpg", label: "Vložkování — Mladá Boleslav", span: false },
+  { src: "/gallery/photo-11.jpg", label: "Revize — Liberec", span: false },
+  { src: "/gallery/photo-12.jpg", label: "Čištění — Jičín", span: true },
 ];
 
 export function Gallery() {
@@ -143,12 +150,8 @@ export function Gallery() {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 2 }} className="gal-grid">
         {gallery.map((item, i) => (
           <div key={i} className="gallery-item" style={{ gridColumn: item.span ? "span 2" : "span 1" }}>
-            <div className="gallery-inner-wrap" style={{ paddingBottom: item.span ? "44%" : "68%", background: item.bg }}>
-              <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <svg width="40" height="40" viewBox="0 0 48 48" style={{ stroke: "rgba(232,101,10,0.3)", fill: "none", strokeWidth: 1.2 }}>
-                  <rect x="16" y="8" width="16" height="32" rx="2"/><rect x="12" y="6" width="24" height="6" rx="1"/>
-                </svg>
-              </div>
+            <div className="gallery-inner-wrap" style={{ paddingBottom: item.span ? "44%" : "68%", background: "#111" }}>
+              <img src={item.src} alt={item.label} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               <div className="gallery-overlay">
                 <div style={{ fontFamily: "var(--font-cormorant)", fontSize: "1rem", color: "#fff", letterSpacing: "0.05em" }}>{item.label}</div>
               </div>
