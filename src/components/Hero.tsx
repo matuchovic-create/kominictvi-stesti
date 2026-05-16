@@ -65,6 +65,7 @@ export default function Hero() {
         padding: isMobile ? "0 1.5rem" : "0 clamp(1.5rem, 5vw, 5rem)",
         width: "100%",
         maxWidth: isMobile ? "100%" : 760,
+        flexGrow: 1,
       }}>
 
         {/* Eyebrow */}
