@@ -19,7 +19,7 @@ export default function Hero() {
       alignItems: "center",
       overflow: "hidden",
       paddingTop: "80px",
-      paddingBottom: "5rem",
+      paddingBottom: isMobile ? "2rem" : "140px",
     }}>
       <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center 30%" }} />
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(100deg, rgba(5,5,5,0.88) 0%, rgba(5,5,5,0.65) 45%, rgba(5,5,5,0.2) 100%)" }} />
@@ -77,7 +77,44 @@ export default function Hero() {
         }}>
           Prémiový komínový servis s přesností švýcarských hodinářů. Každý komín je pro nás dílem — čistý, bezpečný, perfektní.
         </p>
+
+        <div style={{
+          display: "flex", gap: "0.8rem",
+          marginTop: isMobile ? "2rem" : "3rem",
+          flexDirection: isMobile ? "column" : "row",
+          opacity: 0, animation: "revealUp 1s 3.3s cubic-bezier(0.16,1,0.3,1) forwards",
+        }}>
+          <a href="#kontakt" className="btn-primary" style={{ textAlign: "center" }}>
+            <span>Objednat kontrolu</span>
+          </a>
+          <a href="tel:+420778098717" className="btn-ghost" style={{ textAlign: "center" }}>
+            Zavolat ihned
+          </a>
+        </div>
       </div>
+
+      {!isMobile && (
+        <div style={{
+          position: "absolute", bottom: 0, left: 0, right: 0, zIndex: 2,
+          borderTop: "1px solid rgba(232,101,10,0.3)",
+          background: "linear-gradient(0deg, rgba(5,5,5,0.96) 0%, rgba(5,5,5,0.72) 100%)",
+          backdropFilter: "blur(12px)",
+          display: "flex",
+          opacity: 0, animation: "revealUp 1s 3.6s cubic-bezier(0.16,1,0.3,1) forwards",
+        }}>
+          {[
+            { num: "15+", label: "LET ZKUŠENOSTÍ" },
+            { num: "800+", label: "SPOKOJENÝCH KLIENTŮ" },
+            { num: "24/7", label: "POHOTOVOSTNÍ SERVIS" },
+            { num: "100%", label: "CERTIFIKOVANÉ PRÁCE" },
+          ].map((s, i) => (
+            <div key={i} style={{ flex: 1, padding: "1.8rem 2.2rem", borderRight: i < 3 ? "1px solid rgba(232,101,10,0.18)" : "none", display: "flex", alignItems: "center", gap: "1.6rem", background: i % 2 === 0 ? "rgba(232,101,10,0.05)" : "transparent" }}>
+              <span style={{ fontFamily: "var(--font-cormorant)", fontSize: "2.8rem", fontWeight: 700, color: "#FF8C42", lineHeight: 1, flexShrink: 0, textShadow: "0 0 24px rgba(232,101,10,0.6)" }}>{s.num}</span>
+              <span style={{ fontFamily: "var(--font-ui)", fontSize: "0.65rem", letterSpacing: "0.22em", color: "rgba(255,255,255,0.85)", textTransform: "uppercase", lineHeight: 1.5, fontWeight: 600 }}>{s.label}</span>
+            </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 }
