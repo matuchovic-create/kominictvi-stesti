@@ -1,11 +1,11 @@
 export function WhyUs() {
   const items = [
-    { num: "01", title: "Certifikace a normy", text: "Pracujeme výhradně dle platných ČSN a EU norem. Všechny práce jsou doloženy řádnou revizní dokumentací." },
-    { num: "02", title: "Špičková technika", text: "Kamerové systémy, digitální diagnostika a moderní frézky pro přesnou analýzu stavu každého komínu." },
-    { num: "03", title: "Transparentní ceny", text: "Cenová nabídka vždy předem, bez skrytých poplatků. Žádná překvapení na faktuře — to je náš závazek." },
-    { num: "04", title: "Pojistná záruka", text: "Veškeré práce jsou plně pojištěny. Vaše zájmy jsou chráněny v každé situaci. Pracujeme odpovědně." },
-    { num: "05", title: "Rychlý výjezd", text: "Standardní termín do 48 hodin. Havarijní výjezd do 2 hodin od zavolání. Jsme vždy připraveni." },
-    { num: "06", title: "Osobní přístup", text: "Každý klient je pro nás výjimečný. Jasná komunikace, sledování zakázky a follow-up po dokončení." },
+    { num: "01", title: "Člen MKS", text: "Jsme hrdými členy Moravského kominického společenstva, které dbá na vysoký standard řemesla. Zárukou odbornosti a kvality." },
+    { num: "02", title: "Certifikované služby", text: "Veškeré práce provádíme dle platných ČSN norem. Revizní zprávy a dokumentace jsou vydávány řádně a včas." },
+    { num: "03", title: "Zkušenosti v oboru", text: "Kominictví patří mezi nejstarší řemesla. My v něm pokračujeme s úctou k tradici a využitím moderních technologií." },
+    { num: "04", title: "Pojistná odpovědnost", text: "Veškeré naše práce jsou pojištěny. V případě jakékoli škody jsou vaše zájmy plně chráněny. Pracujeme odpovědně." },
+    { num: "05", title: "Rychlý výjezd", text: "Působíme po celém Středočeském a Libereckém kraji. Přijedeme rychle — svěřte svůj komín do rukou odborníků!" },
+    { num: "06", title: "Komplexní přístup", text: "Od čištění přes revize až po instalaci nových komínů. Vše pod jednou střechou, s maximální péčí o zákazníka." },
   ];
   return (
     <section id="proc-my" style={{ background: "var(--anthracite)", padding: "9rem clamp(1.5rem,5vw,5rem)" }}>
@@ -39,10 +39,10 @@ export function WhyUs() {
 
 export function Steps() {
   const steps = [
-    { num: "1", title: "Kontaktujte nás", text: "Zavolejte, napište nebo vyplňte formulář. Odpovídáme do 15 minut v pracovní době, u pohotovosti okamžitě." },
-    { num: "2", title: "Prohlídka a nabídka", text: "Přijedeme v domluvený čas, prověříme situaci a sdělíme vám jasné doporučení s cenovou nabídkou předem." },
-    { num: "3", title: "Odborné provedení", text: "Certified technici provedou veškeré práce precizně a čistě. Pracovní prostor vždy dokonale uklidíme." },
-    { num: "4", title: "Dokumentace a klid", text: "Předáme kompletní dokumentaci a revizní zprávy. Váš komín je bezpečný na roky dopředu." },
+    { num: "1", title: "Kontaktujte nás", text: "Zavolejte na +420 778 098 717 nebo napište. Tomáš Baran vám poradí a domluvíme vhodný termín výjezdu." },
+    { num: "2", title: "Prohlídka a nabídka", text: "Přijedeme přesně v domluvený čas, prověříme stav komínu a sdělíme jasné doporučení s cenovou nabídkou předem." },
+    { num: "3", title: "Odborné provedení", text: "Provádíme čištění, revize, opravy i instalace s maximální pečlivostí. Po práci vždy dokonale uklidíme." },
+    { num: "4", title: "Dokumentace a klid", text: "Obdržíte kompletní revizní zprávu a dokumentaci dle platných norem. Váš komín je bezpečný na roky dopředu." },
   ];
   return (
     <section id="postup" style={{ background: "var(--black)", padding: "9rem clamp(1.5rem,5vw,5rem)" }}>
@@ -71,12 +71,12 @@ export function Steps() {
 }
 
 const reviews = [
-  { text: "Absolutně perfektní servis. Přijeli přesně, pracovali profesionálně a vše po sobě uklidili. Revizní zprávu jsme dostali do druhého dne. Doporučuji všem!", author: "Ing. Martin Kovář", location: "Praha 6 — Rodinný dům" },
-  { text: "Využíváme Kominictví Štěstí pro náš bytový dům již čtvrtým rokem. Vždy spolehliví, vždy kvalitní práce. Cena odpovídá špičkové kvalitě.", author: "Jana Nováková", location: "Praha 2 — Bytový dům" },
-  { text: "Urgentní oprava po nálezu trhlin v komínu. Přijeli do hodiny a vyřešili vše okamžitě. Díky nim jsem mohl dál topit bez obav. Profesionálové!", author: "Tomáš Blažek", location: "Beroun — Chalupa" },
-  { text: "Konečně kominík, který přijde přesně a pracuje precizně. Sousedi se mě ptají, kdo čistil komín — vždy odkazuji na Kominictví Štěstí.", author: "Petra Horáčková", location: "Praha-západ — Rodinný dům" },
-  { text: "Vložkování komínu na jedničku. Skvělá práce, skvělý přístup, výborná komunikace. Pojišťovna byla nadšena z dokumentace.", author: "Radek Mašek", location: "Kladno — Novostavba" },
-  { text: "Pravidelný smluvní servis pro náš hotel. Vždy bez komplikací, vždy dle termínu. Dokumentace na perfektní úrovni. Absolutní spolehlivost.", author: "Miroslav Šimánek", location: "Průhonice — Hotel" },
+  { text: "Absolutně perfektní servis. Tomáš přijel přesně, pracoval profesionálně a vše po sobě uklidil. Revizní zprávu jsem dostal do druhého dne. Vřele doporučuji!", author: "Martin K.", location: "Mladá Boleslav" },
+  { text: "Využíváme Kominictví Štěstí pro náš rodinný dům již třetím rokem. Vždy spolehliví, vždy kvalitní práce za rozumnou cenu. Naprostá spokojenost.", author: "Jana N.", location: "Liberec" },
+  { text: "Urgentní výjezd po nálezu trhlin v komínu. Tomáš přijel do hodiny a vyřešil vše okamžitě. Díky němu jsem mohl dál bezpečně topit. Skvělý člověk!", author: "Tomáš B.", location: "Mnichovo Hradiště" },
+  { text: "Konečně kominík, který přijde přesně a pracuje precizně. Sousedé se mě ptají, koho doporučit — vždy říkám Kominictví Štěstí. TOP firma.", author: "Petra H.", location: "Mladá Boleslav" },
+  { text: "Vložkování komínu bylo provedeno na jedničku. Skvělá práce, skvělý přístup. Pojišťovna byla nadšena z dokumentace. Moc děkuji za profesionální přístup!", author: "Radek M.", location: "Nymburk" },
+  { text: "Pravidelný servis pro náš penzion. Vždy bez komplikací, vždy dle termínu. Dokumentace na perfektní úrovni. Oceňuji naprostou spolehlivost a poctivost.", author: "Miroslav Š.", location: "Jičín" },
 ];
 
 export function Reviews() {
@@ -122,11 +122,11 @@ export function Reviews() {
 }
 
 const gallery = [
-  { label: "Vložkování nerezové — Praha 5 — 2024", bg: "linear-gradient(135deg,#1a0e06,#2d1a08)", span: true },
-  { label: "Kamerová revize — Bytový dům Praha 2", bg: "linear-gradient(135deg,#06120e,#0a1c16)", span: false },
-  { label: "Čištění komínu — Rodinný dům Říčany", bg: "linear-gradient(135deg,#140808,#200e0a)", span: false },
-  { label: "Kontrola kotlů — Hotel Průhonice", bg: "linear-gradient(135deg,#080a14,#0c1020)", span: false },
-  { label: "Revizní zpráva — Novostavba Kladno", bg: "linear-gradient(135deg,#0a1208,#10180a)", span: false },
+  { label: "Čištění komínu — Mladá Boleslav 2024", bg: "linear-gradient(135deg,#1a0e06,#2d1a08)", span: true },
+  { label: "Revize spalinových cest — Liberec", bg: "linear-gradient(135deg,#06120e,#0a1c16)", span: false },
+  { label: "Oprava komínového tělesa — Mnichovo Hradiště", bg: "linear-gradient(135deg,#140808,#200e0a)", span: false },
+  { label: "Vložkování nerezové — Nymburk", bg: "linear-gradient(135deg,#080a14,#0c1020)", span: false },
+  { label: "Rekonstrukce komínu — Jičín 2024", bg: "linear-gradient(135deg,#0a1208,#10180a)", span: false },
 ];
 
 export function Gallery() {
@@ -163,10 +163,10 @@ export function Gallery() {
 
 export function Certs() {
   const certs = [
-    { label: "ČSN EN 15287\nCertifikace", path: "M24 4l4 8h8l-6 5 2 8-8-5-8 5 2-8-6-5h8ZM24 24a8 8 0 1 0 0 16 8 8 0 0 0 0-16ZM21 32l2 2 5-5" },
+    { label: "Moravské kominické\nspolečenstvo", path: "M24 4l4 8h8l-6 5 2 8-8-5-8 5 2-8-6-5h8ZM24 24a8 8 0 1 0 0 16 8 8 0 0 0 0-16ZM21 32l2 2 5-5" },
     { label: "Živnostenský\nlist ČR", path: "M8 12h32v24a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2zM8 20h32M17 12v-5M31 12v-5" },
     { label: "Pojistná\nodpovědnost", path: "M24 4C14 4 6 12 6 22s8 18 18 18 18-8 18-18S34 4 24 4ZM17 22l5 5 9-9" },
-    { label: "ISO 9001\nKvalita", path: "M24 4l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7ZM24 32a9 9 0 1 0 0 18 9 9 0 0 0 0-18ZM20 41l3 3 6-6" },
+    { label: "ČSN EN 13384\nNormy komínů", path: "M24 4l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7ZM24 32a9 9 0 1 0 0 18 9 9 0 0 0 0-18ZM20 41l3 3 6-6" },
     { label: "Revizní technik\noprávnění", path: "M10 6h28v32a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2zM17 16h14M17 22h14M17 28h8M30 25l7 7-2 2-7-7" },
   ];
   return (
