@@ -50,7 +50,7 @@ export default function Loader() {
   return (
     <div style={{
       position: "fixed", inset: 0, zIndex: 9999,
-      background: "#060606",
+      backgroundImage: "url('/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center 30%",
       display: "flex", flexDirection: "column",
       alignItems: "center", justifyContent: "center",
       opacity: fadeOut ? 0 : 1,

@@ -159,7 +159,7 @@ export default function Hero() {
       {!isMobile && (
         <div style={{
           position: "absolute", bottom: 0, left: 0, right: 0, zIndex: 2,
-          borderTop: "1px solid rgba(255,255,255,0.05)",
+          borderTop: "1px solid rgba(232,101,10,0.3)", background: "rgba(5,5,5,0.95)", backdropFilter: "blur(10px)",
           display: "flex",
           opacity: 0, animation: "revealUp 1s 3.6s cubic-bezier(0.16,1,0.3,1) forwards",
         }}>
@@ -169,9 +169,9 @@ export default function Hero() {
             { num: "24/7", label: "pohotovostní servis" },
             { num: "100%", label: "certifikované práce" },
           ].map((s, i) => (
-            <div key={i} style={{ flex: 1, padding: "1.8rem 2rem", borderRight: i < 3 ? "1px solid rgba(255,255,255,0.05)" : "none", display: "flex", alignItems: "center", gap: "1.2rem", background: "rgba(255,255,255,0.01)" }}>
-              <span style={{ fontFamily: "var(--font-cormorant)", fontSize: "2rem", fontWeight: 500, color: "var(--ember)", lineHeight: 1, flexShrink: 0 }}>{s.num}</span>
-              <span style={{ fontFamily: "var(--font-ui)", fontSize: "0.62rem", letterSpacing: "0.2em", color: "var(--text-muted)", textTransform: "uppercase", lineHeight: 1.4 }}>{s.label}</span>
+            <div key={i} style={{ flex: 1, padding: "1.8rem 2rem", borderRight: i < 3 ? "1px solid rgba(232,101,10,0.2)" : "none", display: "flex", alignItems: "center", gap: "1.4rem", background: i % 2 === 0 ? "rgba(232,101,10,0.06)" : "transparent" }}>
+              <span style={{ fontFamily: "var(--font-cormorant)", fontSize: "2.8rem", fontWeight: 700, color: "#FF8C42", lineHeight: 1, flexShrink: 0, textShadow: "0 0 24px rgba(232,101,10,0.7)" }}>{s.num}</span>
+              <span style={{ fontFamily: "var(--font-ui)", fontSize: "0.65rem", letterSpacing: "0.2em", color: "rgba(255,255,255,0.85)", textTransform: "uppercase", lineHeight: 1.4, fontWeight: 600 }}>{s.label}</span>
             </div>
           ))}
         </div>
