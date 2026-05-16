@@ -19,7 +19,7 @@ export default function Hero() {
       alignItems: "flex-start",
       overflow: "hidden",
       paddingTop: isMobile ? "120px" : "140px",
-      paddingBottom: isMobile ? "4rem" : "80px",
+      paddingBottom: 0,
     }}>
 
       {/* Background */}
