@@ -2,7 +2,7 @@
 
 export default function Hero() {
   return (
-    <section id="hero" style={{ height: "100vh", minHeight: 700, position: "relative", display: "flex", alignItems: "center", overflow: "hidden" }}>
+    <section id="hero" style={{ height: "100vh", minHeight: 700, position: "relative", display: "flex", alignItems: "center", overflow: "hidden", paddingBottom: "80px" }}>
 
       {/* Multi-layer background */}
       <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 55% 70% at 75% 55%, rgba(232,101,10,0.10) 0%, transparent 65%), radial-gradient(ellipse 35% 50% at 85% 30%, rgba(201,169,110,0.055) 0%, transparent 55%), radial-gradient(ellipse 90% 60% at 50% 100%, rgba(232,101,10,0.06) 0%, transparent 55%), #080808" }} />
