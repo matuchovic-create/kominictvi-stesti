@@ -66,16 +66,6 @@ export default function Navbar() {
         {/* Desktop CTA — hidden on mobile */}
         {!isMobile && (
           <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
-            <a href="tel:+420778098717"
-              style={{ fontFamily: "var(--font-ui)", fontSize: "0.75rem", color: "var(--text-secondary)", textDecoration: "none", letterSpacing: "0.05em", transition: "color 0.3s" }}
-              onMouseOver={e => (e.target as HTMLElement).style.color = "var(--text-primary)"}
-              onMouseOut={e => (e.target as HTMLElement).style.color = "var(--text-secondary)"}
-            >
-              +420 778 098 717
-            </a>
-            <a href="#kontakt" className="btn-primary" style={{ padding: "0.6rem 1.4rem", fontSize: "0.6rem" }}>
-              <span>Objednat</span>
-            </a>
           </div>
         )}
 
@@ -169,9 +159,6 @@ export default function Navbar() {
             transform: menuOpen ? "translateY(0)" : "translateY(12px)",
             transition: "opacity 0.45s 0.38s ease, transform 0.45s 0.38s cubic-bezier(0.16,1,0.3,1)",
           }}>
-            <a href="tel:+420778098717" style={{ display: "block", fontFamily: "var(--font-cormorant)", fontSize: "1.7rem", fontWeight: 400, color: "var(--ember)", textDecoration: "none", marginBottom: "0.3rem" }}>
-              +420 778 098 717
-            </a>
             <div style={{ fontFamily: "var(--font-ui)", fontSize: "0.62rem", color: "var(--text-muted)", letterSpacing: "0.2em", marginBottom: "1.5rem" }}>
               Mladá Boleslav — Po–Pá 7:00–18:00
             </div>
