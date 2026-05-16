@@ -171,9 +171,9 @@ export function Gallery() {
         {gallery.map((item, i) => (
           <div key={i} className="gallery-item" style={{ gridColumn: item.span ? "span 2" : "span 1" }}>
             <div className="gallery-inner-wrap" style={{ paddingBottom: item.span ? "44%" : "68%", background: "#111" }}>
-              <img src={item.src} alt={item.label} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+              <img src={item.src} alt={item.src} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               <div className="gallery-overlay">
-                <div style={{ fontFamily: "var(--font-cormorant)", fontSize: "1rem", color: "#fff", letterSpacing: "0.05em" }}>{item.label}</div>
+                <div style={{ fontFamily: "var(--font-cormorant)", fontSize: "1rem", color: "#fff", letterSpacing: "0.05em" }}>{""}</div>
               </div>
             </div>
           </div>
