@@ -214,7 +214,7 @@ export default function Loader() {
             fontFamily: "var(--font-cormorant, 'Cormorant Garamond', serif)",
             fontSize: "clamp(1.4rem, 5vw, 2.2rem)",
             fontWeight: 300,
-            letterSpacing: "0.3em", textShadow: "0 0 30px rgba(232,101,10,0.9), 0 0 60px rgba(232,101,10,0.5), 0 0 100px rgba(232,101,10,0.3)",
+            letterSpacing: "0.3em", textShadow: "0 0 20px rgba(255,255,255,0.9), 0 0 40px rgba(232,101,10,1), 0 0 80px rgba(232,101,10,0.8), 0 0 120px rgba(232,101,10,0.5), 0 0 200px rgba(232,101,10,0.3)",
             lineHeight: 1,
             opacity: phase >= 1 ? 1 : 0,
             transform: phase >= 1 ? "translateY(0)" : "translateY(12px)",
@@ -256,7 +256,7 @@ export default function Loader() {
           <div style={{
             display: "flex", justifyContent: "space-between",
             fontFamily: "var(--font-ui, sans-serif)",
-            fontSize: "0.55rem", letterSpacing: "0.3em", textShadow: "0 0 30px rgba(232,101,10,0.9), 0 0 60px rgba(232,101,10,0.5), 0 0 100px rgba(232,101,10,0.3)",
+            fontSize: "0.55rem", letterSpacing: "0.3em", textShadow: "0 0 20px rgba(255,255,255,0.9), 0 0 40px rgba(232,101,10,1), 0 0 80px rgba(232,101,10,0.8), 0 0 120px rgba(232,101,10,0.5), 0 0 200px rgba(232,101,10,0.3)",
             textTransform: "uppercase",
           }}>
             <span style={{ color: "#E8650A", opacity: 0.8 }}>
