@@ -11,7 +11,7 @@ export default function Contact() {
   };
 
   const contacts = [
-    { label: "Telefon", value: "+420 773 000 000", href: "tel:+420773000000", icon: "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.95 9.61a19.79 19.79 0 0 1-3.07-8.68A2 2 0 0 1 2.86 1h3a2 2 0 0 1 2 1.72A12 12 0 0 0 9.13 6.5a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12 12 0 0 0 2.78.65A2 2 0 0 1 22 16.92Z" },
+    { label: "Telefon", value: "+420 778 098 717", href: "tel:+420778098717", icon: "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.95 9.61a19.79 19.79 0 0 1-3.07-8.68A2 2 0 0 1 2.86 1h3a2 2 0 0 1 2 1.72A12 12 0 0 0 9.13 6.5a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12 12 0 0 0 2.78.65A2 2 0 0 1 22 16.92Z" },
     { label: "E-mail", value: "info@kominictvi-stesti.cz", href: "mailto:info@kominictvi-stesti.cz", icon: "M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2ZM22 6l-10 7L2 6" },
     { label: "Oblast", value: "Praha & okolí do 50 km", href: undefined, icon: "M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0ZM12 10a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" },
     { label: "Provoz", value: "Po–Pá: 7:00–18:00", href: undefined, icon: "M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM12 6v6l4 2" },
@@ -49,7 +49,7 @@ export default function Contact() {
             {/* Emergency */}
             <div style={{ marginTop: "1rem", padding: "1.8rem 2rem", background: "linear-gradient(135deg,rgba(232,101,10,0.08),rgba(232,101,10,0.03))", border: "1px solid rgba(232,101,10,0.2)" }}>
               <div style={{ fontFamily: "var(--font-ui)", fontSize: "0.58rem", letterSpacing: "0.4em", color: "var(--ember)", textTransform: "uppercase", marginBottom: "0.6rem" }}>Pohotovostní linka 24/7</div>
-              <a href="tel:+420773000000" style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.8rem", fontWeight: 500, color: "var(--text-primary)", textDecoration: "none" }}>+420 773 000 000</a>
+              <a href="tel:+420778098717" style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.8rem", fontWeight: 500, color: "var(--text-primary)", textDecoration: "none" }}>+420 778 098 717</a>
               <p style={{ fontFamily: "var(--font-ui)", fontSize: "0.75rem", color: "var(--text-muted)", marginTop: "0.5rem", lineHeight: 1.7, fontWeight: 300 }}>Havárie, nebezpečné situace — výjezd do 2 hodin.</p>
             </div>
           </div>
