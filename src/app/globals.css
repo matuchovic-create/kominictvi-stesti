@@ -415,3 +415,16 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 @media (max-width: 480px) {
   #loader-chimney { transform: scale(0.85); }
 }
+
+/* ═══ PREVENT HORIZONTAL SCROLL & ZOOM ═══ */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  overscroll-behavior-x: none;
+}
+*, *::before, *::after {
+  max-width: 100%;
+}
+section, div, header, footer, nav, main {
+  max-width: 100vw;
+}
