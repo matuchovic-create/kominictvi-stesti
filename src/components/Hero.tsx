@@ -23,7 +23,8 @@ export default function Hero() {
     }}>
 
       {/* Background */}
-      <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 55% 70% at 75% 55%, rgba(232,101,10,0.10) 0%, transparent 65%), radial-gradient(ellipse 90% 60% at 50% 100%, rgba(232,101,10,0.06) 0%, transparent 55%), #080808" }} />
+      <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center 30%"}} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(100deg, rgba(5,5,5,0.88) 0%, rgba(5,5,5,0.55) 45%, rgba(5,5,5,0.15) 100%)", zIndex: 0 }} />
 
       {/* Right side decoration — desktop only */}
       {!isMobile && (
