@@ -16,10 +16,10 @@ export default function Hero() {
       minHeight: "100svh",
       position: "relative",
       display: "flex",
-      alignItems: "center",
+      alignItems: "flex-start",
       overflow: "hidden",
-      paddingTop: "80px",
-      paddingBottom: isMobile ? "2rem" : "80px",
+      paddingTop: isMobile ? "120px" : "140px",
+      paddingBottom: isMobile ? "4rem" : "80px",
     }}>
 
       {/* Background */}
