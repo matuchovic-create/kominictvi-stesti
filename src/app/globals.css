@@ -420,3 +420,17 @@ html, body {
   0%,100% { filter: drop-shadow(0 0 3px #4ade80); }
   50%      { filter: drop-shadow(0 0 8px #4ade80) drop-shadow(0 0 16px #22c55e); }
 }
+
+@keyframes cloverBreathe {
+  0%,100% { transform: rotate(-2deg) scale(1); }
+  50% { transform: rotate(2deg) scale(1.04); }
+}
+@keyframes cloverShine {
+  0%,100% { opacity: 0.18; }
+  50% { opacity: 0.52; }
+}
+.clover-whole { transform-origin: 40px 40px; animation: cloverBreathe 4.5s ease-in-out infinite; }
+.clover-s1 { animation: cloverShine 3.4s ease-in-out infinite; }
+.clover-s2 { animation: cloverShine 3.4s 0.85s ease-in-out infinite; }
+.clover-s3 { animation: cloverShine 3.4s 1.7s ease-in-out infinite; }
+.clover-s4 { animation: cloverShine 3.4s 2.55s ease-in-out infinite; }
