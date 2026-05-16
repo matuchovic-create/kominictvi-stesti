@@ -46,15 +46,8 @@ export default function Navbar() {
           </span>
         </a>
 
-        {/* Desktop links */}
-        <ul style={{ display: "flex", gap: "2.8rem", listStyle: "none", alignItems: "center" }} className="hidden md:flex">
-          {links.map(l => (
-            <li key={l.href}><a href={l.href} className="nav-link">{l.label}</a></li>
-          ))}
-        </ul>
-
         {/* Desktop CTA */}
-        <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }} className="hidden md:flex">
+        <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
           <a href="tel:+420778098717"
             style={{ fontFamily: "var(--font-ui)", fontSize: "0.75rem", color: "var(--text-secondary)", textDecoration: "none", letterSpacing: "0.05em", transition: "color 0.3s" }}
             onMouseOver={e => (e.target as HTMLElement).style.color = "var(--text-primary)"}
@@ -67,9 +60,8 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Hamburger — 3 lines, top right, mobile only */}
+        {/* Hamburger — 3 lines, top right, ALL screens */}
         <button
-          className="md:hidden"
           onClick={() => setMenuOpen(m => !m)}
           aria-label="Menu"
           style={{
