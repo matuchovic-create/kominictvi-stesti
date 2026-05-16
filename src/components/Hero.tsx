@@ -2,7 +2,7 @@
 
 export default function Hero() {
   return (
-    <section id="hero" style={{ height: "100vh", minHeight: 700, position: "relative", display: "flex", alignItems: "center", overflow: "hidden" }}>
+    <section id="hero" style={{ height: "100vh", minHeight: 700, position: "relative", display: "flex", alignItems: "center", overflow: "hidden", paddingBottom: "80px" }}>
 
       {/* Multi-layer background */}
       <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 55% 70% at 75% 55%, rgba(232,101,10,0.10) 0%, transparent 65%), radial-gradient(ellipse 35% 50% at 85% 30%, rgba(201,169,110,0.055) 0%, transparent 55%), radial-gradient(ellipse 90% 60% at 50% 100%, rgba(232,101,10,0.06) 0%, transparent 55%), #080808" }} />
@@ -61,10 +61,10 @@ export default function Hero() {
       <div style={{ position: "relative", zIndex: 2, padding: "0 clamp(1.5rem, 5vw, 5rem)", maxWidth: 760, marginTop: "5rem", paddingBottom: "8rem" }}>
 
         {/* Eyebrow */}
-        <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "2.5rem", opacity: 0, animation: "revealUp 1s 2.5s cubic-bezier(0.16,1,0.3,1) forwards" }}>
+        <div className="hero-eyebrow" style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "2.5rem", opacity: 0, animation: "revealUp 1s 2.5s cubic-bezier(0.16,1,0.3,1) forwards" }}>
           <div style={{ width: 36, height: 1, background: "var(--ember)", flexShrink: 0 }} />
           <span style={{ fontFamily: "var(--font-ui)", fontSize: "0.6rem", letterSpacing: "0.55em", color: "var(--ember)", textTransform: "uppercase" }}>
-            Certifikovaný servis — Střed. & Liberecký kraj
+            Certifikovaný servis — Praha & okolí
           </span>
         </div>
 

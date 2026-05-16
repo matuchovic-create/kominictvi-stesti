@@ -278,3 +278,140 @@ body {
 /* DIVIDER LINE */
 .divider { width: 100%; height: 1px; background: rgba(255,255,255,0.05); }
 .divider-ember { width: 60px; height: 1px; background: linear-gradient(90deg, var(--ember), transparent); }
+
+/* ═══════════════════════════════════════
+   MOBILE OPTIMIZATIONS
+   ═══════════════════════════════════════ */
+
+/* Hero mobile */
+@media (max-width: 768px) {
+  #hero { min-height: 100svh; padding-bottom: 0 !important; }
+  #hero h1 { font-size: clamp(2.8rem, 11vw, 4.5rem) !important; line-height: 1.0 !important; }
+  #hero .hero-eyebrow { font-size: 0.55rem !important; letter-spacing: 0.3em !important; }
+  #hero p { font-size: 0.85rem !important; }
+  .hero-stats-bar { display: none !important; }
+}
+
+/* Navbar mobile */
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.25rem !important; }
+}
+
+/* Sections mobile */
+@media (max-width: 768px) {
+  section { padding: 5rem 1.25rem !important; }
+  .display-title { font-size: clamp(2rem, 9vw, 3.5rem) !important; }
+  .section-label { font-size: 0.55rem !important; }
+}
+
+/* About mobile */
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+  .about-grid > div:last-child { height: 320px !important; }
+}
+
+/* Services mobile */
+@media (max-width: 768px) {
+  #svc-grid { grid-template-columns: 1fr !important; }
+  .service-card { padding: 2rem 1.5rem !important; }
+}
+
+/* WhyUs mobile */
+@media (max-width: 768px) {
+  .why-grid-inner { grid-template-columns: 1fr !important; }
+  .why-card { padding: 2rem 1.5rem !important; }
+}
+
+/* Reviews mobile */
+@media (max-width: 768px) {
+  .reviews-inner { grid-template-columns: 1fr !important; }
+  .review-card { padding: 2rem 1.5rem !important; }
+}
+
+/* Gallery mobile */
+@media (max-width: 768px) {
+  .gal-grid { grid-template-columns: 1fr !important; }
+  .gallery-item { grid-column: span 1 !important; }
+  .gallery-inner-wrap { padding-bottom: 60% !important; }
+}
+
+/* Certs mobile */
+@media (max-width: 768px) {
+  #certifikace .cert-badge { flex: 1 1 40% !important; padding: 1.5rem 1rem !important; }
+}
+
+/* Contact mobile */
+@media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+  .contact-grid > div:first-child .contact-info-item { margin-bottom: 1.5rem !important; }
+}
+
+/* Map mobile */
+@media (max-width: 768px) {
+  .map-coverage, .map-div2 { display: none !important; }
+  #map-strip > div:nth-child(3),
+  #map-strip > div:nth-child(4) { display: none !important; }
+}
+
+/* Footer mobile */
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
+}
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Steps mobile */
+@media (max-width: 768px) {
+  .step-item { gap: 1.5rem !important; }
+}
+
+/* Buttons mobile */
+@media (max-width: 480px) {
+  .btn-primary, .btn-ghost {
+    padding: 0.9rem 1.8rem !important;
+    font-size: 0.65rem !important;
+  }
+}
+
+/* Form mobile */
+@media (max-width: 768px) {
+  .contact-grid .form-group-row { grid-template-columns: 1fr !important; }
+}
+
+/* Touch devices — remove hover effects for performance */
+@media (hover: none) {
+  .service-card:hover { transform: none !important; }
+  .why-card:hover { transform: none !important; }
+  .review-card:hover { transform: none !important; }
+  .gallery-item:hover .gallery-inner-wrap { transform: none !important; }
+  .cert-badge:hover { transform: none !important; }
+}
+
+/* Smooth scrolling on iOS */
+html { -webkit-overflow-scrolling: touch; }
+
+/* Prevent text size adjustment on mobile */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+/* Better tap targets */
+@media (max-width: 768px) {
+  a, button { min-height: 44px; }
+  nav a, nav button { min-height: 36px; }
+}
+
+/* Safe area for notched phones */
+@supports (padding: max(0px)) {
+  nav {
+    padding-left: max(1.25rem, env(safe-area-inset-left)) !important;
+    padding-right: max(1.25rem, env(safe-area-inset-right)) !important;
+  }
+  footer {
+    padding-bottom: max(2rem, env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* Loader mobile */
+@media (max-width: 480px) {
+  #loader-chimney { transform: scale(0.85); }
+}
