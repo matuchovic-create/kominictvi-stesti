@@ -1,5 +1,4 @@
 "use client";
-import Clover from "@/components/Clover";
 import { useEffect, useState } from "react";
 
 export default function Navbar() {
@@ -48,7 +47,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#hero" style={{ textDecoration: "none", display: "flex", flexDirection: "column", gap: "2px", zIndex: 1001 }}>
           <span style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.1rem", fontWeight: 400, letterSpacing: "0.2em", color: "var(--text-primary)", lineHeight: 1 }}>
-            KOMINICTVÍ <span style={{ color: "var(--ember)" }}>ŠTĚSTÍ</span> <svg width="16" height="16" viewBox="0 0 24 24" style={{ display: "inline-block", verticalAlign: "middle", marginLeft: "4px" }}><g transform="translate(12,12)"><circle cx="0" cy="-5" r="5" fill="#2d8a2d"/><circle cx="5" cy="0" r="5" fill="#2d8a2d"/><circle cx="-5" cy="0" r="5" fill="#2d8a2d"/><circle cx="0" cy="5" r="5" fill="#2d8a2d"/><circle cx="0" cy="0" r="3" fill="#38a838"/><circle cx="-1" cy="-6" r="2" fill="#3cb83c" opacity="0.5"/><circle cx="6" cy="-1" r="2" fill="#3cb83c" opacity="0.5"/><circle cx="-6" cy="1" r="2" fill="#3cb83c" opacity="0.5"/><circle cx="0" cy="6" r="2" fill="#3cb83c" opacity="0.5"/></g></svg><Clover />
+            KOMINICTVÍ <span style={{ color: "var(--ember)" }}>ŠTĚSTÍ</span> <svg width="16" height="16" viewBox="0 0 24 24" style={{ display: "inline-block", verticalAlign: "middle", marginLeft: "4px" }}><g transform="translate(12,12)"><circle cx="0" cy="-5" r="5" fill="#2d8a2d"/><circle cx="5" cy="0" r="5" fill="#2d8a2d"/><circle cx="-5" cy="0" r="5" fill="#2d8a2d"/><circle cx="0" cy="5" r="5" fill="#2d8a2d"/><circle cx="0" cy="0" r="3" fill="#38a838"/><circle cx="-1" cy="-6" r="2" fill="#3cb83c" opacity="0.5"/><circle cx="6" cy="-1" r="2" fill="#3cb83c" opacity="0.5"/><circle cx="-6" cy="1" r="2" fill="#3cb83c" opacity="0.5"/><circle cx="0" cy="6" r="2" fill="#3cb83c" opacity="0.5"/></g></svg>
           </span>
           <span style={{ fontFamily: "var(--font-ui)", fontSize: "0.5rem", letterSpacing: "0.4em", color: "var(--text-muted)", textTransform: "uppercase" }}>
             Tomáš Baran
