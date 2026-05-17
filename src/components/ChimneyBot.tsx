@@ -175,10 +175,10 @@ export default function ChimneyBot() {
   const [streamingText, setStreamingText] = useState("");
   const [confetti, setConfetti] = useState(false);
   const [weather, setWeather] = useState<string>("");
-  const [uploadedImg, setUploadedImg] = useState<string>("");
+  
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const btnRef = useRef<HTMLDivElement>(null);
-  const fileRef = useRef<HTMLInputElement>(null);
+  
 
   // Eye tracking
   useEffect(() => {
@@ -243,56 +243,7 @@ export default function ChimneyBot() {
     setTimeout(() => { setOpen(false); setMood("happy"); }, 800);
   };
 
-  const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = ev => {
-      const base64 = (ev.target?.result as string).split(",")[1];
-      setUploadedImg(ev.target?.result as string);
-      sendWithImage(base64, file.type);
-    };
-    reader.readAsDataURL(file);
-  };
-
-  const sendWithImage = async (base64: string, mediaType: string) => {
-    setLoading(true);
-    setMood("thinking");
-    const userMsg = { role:"user", content:"[Nahrál jsem fotku komínu k posouzení]", image: "data:" + mediaType + ";base64," + base64 };
-    setMessages(prev => [...prev, userMsg]);
-    try {
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({
-          model:"claude-sonnet-4-20250514",
-          max_tokens:400,
-          system: SYSTEM_PROMPT,
-          messages:[{
-            role:"user",
-            content:[
-              { type:"image", source:{ type:"base64", media_type: mediaType as any, data: base64 }},
-              { type:"text", text:"Posouď prosím stav komínu na fotce a doporuč co dál." }
-            ]
-          }]
-        }),
-      });
-      const data = await res.json();
-      const reply = data.content?.[0]?.text || "Fotku jsem obdržel. Zavolejte nám pro podrobné posouzení.";
-      setLoading(false); setMood("happy");
-      let i = 0;
-      setStreamingText("");
-      const iv = setInterval(() => {
-        i += 2; setStreamingText(reply.slice(0,i));
-        if (i >= reply.length) { clearInterval(iv); setStreamingText(""); setMessages(prev => [...prev, {role:"assistant",content:reply}]); }
-      }, 18);
-    } catch {
-      setLoading(false); setMood("sad");
-      setMessages(prev => [...prev, {role:"assistant",content:"Fotku se nepodařilo načíst. Zkuste to znovu nebo zavolejte +420 778 098 717."}]);
-      setTimeout(() => setMood("happy"), 2000);
-    }
-    setUploadedImg("");
-  };
+  
 
   const send = async () => {
     if (!input.trim() || loading) return;
@@ -420,8 +371,8 @@ export default function ChimneyBot() {
           <div style={{display:"flex",gap:".5rem",padding:".5rem .8rem",borderTop:"1px solid rgba(255,255,255,.04)"}}>
             <a href="tel:+420778098717" className="cb">📞 Zavolat</a>
             <button className="ob" onClick={()=>{handleClose();setTimeout(()=>document.getElementById("kontakt")?.scrollIntoView({behavior:"smooth"}),500)}}>📋 Objednat</button>
-            <button className="fb" onClick={()=>fileRef.current?.click()}>📷 Foto</button>
-            <input ref={fileRef} type="file" accept="image/*" style={{display:"none"}} onChange={handleFile}/>
+            
+            
           </div>
 
           {/* Quick replies */}
