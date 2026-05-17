@@ -175,6 +175,9 @@ export default function ChimneyBot() {
   const [streamingText, setStreamingText] = useState("");
   const [confetti, setConfetti] = useState(false);
   const [weather, setWeather] = useState<string>("");
+  const [urgency, setUrgency] = useState(0);
+  const [showUrgent, setShowUrgent] = useState(false);
+  const [proactiveSent, setProactiveSent] = useState<string[]>([]);
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const btnRef = useRef<HTMLDivElement>(null);
@@ -223,6 +226,44 @@ export default function ChimneyBot() {
       }).catch(() => {});
   }, []);
 
+  // Proactive scroll tracking
+  useEffect(() => {
+    const sections: {[key: string]: string} = {
+      "sluzby": "Vidím že vás zajímají naše služby 👀 Tento měsíc máme akci na čištění komínu — zavolejte pro speciální cenu!",
+      "reference": "Rádi vidím že si čtete reference 😊 800+ spokojených zákazníků mluví za nás. Mohu vám poradit?",
+      "galerie": "Prohlížíte si naši práci? Rádi uděláme revizi i vašeho komínu — výjezd do 48 hodin!",
+      "o-nas": "Chcete vědět více o nás? Jsme certifikovaní členové MKS. Mám odpovědět na vaše otázky?",
+    };
+    const timers: {[key: string]: ReturnType<typeof setTimeout>} = {};
+    const observers: IntersectionObserver[] = [];
+
+    Object.entries(sections).forEach(([id, msg]) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          timers[id] = setTimeout(() => {
+            setProactiveSent(prev => {
+              if (prev.includes(id)) return prev;
+              setMessages(m => [...m, { role: "assistant", content: msg }]);
+              if (!open) { setHasNotif(true); setShowBubble(true); }
+              return [...prev, id];
+            });
+          }, 30000);
+        } else {
+          clearTimeout(timers[id]);
+        }
+      }, { threshold: 0.3 });
+      obs.observe(el);
+      observers.push(obs);
+    });
+
+    return () => {
+      Object.values(timers).forEach(clearTimeout);
+      observers.forEach(o => o.disconnect());
+    };
+  }, [open]);
+
   useEffect(() => { messagesEndRef.current?.scrollIntoView({ behavior:"smooth" }); }, [messages, streamingText]);
 
   const handleOpen = () => {
@@ -266,6 +307,24 @@ export default function ChimneyBot() {
       });
       const data = await res.json();
       const reply = data.text || "Omlouvám se, zkuste to prosím znovu.";
+      
+      // Urgency detection
+      const urgencyWords: {[key: string]: number} = {
+        "požár": 10, "hoří": 10, "oheň": 10, "kouř": 8, "kouří": 8,
+        "zápach": 7, "smrad": 7, "praskání": 7, "praskání": 7,
+        "trhlina": 7, "prasklina": 7, "ucpaný": 6, "ucpán": 6,
+        "nefunguje": 5, "problém": 4, "divný": 4,
+      };
+      const msgLower = input.toLowerCase();
+      let maxUrgency = 0;
+      Object.entries(urgencyWords).forEach(([word, val]) => {
+        if (msgLower.includes(word)) maxUrgency = Math.max(maxUrgency, val);
+      });
+      if (maxUrgency > 0) {
+        setUrgency(maxUrgency);
+        if (maxUrgency >= 8) setShowUrgent(true);
+      }
+
       setLoading(false);
       if (isThank) { setMood("dancing"); setTimeout(() => setMood("happy"), 3000); }
       else setMood("happy");
@@ -318,6 +377,7 @@ export default function ChimneyBot() {
         .fb:hover{background:rgba(255,255,255,.12)}
         .mwrap{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column}
         .mwrap::-webkit-scrollbar{width:4px}.mwrap::-webkit-scrollbar-thumb{background:rgba(232,101,10,.2);border-radius:2px}
+        @keyframes urgentPulse{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,0.4)}50%{box-shadow:0 0 0 8px rgba(220,38,38,0)}}
       `}</style>
 
       {showBubble && !open && (
@@ -346,6 +406,29 @@ export default function ChimneyBot() {
             </div>
             <button onClick={handleClose} style={{marginLeft:"auto",background:"none",border:"none",color:"rgba(255,255,255,.4)",cursor:"pointer",fontSize:"1.3rem",padding:0,lineHeight:1}}>×</button>
           </div>
+
+          {/* Urgency bar */}
+          {urgency > 0 && (
+            <div style={{padding:".4rem .8rem",background:urgency>=8?"rgba(220,38,38,0.15)":urgency>=5?"rgba(234,179,8,0.1)":"rgba(34,197,94,0.08)",borderBottom:`1px solid ${urgency>=8?"rgba(220,38,38,0.4)":urgency>=5?"rgba(234,179,8,0.3)":"rgba(34,197,94,0.2)"}`,display:"flex",alignItems:"center",gap:".6rem"}}>
+              <div style={{flex:1,height:4,background:"rgba(255,255,255,0.1)",borderRadius:2,overflow:"hidden"}}>
+                <div style={{height:"100%",width:`${urgency*10}%`,background:urgency>=8?"#dc2626":urgency>=5?"#eab308":"#22c55e",borderRadius:2,transition:"width .5s ease"}}/>
+              </div>
+              <span style={{fontFamily:"sans-serif",fontSize:".58rem",color:urgency>=8?"rgba(220,38,38,0.9)":urgency>=5?"rgba(234,179,8,0.9)":"rgba(34,197,94,0.9)",letterSpacing:".08em",textTransform:"uppercase",whiteSpace:"nowrap"}}>
+                {urgency>=8?"⚠️ URGENTNÍ":urgency>=5?"⚡ Středně naléhavé":"✓ Běžný dotaz"}
+              </span>
+            </div>
+          )}
+
+          {/* URGENT CALL banner */}
+          {showUrgent && (
+            <div style={{margin:".5rem",background:"rgba(220,38,38,0.15)",border:"1px solid rgba(220,38,38,0.5)",padding:".8rem 1rem",textAlign:"center",animation:"urgentPulse 1s ease-in-out infinite"}}>
+              <div style={{fontFamily:"sans-serif",fontSize:".7rem",fontWeight:700,color:"rgba(220,38,38,0.95)",letterSpacing:".1em",textTransform:"uppercase",marginBottom:".4rem"}}>⚠️ ZAVOLEJTE IHNED</div>
+              <a href="tel:+420778098717" style={{display:"block",background:"rgba(220,38,38,0.9)",color:"white",fontFamily:"sans-serif",fontSize:".8rem",padding:".5rem",textDecoration:"none",letterSpacing:".05em",fontWeight:600}}>
+                📞 +420 778 098 717
+              </a>
+              <button onClick={()=>setShowUrgent(false)} style={{marginTop:".4rem",background:"none",border:"none",color:"rgba(255,255,255,.3)",cursor:"pointer",fontSize:".65rem"}}>zavřít</button>
+            </div>
+          )}
 
           {/* Messages */}
           <div className="mwrap">
