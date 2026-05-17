@@ -257,17 +257,83 @@ const reviews = [
 ];
 
 export function Reviews() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const resize = () => {
+      const rect = canvas.parentElement?.getBoundingClientRect();
+      if (rect) { canvas.width = rect.width; canvas.height = rect.height; }
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
+    const COLORS = ["#FF8C42","#E8650A","#FFD166","#FF4500"];
+    const particles: any[] = [];
+
+    const makeParticle = (type: string) => ({
+      type, x: Math.random() * canvas.width, y: canvas.height + 10,
+      size: type === "ember" ? Math.random() * 2.5 + 1 : Math.random() * 20 + 8,
+      speedY: type === "ember" ? Math.random() * 1.2 + 0.4 : Math.random() * 0.4 + 0.15,
+      speedX: (Math.random() - 0.5) * 0.6,
+      life: 0, maxLife: type === "ember" ? Math.random() * 180 + 120 : Math.random() * 200 + 150,
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+    });
+
+    for (let i = 0; i < 18; i++) { const p = makeParticle("ember"); p.y = Math.random() * canvas.height; p.life = Math.random() * p.maxLife; particles.push(p); }
+    for (let i = 0; i < 12; i++) { const p = makeParticle("smoke"); p.y = Math.random() * canvas.height; p.life = Math.random() * p.maxLife; particles.push(p); }
+
+    let raf: number;
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (const p of particles) {
+        p.x += p.speedX + Math.sin(p.life * 0.03) * 0.3;
+        p.y -= p.speedY;
+        p.life++;
+        if (p.life > p.maxLife || p.y < -20) {
+          p.x = Math.random() * canvas.width; p.y = canvas.height + 10;
+          p.size = p.type === "ember" ? Math.random() * 2.5 + 1 : Math.random() * 20 + 8;
+          p.speedY = p.type === "ember" ? Math.random() * 1.2 + 0.4 : Math.random() * 0.4 + 0.15;
+          p.life = 0; p.maxLife = p.type === "ember" ? Math.random() * 180 + 120 : Math.random() * 200 + 150;
+          p.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+        }
+        const t = p.life / p.maxLife;
+        if (p.type === "ember") {
+          const alpha = t < 0.2 ? t / 0.2 : (1 - t);
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.size * (1 - t * 0.3), 0, Math.PI * 2);
+          ctx.fillStyle = p.color + Math.floor(alpha * 200).toString(16).padStart(2, "0"); ctx.fill();
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.size * 3, 0, Math.PI * 2);
+          ctx.fillStyle = p.color + Math.floor(alpha * 40).toString(16).padStart(2, "0"); ctx.fill();
+        } else {
+          const alpha = t < 0.15 ? t / 0.15 : (1 - t);
+          p.size += 0.08;
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(80,40,20,${alpha * 0.12})`; ctx.fill();
+        }
+      }
+      raf = requestAnimationFrame(animate);
+    };
+    animate();
+    return () => { cancelAnimationFrame(raf); window.removeEventListener("resize", resize); };
+  }, []);
+
   return (
     <section id="reference" style={{ background: "var(--carbon)", padding: "9rem clamp(1.5rem,5vw,5rem)", position: "relative", overflow: "hidden" }}>
+      <canvas ref={canvasRef} style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }} />
       <style>{`
         .rev-card {
-          background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
-          border: 1px solid rgba(255,255,255,0.06);
+          background: rgba(12,6,3,0.88);
+          border: 1px solid rgba(232,101,10,0.2);
           padding: 2.8rem;
           position: relative;
           overflow: hidden;
           transition: all 0.5s cubic-bezier(0.16,1,0.3,1);
           cursor: default;
+          backdrop-filter: blur(8px);
         }
         .rev-card::after {
           content: "";
@@ -278,30 +344,23 @@ export function Reviews() {
           transform: scaleX(0);
           transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
         }
-        .rev-card:hover { border-color: rgba(232,101,10,0.3); transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 50px rgba(232,101,10,0.1); background: linear-gradient(145deg, rgba(232,101,10,0.06) 0%, rgba(255,255,255,0.01) 100%); }
+        .rev-card:hover { border-color: rgba(232,101,10,0.5); transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 50px rgba(232,101,10,0.08); }
         .rev-card:hover::after { transform: scaleX(1); }
-        .rev-text { font-family: var(--font-cormorant); font-size: 1.08rem; line-height: 1.85; color: rgba(255,255,255,0.5); font-style: italic; font-weight: 300; transition: color 0.4s ease; position: relative; z-index: 1; }
-        .rev-card:hover .rev-text { color: rgba(255,255,255,0.82); }
-        .rev-quote { font-family: var(--font-cormorant); font-size: 7rem; color: rgba(232,101,10,0.07); position: absolute; top: 0.5rem; right: 1.5rem; line-height: 1; font-weight: 300; pointer-events: none; transition: color 0.4s ease; }
-        .rev-card:hover .rev-quote { color: rgba(232,101,10,0.18); }
+        .rev-text { font-family: var(--font-cormorant); font-size: 1.08rem; line-height: 1.85; color: rgba(255,255,255,0.55); font-style: italic; font-weight: 300; transition: color 0.4s ease; position: relative; z-index: 1; margin: 0 0 1.2rem; }
+        .rev-card:hover .rev-text { color: rgba(255,255,255,0.85); }
+        .rev-quote { font-family: var(--font-cormorant); font-size: 7rem; color: rgba(232,101,10,0.06); position: absolute; top: 0.2rem; right: 1.5rem; line-height: 1; font-weight: 300; pointer-events: none; transition: color 0.4s ease; }
+        .rev-card:hover .rev-quote { color: rgba(232,101,10,0.2); }
         .rev-author { font-family: var(--font-ui); font-size: 0.8rem; font-weight: 600; color: var(--text-primary); letter-spacing: 0.05em; }
         .rev-location { font-family: var(--font-ui); font-size: 0.58rem; letter-spacing: 0.22em; color: var(--ember); text-transform: uppercase; margin-top: 0.3rem; }
-        .rev-divider { height: 1px; background: linear-gradient(90deg, rgba(232,101,10,0.25), transparent); margin: 1.6rem 0; transition: background 0.4s ease; }
-        .rev-card:hover .rev-divider { background: linear-gradient(90deg, rgba(232,101,10,0.6), transparent); }
-        .rev-stars { display: flex; gap: 4px; margin-bottom: 1.6rem; }
+        .rev-divider { height: 1px; background: linear-gradient(90deg, rgba(232,101,10,0.3), transparent); margin: 1.2rem 0; transition: background 0.4s ease; }
+        .rev-card:hover .rev-divider { background: linear-gradient(90deg, rgba(232,101,10,0.7), transparent); }
+        .rev-stars { display: flex; gap: 4px; margin-bottom: 1.4rem; }
         .rev-star { width: 11px; height: 11px; background: var(--ember); clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%); transition: transform 0.3s ease, filter 0.3s ease; }
-        .rev-card:hover .rev-star { filter: drop-shadow(0 0 4px rgba(232,101,10,0.8)); }
-        .rev-card:hover .rev-star:nth-child(1) { transform: scale(1.2); transition-delay: 0s; }
-        .rev-card:hover .rev-star:nth-child(2) { transform: scale(1.2); transition-delay: 0.05s; }
-        .rev-card:hover .rev-star:nth-child(3) { transform: scale(1.2); transition-delay: 0.1s; }
-        .rev-card:hover .rev-star:nth-child(4) { transform: scale(1.2); transition-delay: 0.15s; }
-        .rev-card:hover .rev-star:nth-child(5) { transform: scale(1.2); transition-delay: 0.2s; }
+        .rev-card:hover .rev-star { filter: drop-shadow(0 0 4px rgba(232,101,10,0.9)); transform: scale(1.2); }
         @media(max-width:900px){.reviews-inner{grid-template-columns:1fr!important}}
       `}</style>
 
-      <div style={{ position: "absolute", left: "30%", top: -100, width: 600, height: 600, borderRadius: "50%", background: "radial-gradient(circle, rgba(232,101,10,0.04), transparent 65%)", pointerEvents: "none" }} />
-
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "4.5rem", flexWrap: "wrap", gap: "2rem" }}>
           <div className="reveal">
             <div className="section-label" style={{ marginBottom: "1.5rem" }}>Reference klientů</div>
@@ -339,41 +398,6 @@ export function Reviews() {
   );
 }
 
-
-const gallery = [
-  { src: "/gallery/photo-1.jpg", span: true },
-  { src: "/gallery/photo-2.jpg", span: false },
-  { src: "/gallery/photo-3.jpg", span: false },
-  { src: "/gallery/photo-4.jpg", span: false },
-  { src: "/gallery/photo-5.jpg", span: true },
-  { src: "/gallery/photo-6.jpg", span: false },
-  { src: "/gallery/photo-7.jpg", span: false },
-  { src: "/gallery/photo-8.jpg", span: false },
-  { src: "/gallery/photo-9.jpg", span: true },
-  { src: "/gallery/photo-10.jpg", span: false },
-  { src: "/gallery/photo-11.jpg", span: false },
-  { src: "/gallery/photo-12.jpg", span: false },
-  { src: "/gallery/photo-13.jpg", span: true },
-  { src: "/gallery/photo-14.jpg", span: false },
-  { src: "/gallery/photo-15.jpg", span: false },
-  { src: "/gallery/photo-16.jpg", span: false },
-  { src: "/gallery/photo-17.jpg", span: true },
-  { src: "/gallery/photo-18.jpg", span: false },
-  { src: "/gallery/photo-19.jpg", span: false },
-  { src: "/gallery/photo-20.jpg", span: false },
-  { src: "/gallery/photo-21.jpg", span: true },
-  { src: "/gallery/photo-22.jpg", span: false },
-  { src: "/gallery/photo-23.jpg", span: false },
-  { src: "/gallery/photo-24.jpg", span: false },
-  { src: "/gallery/photo-25.jpg", span: true },
-  { src: "/gallery/photo-26.jpg", span: false },
-  { src: "/gallery/photo-27.jpg", span: false },
-  { src: "/gallery/photo-28.jpg", span: false },
-  { src: "/gallery/photo-29.jpg", span: true },
-  { src: "/gallery/photo-30.jpg", span: false },
-  { src: "/gallery/photo-31.jpg", span: false },
-  { src: "/gallery/photo-32.jpg", span: false },
-];
 
 export function Gallery() {
   return (
