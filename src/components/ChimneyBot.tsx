@@ -164,7 +164,8 @@ const ConfettiCanvas = ({ active }: { active: boolean }) => {
 export default function ChimneyBot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<{role:string,content:string,rating?:number,image?:string}[]>([
-    { role:"assistant", content:"Čau! Jsem Tomáš, váš virtuální kominík 🎩 Jak vám mohu pomoci?" }
+    { role:"assistant", content:"Čau! Jsem Tomáš, váš virtuální kominík 🎩 Jak vám mohu pomoci?" },
+    { role:"assistant", content:"💡 Tip: Popište mi problém s komínem (kouř, zápach, praskání...) a já okamžitě vyhodnotím jak je situace urgentní a co dělat dál." }
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
