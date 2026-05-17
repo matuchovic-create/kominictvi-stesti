@@ -248,17 +248,59 @@ export function Steps() {
 
 
 const reviews = [
-  { text: 'Absolutne perfektni servis.', author: 'Martin K.', location: 'Mlada Boleslav' },
-  { text: 'Vyuzivame Kominictvi Stesti treti rok.', author: 'Jana N.', location: 'Liberec' },
-  { text: 'Urgentni vyjezd po nalezu trhlin.', author: 'Tomas B.', location: 'Mnichovo Hradiste' },
-  { text: 'Konecne kominik ktery prijde presne.', author: 'Petra H.', location: 'Mlada Boleslav' },
-  { text: 'Vlozkovani kominu na jednicku.', author: 'Radek M.', location: 'Nymburk' },
-  { text: 'Pravidelny servis pro nas penzion.', author: 'Miroslav S.', location: 'Jicin' },
+  { text: "Naprostá profesionalita a spolehlivost. Tomáš přijel přesně, odvedl precizní práci a zanechal vše v naprostém pořádku. Revizní zprávu doručil hned druhý den!", author: "Martin K.", location: "Mladá Boleslav" },
+  { text: "Třetím rokem využíváme služby Kominictví Štěstí. Vždy přesní, vždy spolehliví, vždy s úsměvem. Kvalita práce za férovou cenu — víc si přát nelze.", author: "Jana N.", location: "Liberec" },
+  { text: "Urgentní výjezd, trhliny v komínu. Tomáš přijel do hodiny, problém vyřešil okamžitě. Díky němu jsme mohli dál bezpečně topit. Zachránce v pravém slova smyslu!", author: "Tomáš B.", location: "Mnichovo Hradiště" },
+  { text: "Konečně kominík, na kterého se dá spolehnout. Přijde přesně, pracuje precizně, po sobě uklidí. Sousedé se ptají koho doporučit — jednohlasně říkám Štěstí.", author: "Petra H.", location: "Mladá Boleslav" },
+  { text: "Vložkování komínu provedeno naprosto dokonale. Pojišťovna ocenila perfektní dokumentaci. Profesionální přístup od prvního kontaktu až po předání zprávy.", author: "Radek M.", location: "Nymburk" },
+  { text: "Servisní smlouva pro náš penzion — nejlepší rozhodnutí. Vždy přijdou, vždy odvádí špičkovou práci. Hosté ani netuší, že za naším klidem stojí Kominictví Štěstí.", author: "Miroslav Š.", location: "Jičín" },
 ];
 
 export function Reviews() {
   return (
-    <section id="reference" style={{ background: "var(--carbon)", padding: "9rem clamp(1.5rem,5vw,5rem)" }}>
+    <section id="reference" style={{ background: "var(--carbon)", padding: "9rem clamp(1.5rem,5vw,5rem)", position: "relative", overflow: "hidden" }}>
+      <style>{`
+        .rev-card {
+          background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+          border: 1px solid rgba(255,255,255,0.06);
+          padding: 2.8rem;
+          position: relative;
+          overflow: hidden;
+          transition: all 0.5s cubic-bezier(0.16,1,0.3,1);
+          cursor: default;
+        }
+        .rev-card::after {
+          content: "";
+          position: absolute;
+          bottom: 0; left: 0; right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, rgba(232,101,10,0.7), transparent);
+          transform: scaleX(0);
+          transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+        }
+        .rev-card:hover { border-color: rgba(232,101,10,0.3); transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 50px rgba(232,101,10,0.1); background: linear-gradient(145deg, rgba(232,101,10,0.06) 0%, rgba(255,255,255,0.01) 100%); }
+        .rev-card:hover::after { transform: scaleX(1); }
+        .rev-text { font-family: var(--font-cormorant); font-size: 1.08rem; line-height: 1.85; color: rgba(255,255,255,0.5); font-style: italic; font-weight: 300; transition: color 0.4s ease; position: relative; z-index: 1; }
+        .rev-card:hover .rev-text { color: rgba(255,255,255,0.82); }
+        .rev-quote { font-family: var(--font-cormorant); font-size: 7rem; color: rgba(232,101,10,0.07); position: absolute; top: 0.5rem; right: 1.5rem; line-height: 1; font-weight: 300; pointer-events: none; transition: color 0.4s ease; }
+        .rev-card:hover .rev-quote { color: rgba(232,101,10,0.18); }
+        .rev-author { font-family: var(--font-ui); font-size: 0.8rem; font-weight: 600; color: var(--text-primary); letter-spacing: 0.05em; }
+        .rev-location { font-family: var(--font-ui); font-size: 0.58rem; letter-spacing: 0.22em; color: var(--ember); text-transform: uppercase; margin-top: 0.3rem; }
+        .rev-divider { height: 1px; background: linear-gradient(90deg, rgba(232,101,10,0.25), transparent); margin: 1.6rem 0; transition: background 0.4s ease; }
+        .rev-card:hover .rev-divider { background: linear-gradient(90deg, rgba(232,101,10,0.6), transparent); }
+        .rev-stars { display: flex; gap: 4px; margin-bottom: 1.6rem; }
+        .rev-star { width: 11px; height: 11px; background: var(--ember); clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%); transition: transform 0.3s ease, filter 0.3s ease; }
+        .rev-card:hover .rev-star { filter: drop-shadow(0 0 4px rgba(232,101,10,0.8)); }
+        .rev-card:hover .rev-star:nth-child(1) { transform: scale(1.2); transition-delay: 0s; }
+        .rev-card:hover .rev-star:nth-child(2) { transform: scale(1.2); transition-delay: 0.05s; }
+        .rev-card:hover .rev-star:nth-child(3) { transform: scale(1.2); transition-delay: 0.1s; }
+        .rev-card:hover .rev-star:nth-child(4) { transform: scale(1.2); transition-delay: 0.15s; }
+        .rev-card:hover .rev-star:nth-child(5) { transform: scale(1.2); transition-delay: 0.2s; }
+        @media(max-width:900px){.reviews-inner{grid-template-columns:1fr!important}}
+      `}</style>
+
+      <div style={{ position: "absolute", left: "30%", top: -100, width: 600, height: 600, borderRadius: "50%", background: "radial-gradient(circle, rgba(232,101,10,0.04), transparent 65%)", pointerEvents: "none" }} />
+
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "4.5rem", flexWrap: "wrap", gap: "2rem" }}>
           <div className="reveal">
@@ -277,61 +319,26 @@ export function Reviews() {
             </div>
           </div>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1px", background: "rgba(255,255,255,0.04)" }} className="reviews-inner">
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1.5rem" }} className="reviews-inner">
           {reviews.map((r, i) => (
-            <div key={i} className={`review-card reveal reveal-delay-${(i%3)+1}`} style={{ background: "var(--carbon)" }}>
-              <div style={{ fontFamily: "var(--font-cormorant)", fontSize: "3.5rem", fontWeight: 300, color: "rgba(232,101,10,0.1)", lineHeight: 1, position: "absolute", top: "1.5rem", right: "1.8rem" }}>"</div>
-              <div style={{ display: "flex", gap: 3, marginBottom: "1.5rem" }}>
-                {Array(5).fill(0).map((_,j) => <div key={j} style={{ width: 10, height: 10, background: "var(--ember)", clipPath: "polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)" }} />)}
+            <div key={i} className={`rev-card reveal reveal-delay-${(i%3)+1}`}>
+              <div className="rev-quote">"</div>
+              <div className="rev-stars">
+                {Array(5).fill(0).map((_,j) => <div key={j} className="rev-star" />)}
               </div>
-              <p style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", fontSize: "1.05rem", lineHeight: 1.8, color: "var(--text-secondary)", marginBottom: "2rem" }}>{r.text}</p>
-              <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "1.2rem" }}>
-                <div style={{ fontFamily: "var(--font-ui)", fontSize: "0.72rem", fontWeight: 500, color: "var(--text-primary)" }}>{r.author}</div>
-                <div style={{ fontFamily: "var(--font-ui)", fontSize: "0.65rem", color: "var(--text-muted)", marginTop: "0.2rem" }}>{r.location}</div>
-              </div>
+              <p className="rev-text">&#8220;{r.text}&#8221;</p>
+              <div className="rev-divider" />
+              <div className="rev-author">{r.author}</div>
+              <div className="rev-location">{r.location}</div>
             </div>
           ))}
         </div>
       </div>
-      <style>{`@media(max-width:900px){.reviews-inner{grid-template-columns:1fr!important}}`}</style>
     </section>
   );
 }
 
-const gallery = [
-  { src: "/gallery/photo-1.jpg",  span: true },
-  { src: "/gallery/photo-2.jpg",  span: false },
-  { src: "/gallery/photo-3.jpg",  span: false },
-  { src: "/gallery/photo-4.jpg",  span: false },
-  { src: "/gallery/photo-5.jpg",  span: false },
-  { src: "/gallery/photo-6.jpg",  span: true },
-  { src: "/gallery/photo-7.jpg",  span: false },
-  { src: "/gallery/photo-8.jpg",  span: false },
-  { src: "/gallery/photo-9.jpg",  span: false },
-  { src: "/gallery/photo-10.jpg", span: false },
-  { src: "/gallery/photo-11.jpg", span: true },
-  { src: "/gallery/photo-12.jpg", span: false },
-  { src: "/gallery/photo-13.jpg", span: false },
-  { src: "/gallery/photo-14.jpg", span: false },
-  { src: "/gallery/photo-15.jpg", span: false },
-  { src: "/gallery/photo-16.jpg", span: true },
-  { src: "/gallery/photo-17.jpg", span: false },
-  { src: "/gallery/photo-18.jpg", span: false },
-  { src: "/gallery/photo-19.jpg", span: false },
-  { src: "/gallery/photo-20.jpg", span: false },
-  { src: "/gallery/photo-21.jpg", span: true },
-  { src: "/gallery/photo-22.jpg", span: false },
-  { src: "/gallery/photo-23.jpg", span: false },
-  { src: "/gallery/photo-24.jpg", span: false },
-  { src: "/gallery/photo-25.jpg", span: false },
-  { src: "/gallery/photo-26.jpg", span: true },
-  { src: "/gallery/photo-27.jpg", span: false },
-  { src: "/gallery/photo-28.jpg", span: false },
-  { src: "/gallery/photo-29.jpg", span: false },
-  { src: "/gallery/photo-30.jpg", span: false },
-  { src: "/gallery/photo-31.jpg", span: false },
-  { src: "/gallery/photo-32.jpg", span: false },
-];
 
 export function Gallery() {
   return (
