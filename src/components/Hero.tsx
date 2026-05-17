@@ -18,7 +18,7 @@ export default function Hero() {
       display: "flex",
       alignItems: "center",
       overflow: "hidden",
-      paddingTop: "80px",
+      paddingTop: "114px",
       paddingBottom: isMobile ? "2rem" : "140px",
     }}>
       <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center 30%" }} />
