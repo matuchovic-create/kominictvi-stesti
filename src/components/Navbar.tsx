@@ -35,66 +35,53 @@ export default function Navbar() {
 
   return (
     <>
-  {/* Ticker bar above navbar */}
-  <div style={{
-    background: 'rgba(232,101,10,0.12)', position: 'fixed' as const, top: 0, left: 0, right: 0, zIndex: 1001,
-    borderBottom: '1px solid rgba(232,101,10,0.25)',
-    overflow: 'hidden',
-    height: '32px',
-    display: 'flex',
-    alignItems: 'center',
-  }}>
-    <div style={{
-      display: 'flex',
-      animation: 'tickerScroll 25s linear infinite',
-      whiteSpace: 'nowrap',
-    }}>
-      {[0,1,2].map((_, i) => (
-        <span key={i} style={{
-          fontFamily: 'var(--font-ui)',
-          fontSize: '0.58rem',
-          letterSpacing: '0.25em',
-          color: 'rgba(232,101,10,0.85)',
-          textTransform: 'uppercase',
-          paddingRight: '6rem',
+      {/* Ticker */}
+      <div style={{
+        position: "fixed", top: 0, left: 0, right: 0, zIndex: 1001,
+        height: "34px",
+        background: "linear-gradient(90deg, #0a0402, #1a0804, #0a0402)",
+        borderBottom: "1px solid rgba(232,101,10,0.35)",
+        overflow: "hidden",
+        display: "flex",
+        alignItems: "center",
+      }}>
+        <div style={{
+          display: "flex",
+          animation: "tickerScroll 30s linear infinite",
+          whiteSpace: "nowrap",
+          willChange: "transform",
         }}>
-          ★ &nbsp; Vaše recenze na Google nám pomáhají růst — děkujeme za každou hvězdičku &nbsp; ✦ &nbsp; Certifikovaný servis · Praha, Liberec & okolí &nbsp; ✦ &nbsp; Zavolejte nám: +420 778 098 717 &nbsp; ✦ &nbsp; 5★ hodnocení · 800+ spokojených zákazníků &nbsp;
-        </span>
-      ))}
-    </div>
-  </div>
+          {[0,1,2,3].map((_,i) => (
+            <span key={i} style={{
+              fontFamily: "var(--font-ui)",
+              fontSize: "0.55rem",
+              letterSpacing: "0.28em",
+              color: "rgba(232,101,10,0.9)",
+              textTransform: "uppercase",
+              paddingRight: "4rem",
+              display: "flex",
+              alignItems: "center",
+              gap: "1.2rem",
+            }}>
+              <span style={{color:"#FF8C42", fontSize:"0.5rem"}}>✦</span>
+              Vaše recenze na Google nám pomáhají růst — děkujeme za každou hvězdičku
+              <span style={{color:"#FF8C42", fontSize:"0.5rem"}}>✦</span>
+              Certifikovaný servis · Praha, Liberec & okolí
+              <span style={{color:"#FF8C42", fontSize:"0.5rem"}}>✦</span>
+              +420 778 098 717
+              <span style={{color:"#FF8C42", fontSize:"0.5rem"}}>✦</span>
+              5★ hodnocení · 800+ spokojených zákazníků
+              &nbsp;&nbsp;&nbsp;&nbsp;
+            </span>
+          ))}
+        </div>
+      </div>
 
-  {/* Ticker bar above navbar */}
-  <div style={{
-    background: 'rgba(232,101,10,0.12)', position: 'fixed' as const, top: 0, left: 0, right: 0, zIndex: 1001,
-    borderBottom: '1px solid rgba(232,101,10,0.25)',
-    overflow: 'hidden',
-    height: '32px',
-    display: 'flex',
-    alignItems: 'center',
-  }}>
-    <div style={{
-      display: 'flex',
-      animation: 'tickerScroll 25s linear infinite',
-      whiteSpace: 'nowrap',
-    }}>
-      {[0,1,2].map((_, i) => (
-        <span key={i} style={{
-          fontFamily: 'var(--font-ui)',
-          fontSize: '0.58rem',
-          letterSpacing: '0.25em',
-          color: 'rgba(232,101,10,0.85)',
-          textTransform: 'uppercase',
-          paddingRight: '6rem',
-        }}>
-          ★ &nbsp; Vaše recenze na Google nám pomáhají růst — děkujeme za každou hvězdičku &nbsp; ✦ &nbsp; Certifikovaný servis · Praha, Liberec & okolí &nbsp; ✦ &nbsp; Zavolejte nám: +420 778 098 717 &nbsp; ✦ &nbsp; 5★ hodnocení · 800+ spokojených zákazníků &nbsp;
-        </span>
-      ))}
-    </div>
+  </div>
   </div>
 
       <nav style={{
-        position: "fixed", top: '32px', left: 0, right: 0, zIndex: 1000,
+        position: "fixed", top: "34px", left: 0, right: 0, zIndex: 1000,,
         padding: scrolled ? "0.9rem 1.5rem" : "1.4rem 1.5rem",
         display: "flex", justifyContent: "space-between", alignItems: "center",
         transition: "all 0.5s cubic-bezier(0.16,1,0.3,1)",
