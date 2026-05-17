@@ -1,76 +1,156 @@
-<svg width="100%" viewBox="0 0 680 520" role="img" xmlns="http://www.w3.org/2000/svg">
+<svg width="100%" viewBox="0 0 1400 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="cbsky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0a0410"/>
-      <stop offset="40%" stop-color="#1a0808"/>
-      <stop offset="70%" stop-color="#3d1200"/>
-      <stop offset="100%" stop-color="#7a2800"/>
+      <stop offset="0%" stop-color="#020108"/>
+      <stop offset="50%" stop-color="#0a0208"/>
+      <stop offset="80%" stop-color="#1a0604"/>
+      <stop offset="100%" stop-color="#2a0a02"/>
     </linearGradient>
     <linearGradient id="cbroof" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#2a1a0e"/>
-      <stop offset="100%" stop-color="#140a04"/>
+      <stop offset="0%" stop-color="#1a0a04"/>
+      <stop offset="100%" stop-color="#080302"/>
+    </linearGradient>
+    <linearGradient id="spotlight" x1="0.5" y1="1" x2="0.5" y2="0">
+      <stop offset="0%" stop-color="#E8650A" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#FF8C42" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#FFD166" stop-opacity="0.04"/>
     </linearGradient>
     <linearGradient id="cbchimney" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#1a0f08"/>
-      <stop offset="50%" stop-color="#2d1a0a"/>
-      <stop offset="100%" stop-color="#140a04"/>
+      <stop offset="0%" stop-color="#100804"/>
+      <stop offset="50%" stop-color="#1a0f06"/>
+      <stop offset="100%" stop-color="#0c0602"/>
+    </linearGradient>
+    <linearGradient id="firegrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#FF4500"/>
+      <stop offset="50%" stop-color="#FF8C42"/>
+      <stop offset="100%" stop-color="#FFD166" stop-opacity="0.6"/>
     </linearGradient>
   </defs>
+
   <style>
-    @keyframes cbrise{0%{transform:translateY(0);opacity:0.5}100%{transform:translateY(-60px);opacity:0}}
-    @keyframes cbrise2{0%{transform:translateY(0) translateX(0);opacity:0.4}100%{transform:translateY(-80px) translateX(15px);opacity:0}}
-    @keyframes cbtwinkle{0%,100%{opacity:0.3}50%{opacity:1}}
-    @keyframes cbember1{0%{transform:translate(0,0);opacity:1}100%{transform:translate(20px,-40px);opacity:0}}
-    @keyframes cbember2{0%{transform:translate(0,0);opacity:1}100%{transform:translate(-15px,-50px);opacity:0}}
-    @keyframes cbfl1{0%,100%{transform:scaleX(1) scaleY(1)}50%{transform:scaleX(1.1) scaleY(1.15)}}
-    @keyframes cbfl2{0%,100%{transform:scaleX(1) scaleY(1)}33%{transform:scaleX(0.9) scaleY(1.2)}}
-    .cbsmoke1{animation:cbrise 3s ease-out infinite}
-    .cbsmoke2{animation:cbrise2 4s 1.5s ease-out infinite}
-    .cbsmoke3{animation:cbrise 3.5s 2s ease-out infinite}
-    .cbfl1{transform-origin:340px 248px;animation:cbfl1 0.5s ease-in-out infinite}
-    .cbfl2{transform-origin:340px 245px;animation:cbfl2 0.6s 0.1s ease-in-out infinite}
-    .cbem1{animation:cbember1 1.5s 0.3s ease-out infinite}
-    .cbem2{animation:cbember2 1.8s 0.8s ease-out infinite}
-    .cbem3{animation:cbember1 1.2s 0.1s ease-out infinite}
-    .cbstar{animation:cbtwinkle 2s ease-in-out infinite}
+    @keyframes cbrise{0%{transform:translateY(0) scale(1);opacity:0.5}100%{transform:translateY(-70px) scale(1.8);opacity:0}}
+    @keyframes cbrise2{0%{transform:translateY(0) translateX(0) scale(1);opacity:0.4}100%{transform:translateY(-90px) translateX(20px) scale(2);opacity:0}}
+    @keyframes cbtw{0%,100%{opacity:0.2}50%{opacity:0.9}}
+    @keyframes cbem1{0%{transform:translate(0,0);opacity:1}100%{transform:translate(18px,-45px);opacity:0}}
+    @keyframes cbem2{0%{transform:translate(0,0);opacity:1}100%{transform:translate(-14px,-55px);opacity:0}}
+    @keyframes cbfl{0%,100%{transform:scaleY(1) scaleX(1)}25%{transform:scaleY(1.12) scaleX(0.9)}75%{transform:scaleY(0.92) scaleX(1.08)}}
+    @keyframes spotPulse{0%,100%{opacity:0.85}50%{opacity:1}}
+    @keyframes textPulse{0%,100%{opacity:0.7}50%{opacity:1}}
+    .cbfl{transform-origin:700px 200px;animation:cbfl 0.5s ease-in-out infinite}
+    .cbem1{animation:cbem1 1.6s 0.2s ease-out infinite}
+    .cbem2{animation:cbem2 1.9s 0.7s ease-out infinite}
+    .cbem3{animation:cbem1 1.3s 1s ease-out infinite}
+    .cbsm1{animation:cbrise 3.5s ease-out infinite}
+    .cbsm2{animation:cbrise2 4.5s 1.2s ease-out infinite}
+    .cbsm3{animation:cbrise 3s 2.5s ease-out infinite}
+    .spot{animation:spotPulse 3s ease-in-out infinite}
+    .logtxt{animation:textPulse 3s ease-in-out infinite}
   </style>
-  <rect width="680" height="520" fill="url(#cbsky)"/>
-  <circle cx="80" cy="40" r="1.5" fill="#fff" opacity="0.6" class="cbstar"/>
-  <circle cx="150" cy="25" r="1" fill="#fff" opacity="0.5" style="animation:cbtwinkle 2.5s ease-in-out infinite"/>
-  <circle cx="220" cy="55" r="1.5" fill="#fff" opacity="0.7" style="animation:cbtwinkle 1.8s 0.7s ease-in-out infinite"/>
-  <circle cx="50" cy="80" r="1" fill="#fff" opacity="0.4" style="animation:cbtwinkle 3s ease-in-out infinite"/>
-  <circle cx="600" cy="30" r="1.5" fill="#fff" opacity="0.6" style="animation:cbtwinkle 2.2s ease-in-out infinite"/>
-  <circle cx="550" cy="60" r="1" fill="#fff" opacity="0.5" style="animation:cbtwinkle 1.6s ease-in-out infinite"/>
-  <circle cx="480" cy="20" r="2" fill="#fff" opacity="0.8" style="animation:cbtwinkle 2.8s ease-in-out infinite"/>
-  <circle cx="570" cy="75" r="25" fill="#C9A96E" opacity="0.85"/>
-  <circle cx="580" cy="80" r="28" fill="#1a0808" opacity="0.5"/>
-  <ellipse cx="340" cy="480" rx="180" ry="60" fill="#FF4500" opacity="0.25"/>
-  <ellipse cx="340" cy="490" rx="120" ry="40" fill="#FF8C42" opacity="0.3"/>
-  <rect x="0" y="380" width="680" height="140" fill="#0a0404"/>
-  <rect x="20" y="350" width="15" height="35" fill="#0e0606"/>
-  <rect x="45" y="330" width="25" height="55" fill="#0e0606"/>
-  <rect x="80" y="345" width="18" height="40" fill="#0e0606"/>
-  <rect x="110" y="320" width="30" height="65" fill="#0e0606"/>
-  <rect x="560" y="340" width="22" height="45" fill="#0e0606"/>
-  <rect x="595" y="320" width="35" height="65" fill="#0e0606"/>
-  <rect x="635" y="350" width="18" height="35" fill="#0e0606"/>
-  <rect x="115" y="330" width="5" height="4" fill="#FF8C42" opacity="0.6"/>
-  <rect x="125" y="330" width="5" height="4" fill="#FF8C42" opacity="0.4"/>
-  <rect x="600" y="330" width="5" height="4" fill="#FF8C42" opacity="0.6"/>
-  <polygon points="100,420 580,420 620,380 60,380" fill="url(#cbroof)"/>
-  <polygon points="60,380 620,380 580,370 100,370" fill="#1a0a04"/>
-  <rect x="310" y="250" width="60" height="135" fill="url(#cbchimney)"/>
-  <rect x="305" y="242" width="70" height="14" fill="#1a0f08"/>
-  <path d="M324,248 Q328,232 340,224 Q352,232 356,248Z" fill="#FF4500" opacity="0.9" class="cbfl1"/>
-  <path d="M328,248 Q333,236 340,230 Q347,236 352,248Z" fill="#FF8C42" class="cbfl2"/>
-  <path d="M333,248 Q337,240 340,237 Q343,240 347,248Z" fill="#FFD166" opacity="0.9"/>
-  <ellipse cx="340" cy="248" rx="14" ry="5" fill="#FF4500" opacity="0.6"/>
-  <circle cx="338" cy="238" r="2" fill="#FF8C42" class="cbem1"/>
-  <circle cx="343" cy="235" r="1.5" fill="#FFD166" class="cbem2"/>
-  <circle cx="337" cy="240" r="2" fill="#FF4500" class="cbem3"/>
-  <ellipse cx="332" cy="220" rx="16" ry="11" fill="#2a2a2a" opacity="0.3" class="cbsmoke1"/>
-  <ellipse cx="348" cy="190" rx="20" ry="13" fill="#333" opacity="0.2" class="cbsmoke2"/>
-  <ellipse cx="328" cy="165" rx="26" ry="15" fill="#444" opacity="0.15" class="cbsmoke3"/>
-  <rect x="0" y="415" width="680" height="105" fill="#060202"/>
-  <polygon points="0,380 680,380 680,415 0,415" fill="#080303"/>
+
+  <!-- Sky -->
+  <rect width="1400" height="600" fill="url(#cbsky)"/>
+
+  <!-- Dark overlay for depth -->
+  <rect width="1400" height="600" fill="#000" opacity="0.55"/>
+
+  <!-- Stars -->
+  <circle cx="80" cy="35" r="1.2" fill="#fff" style="animation:cbtw 2.1s ease-in-out infinite"/>
+  <circle cx="200" cy="20" r="1" fill="#fff" style="animation:cbtw 2.8s 0.3s ease-in-out infinite"/>
+  <circle cx="340" cy="50" r="1.5" fill="#fff" style="animation:cbtw 1.9s 0.7s ease-in-out infinite"/>
+  <circle cx="120" cy="80" r="0.8" fill="#fff" style="animation:cbtw 3s ease-in-out infinite"/>
+  <circle cx="450" cy="30" r="1" fill="#fff" style="animation:cbtw 2.4s 0.5s ease-in-out infinite"/>
+  <circle cx="900" cy="25" r="1.5" fill="#fff" style="animation:cbtw 2.2s ease-in-out infinite"/>
+  <circle cx="1050" cy="45" r="1" fill="#fff" style="animation:cbtw 1.7s 0.9s ease-in-out infinite"/>
+  <circle cx="1200" cy="20" r="1.2" fill="#fff" style="animation:cbtw 2.6s 0.4s ease-in-out infinite"/>
+  <circle cx="1300" cy="60" r="1.5" fill="#fff" style="animation:cbtw 2s 0.6s ease-in-out infinite"/>
+  <circle cx="1380" cy="35" r="1" fill="#fff" style="animation:cbtw 3.2s ease-in-out infinite"/>
+  <circle cx="600" cy="15" r="1.8" fill="#fff" style="animation:cbtw 2.5s 0.2s ease-in-out infinite"/>
+  <circle cx="750" cy="40" r="0.8" fill="#fff" style="animation:cbtw 1.8s 0.8s ease-in-out infinite"/>
+
+  <!-- Moon -->
+  <circle cx="180" cy="70" r="35" fill="#C9A96E" opacity="0.7"/>
+  <circle cx="168" cy="62" r="32" fill="#0a0210" opacity="0.5"/>
+
+  <!-- SPOTLIGHT CONE from chimney top upward -->
+  <polygon points="700,195 430,10 970,10" fill="url(#spotlight)" class="spot"/>
+
+  <!-- Spotlight inner brighter beam -->
+  <polygon points="700,195 600,10 800,10" fill="#E8650A" opacity="0.07" class="spot"/>
+  <polygon points="700,195 650,10 750,10" fill="#FF8C42" opacity="0.06" class="spot"/>
+
+  <!-- Light rays -->
+  <line x1="700" y1="195" x2="430" y2="10" stroke="#FF8C42" stroke-width="0.5" opacity="0.15"/>
+  <line x1="700" y1="195" x2="530" y2="10" stroke="#FF8C42" stroke-width="0.5" opacity="0.1"/>
+  <line x1="700" y1="195" x2="870" y2="10" stroke="#FF8C42" stroke-width="0.5" opacity="0.15"/>
+  <line x1="700" y1="195" x2="970" y2="10" stroke="#FF8C42" stroke-width="0.5" opacity="0.1"/>
+
+  <!-- KOMINICTVÍ ŠTĚSTÍ in spotlight -->
+  <text x="700" y="80" text-anchor="middle" font-family="Georgia, serif" font-size="32" font-weight="300" letter-spacing="12" fill="#FFD166" opacity="0.85" class="logtxt">KOMINICTVÍ ŠTĚSTÍ</text>
+  <text x="700" y="112" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" letter-spacing="6" fill="#FF8C42" opacity="0.6" class="logtxt">CERTIFIKOVANÝ SERVIS</text>
+
+  <!-- City silhouette -->
+  <rect x="0" y="430" width="1400" height="170" fill="#040102"/>
+  <rect x="30" y="390" width="20" height="45" fill="#060203"/>
+  <rect x="65" y="370" width="30" height="65" fill="#060203"/>
+  <rect x="110" y="385" width="22" height="50" fill="#060203"/>
+  <rect x="145" y="355" width="38" height="80" fill="#060203"/>
+  <rect x="195" y="400" width="15" height="35" fill="#060203"/>
+  <rect x="220" y="375" width="25" height="60" fill="#060203"/>
+  <rect x="255" y="360" width="35" height="75" fill="#060203"/>
+  <rect x="1050" y="380" width="28" height="55" fill="#060203"/>
+  <rect x="1090" y="355" width="40" height="80" fill="#060203"/>
+  <rect x="1145" y="390" width="20" height="45" fill="#060203"/>
+  <rect x="1178" y="365" width="32" height="70" fill="#060203"/>
+  <rect x="1225" y="380" width="24" height="55" fill="#060203"/>
+  <rect x="1265" y="350" width="38" height="85" fill="#060203"/>
+  <rect x="1320" y="395" width="18" height="40" fill="#060203"/>
+  <rect x="1352" y="370" width="28" height="65" fill="#060203"/>
+
+  <!-- Glowing windows -->
+  <rect x="152" y="365" width="6" height="5" fill="#FF8C42" opacity="0.5"/>
+  <rect x="163" y="365" width="6" height="5" fill="#FF8C42" opacity="0.3"/>
+  <rect x="152" y="377" width="6" height="5" fill="#FFD166" opacity="0.4"/>
+  <rect x="1097" y="365" width="6" height="5" fill="#FF8C42" opacity="0.5"/>
+  <rect x="1108" y="370" width="6" height="5" fill="#FF8C42" opacity="0.3"/>
+  <rect x="1272" y="362" width="6" height="5" fill="#FFD166" opacity="0.4"/>
+  <rect x="1284" y="368" width="6" height="5" fill="#FF8C42" opacity="0.3"/>
+
+  <!-- Main roof -->
+  <polygon points="300,430 1100,430 1160,390 240,390" fill="url(#cbroof)"/>
+  <polygon points="240,390 1160,390 1120,382 280,382" fill="#120804"/>
+
+  <!-- Chimney body -->
+  <rect x="670" y="195" width="60" height="200" fill="url(#cbchimney)"/>
+  <rect x="662" y="186" width="76" height="14" fill="#0e0704"/>
+  <!-- Brick pattern -->
+  <rect x="673" y="202" width="24" height="7" fill="#180e06" opacity="0.7"/>
+  <rect x="700" y="202" width="22" height="7" fill="#180e06" opacity="0.5"/>
+  <rect x="670" y="212" width="30" height="7" fill="#180e06" opacity="0.6"/>
+  <rect x="703" y="212" width="22" height="7" fill="#180e06" opacity="0.7"/>
+  <rect x="673" y="222" width="24" height="7" fill="#180e06" opacity="0.5"/>
+  <rect x="700" y="222" width="22" height="7" fill="#180e06" opacity="0.6"/>
+
+  <!-- Fire in chimney -->
+  <g class="cbfl">
+    <path d="M676,196 Q684,178 700,168 Q716,178 724,196Z" fill="#FF4500" opacity="0.95"/>
+    <path d="M680,196 Q688,180 700,172 Q712,180 720,196Z" fill="#FF6B00" opacity="0.95"/>
+    <path d="M684,196 Q692,183 700,177 Q708,183 716,196Z" fill="#FF8C42" opacity="0.9"/>
+    <path d="M688,196 Q695,186 700,182 Q705,186 712,196Z" fill="#FFD166" opacity="0.85"/>
+    <path d="M692,196 Q697,189 700,187 Q703,189 708,196Z" fill="#fff" opacity="0.6"/>
+  </g>
+  <ellipse cx="700" cy="196" rx="14" ry="5" fill="#FF4500" opacity="0.5"/>
+
+  <!-- Embers -->
+  <circle cx="697" cy="185" r="2.5" fill="#FF8C42" class="cbem1"/>
+  <circle cx="704" cy="182" r="2" fill="#FFD166" class="cbem2"/>
+  <circle cx="696" cy="188" r="2" fill="#FF4500" class="cbem3"/>
+  <circle cx="705" cy="187" r="1.5" fill="#FF8C42" style="animation:cbem2 2s 0.4s ease-out infinite"/>
+
+  <!-- Smoke -->
+  <ellipse cx="695" cy="165" rx="18" ry="12" fill="#222" opacity="0.35" class="cbsm1"/>
+  <ellipse cx="710" cy="138" rx="22" ry="14" fill="#2a2a2a" opacity="0.25" class="cbsm2"/>
+  <ellipse cx="692" cy="115" rx="28" ry="16" fill="#333" opacity="0.18" class="cbsm3"/>
+
+  <!-- Ground -->
+  <rect x="0" y="425" width="1400" height="175" fill="#020101"/>
 </svg>
