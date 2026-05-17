@@ -1,3 +1,6 @@
+"use client";
+import { useEffect, useRef, useState } from "react";
+
 export function WhyUs() {
   const items = [
     { num: "01", title: "Člen MKS", text: "Jsme hrdými členy Moravského kominického společenstva, které dbá na vysoký standard řemesla. Zárukou odbornosti a kvality." },
