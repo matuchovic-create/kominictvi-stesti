@@ -12,6 +12,7 @@ import MapSection from "@/components/MapSection";
 import Footer from "@/components/Footer";
 import { WhyUs, Steps, Reviews, Gallery, Certs } from "@/components/Sections";
 import { useReveal } from "@/hooks/useReveal";
+import ChimneyBot from "@/components/ChimneyBot";
 
 export default function Home() {
   useReveal();
