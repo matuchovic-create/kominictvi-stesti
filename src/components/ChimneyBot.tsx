@@ -227,6 +227,20 @@ export default function ChimneyBot() {
       }).catch(() => {});
   }, []);
 
+
+  // Sezonni zprava
+  useEffect(() => {
+    const month = new Date().getMonth() + 1;
+    let msg = "";
+    if (month >= 9 && month <= 11) msg = "Topna sezona za dvermi! Terminy se rychle plni - objednejte cisteni kominu ted dokud je cas!";
+    else if (month === 12 || month <= 2) msg = "Topite naplno? Idealni cas zkontrolovat komin a predejit problemum uprostred zimy.";
+    else if (month >= 3 && month <= 5) msg = "Topna sezona konci - idealni cas na cisteni kominu po zime. Saze a deht nechte na nas!";
+    else msg = "Leto = nejlepsi cas na revizi pred zimou. Mame volne terminy a rychly vyjezd!";
+    setTimeout(() => {
+      setMessages(prev => [...prev, { role: "assistant", content: msg }]);
+    }, 2500);
+  }, []);
+
   // Proactive scroll tracking
   useEffect(() => {
     const sections: {[key: string]: string} = {
