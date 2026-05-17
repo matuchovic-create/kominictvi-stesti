@@ -20,19 +20,66 @@ export function WhyUs() {
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1px", background: "rgba(232,101,10,0.08)" }} className="why-grid-inner">
           {items.map((item, i) => (
-            <div key={item.num} className={`why-card glow-card reveal reveal-delay-${(i%3)+1}`} style={{ background: "transparent", padding: 0 }}>
-              <div className="card-inner">
-                <div style={{ fontFamily: "var(--font-cormorant)", fontSize: "3rem", fontWeight: 300, lineHeight: 1, marginBottom: "1.5rem" }} className="why-num">{item.num}</div>
-                <div style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.4rem", fontWeight: 400, color: "var(--text-primary)", marginBottom: "1rem" }}>{item.title}</div>
-                <p style={{ fontFamily: "var(--font-ui)", fontSize: "0.8rem", lineHeight: 1.85, color: "var(--text-secondary)", fontWeight: 300 }}>{item.text}</p>
-              </div>
+            <div key={item.num} className={`why-card glow-card reveal reveal-delay-${(i%3)+1}`}>
+              <div className="why-num">{item.num}</div>
+              <div style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.4rem", fontWeight: 400, color: "var(--text-primary)", marginBottom: "1rem" }}>{item.title}</div>
+              <p style={{ fontFamily: "var(--font-ui)", fontSize: "0.8rem", lineHeight: 1.85, color: "var(--text-secondary)", fontWeight: 300 }}>{item.text}</p>
             </div>
           ))}
         </div>
       </div>
       <style>{`
         @media(max-width:900px){.why-grid-inner{grid-template-columns:1fr!important}}
-        .why-card:hover .why-top-line{opacity:1!important}
+        @keyframes glowSweep {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(400%); }
+        }
+        @keyframes numPulse {
+          0%,100% { opacity: 0.15; }
+          50% { opacity: 0.55; text-shadow: 0 0 30px rgba(232,101,10,0.6); }
+        }
+        .glow-card {
+          position: relative;
+          background: #080808 !important;
+          border: 1px solid rgba(232,101,10,0.15) !important;
+          padding: 2.5rem !important;
+          transition: all 0.4s ease;
+          overflow: hidden;
+        }
+        .glow-card:hover {
+          border-color: rgba(232,101,10,0.5) !important;
+          background: rgba(232,101,10,0.04) !important;
+          transform: translateY(-4px);
+          box-shadow: 0 0 40px rgba(232,101,10,0.1), inset 0 0 30px rgba(232,101,10,0.04);
+        }
+        .glow-card::before {
+          content: "";
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(232,101,10,0.8), transparent);
+          transform: translateX(-100%);
+          animation: glowSweep 3s ease-in-out infinite;
+        }
+        .glow-card:nth-child(2)::before { animation-delay: -0.5s; }
+        .glow-card:nth-child(3)::before { animation-delay: -1s; }
+        .glow-card:nth-child(4)::before { animation-delay: -1.5s; }
+        .glow-card:nth-child(5)::before { animation-delay: -2s; }
+        .glow-card:nth-child(6)::before { animation-delay: -2.5s; }
+        .why-num {
+          font-family: var(--font-cormorant);
+          font-size: 3rem;
+          font-weight: 300;
+          color: rgba(232,101,10,0.2);
+          line-height: 1;
+          margin-bottom: 1.5rem;
+          animation: numPulse 3s ease-in-out infinite;
+        }
+        .glow-card:nth-child(2) .why-num { animation-delay: -0.5s; }
+        .glow-card:nth-child(3) .why-num { animation-delay: -1s; }
+        .glow-card:nth-child(4) .why-num { animation-delay: -1.5s; }
+        .glow-card:nth-child(5) .why-num { animation-delay: -2s; }
+        .glow-card:nth-child(6) .why-num { animation-delay: -2.5s; }
       `}</style>
     </section>
   );
