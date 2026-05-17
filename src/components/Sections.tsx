@@ -399,6 +399,41 @@ export function Reviews() {
 }
 
 
+const gallery = [
+  { src: "/gallery/photo-1.jpg", span: true },
+  { src: "/gallery/photo-2.jpg", span: false },
+  { src: "/gallery/photo-3.jpg", span: false },
+  { src: "/gallery/photo-4.jpg", span: false },
+  { src: "/gallery/photo-5.jpg", span: false },
+  { src: "/gallery/photo-6.jpg", span: true },
+  { src: "/gallery/photo-7.jpg", span: false },
+  { src: "/gallery/photo-8.jpg", span: false },
+  { src: "/gallery/photo-9.jpg", span: false },
+  { src: "/gallery/photo-10.jpg", span: false },
+  { src: "/gallery/photo-11.jpg", span: true },
+  { src: "/gallery/photo-12.jpg", span: false },
+  { src: "/gallery/photo-13.jpg", span: false },
+  { src: "/gallery/photo-14.jpg", span: false },
+  { src: "/gallery/photo-15.jpg", span: false },
+  { src: "/gallery/photo-16.jpg", span: true },
+  { src: "/gallery/photo-17.jpg", span: false },
+  { src: "/gallery/photo-18.jpg", span: false },
+  { src: "/gallery/photo-19.jpg", span: false },
+  { src: "/gallery/photo-20.jpg", span: false },
+  { src: "/gallery/photo-21.jpg", span: true },
+  { src: "/gallery/photo-22.jpg", span: false },
+  { src: "/gallery/photo-23.jpg", span: false },
+  { src: "/gallery/photo-24.jpg", span: false },
+  { src: "/gallery/photo-25.jpg", span: false },
+  { src: "/gallery/photo-26.jpg", span: true },
+  { src: "/gallery/photo-27.jpg", span: false },
+  { src: "/gallery/photo-28.jpg", span: false },
+  { src: "/gallery/photo-29.jpg", span: false },
+  { src: "/gallery/photo-30.jpg", span: false },
+  { src: "/gallery/photo-31.jpg", span: true },
+  { src: "/gallery/photo-32.jpg", span: false },
+];
+
 export function Gallery() {
   return (
     <section id="galerie" style={{ background: "var(--carbon)" }}>
