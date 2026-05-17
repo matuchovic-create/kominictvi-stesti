@@ -311,7 +311,7 @@ export default function ChimneyBot() {
       // Urgency detection
       const urgencyWords: {[key: string]: number} = {
         "požár": 10, "hoří": 10, "oheň": 10, "kouř": 8, "kouří": 8,
-        "zápach": 7, "smrad": 7, "praskání": 7, "praskání": 7,
+        "zápach": 7, "smrad": 7, "praskání": 7, "praskání v komíně": 7,
         "trhlina": 7, "prasklina": 7, "ucpaný": 6, "ucpán": 6,
         "nefunguje": 5, "problém": 4, "divný": 4,
       };
