@@ -1,5 +1,4 @@
 "use client";
-import Clover from "@/components/Clover";
 import { useEffect, useState } from "react";
 
 export default function Navbar() {
@@ -63,13 +62,13 @@ export default function Navbar() {
               alignItems: "center",
               gap: "1.2rem",
             }}>
-              <span style={{color:"#FF8C42", fontSize:"0.5rem"}}>✦</span>
+              <span style={{color:"#FF8C42"}}>✦</span>
               Vaše recenze na Google nám pomáhají růst — děkujeme za každou hvězdičku
-              <span style={{color:"#FF8C42", fontSize:"0.5rem"}}>✦</span>
-              Certifikovaný servis · Praha, Liberec & okolí
-              <span style={{color:"#FF8C42", fontSize:"0.5rem"}}>✦</span>
+              <span style={{color:"#FF8C42"}}>✦</span>
+              Certifikovaný servis · Praha, Liberec {"&"} okolí
+              <span style={{color:"#FF8C42"}}>✦</span>
               +420 778 098 717
-              <span style={{color:"#FF8C42", fontSize:"0.5rem"}}>✦</span>
+              <span style={{color:"#FF8C42"}}>✦</span>
               5★ hodnocení · 800+ spokojených zákazníků
               &nbsp;&nbsp;&nbsp;&nbsp;
             </span>
@@ -77,11 +76,8 @@ export default function Navbar() {
         </div>
       </div>
 
-  </div>
-  </div>
-
       <nav style={{
-        position: "fixed", top: "34px", left: 0, right: 0, zIndex: 1000,,
+        position: "fixed", top: "34px", left: 0, right: 0, zIndex: 1000,
         padding: scrolled ? "0.9rem 1.5rem" : "1.4rem 1.5rem",
         display: "flex", justifyContent: "space-between", alignItems: "center",
         transition: "all 0.5s cubic-bezier(0.16,1,0.3,1)",
@@ -93,7 +89,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#hero" style={{ textDecoration: "none", display: "flex", flexDirection: "column", gap: "2px", zIndex: 1001 }}>
           <span style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.1rem", fontWeight: 400, letterSpacing: "0.2em", color: "var(--text-primary)", lineHeight: 1 }}>
-            KOMINICTVÍ <span style={{ color: "var(--ember)", animation: "stestiGlow 3s ease-in-out infinite", display: "inline-block" }}>ŠTĚSTÍ</span><Clover />
+            KOMINICTVÍ <span style={{ color: "var(--ember)" }}>ŠTĚSTÍ</span><span style={{ display: "inline-block", marginLeft: "6px", verticalAlign: "middle" }}><svg width="36" height="36" viewBox="0 0 80 80" style={{ display: "block", animation: "cloverWow 3s ease-in-out infinite, cloverGlow 2s ease-in-out infinite", transformOrigin: "40px 40px" }}><defs><radialGradient id="nl1" cx="35%" cy="35%" r="75%"><stop offset="0%" stopColor="#bbf7d0"/><stop offset="35%" stopColor="#4ade80"/><stop offset="70%" stopColor="#16a34a"/><stop offset="100%" stopColor="#14532d"/></radialGradient><radialGradient id="nl2" cx="65%" cy="35%" r="75%"><stop offset="0%" stopColor="#86efac"/><stop offset="35%" stopColor="#22c55e"/><stop offset="70%" stopColor="#15803d"/><stop offset="100%" stopColor="#14532d"/></radialGradient><radialGradient id="nl3" cx="35%" cy="65%" r="75%"><stop offset="0%" stopColor="#86efac"/><stop offset="35%" stopColor="#22c55e"/><stop offset="70%" stopColor="#166534"/><stop offset="100%" stopColor="#052e16"/></radialGradient><radialGradient id="nl4" cx="65%" cy="65%" r="75%"><stop offset="0%" stopColor="#bbf7d0"/><stop offset="35%" stopColor="#4ade80"/><stop offset="70%" stopColor="#16a34a"/><stop offset="100%" stopColor="#052e16"/></radialGradient><radialGradient id="nc" cx="35%" cy="35%" r="80%"><stop offset="0%" stopColor="#86efac"/><stop offset="100%" stopColor="#14532d"/></radialGradient></defs><g transform="translate(40,40) rotate(-45)"><path d="M0,0 C1,-2 2,-12 0,-16 C-3,-20 -10,-19 -14,-15 C-17,-12 -16,-6 -12,-3 C-9,-1 3,2 0,0 Z" fill="url(#nl1)"/><path d="M0,0 C-2,-3 -7,-9 -11,-13" stroke="#166534" strokeWidth="0.4" fill="none" opacity="0.6"/></g><g transform="translate(40,40) rotate(45)"><path d="M0,0 C1,-2 2,-12 0,-16 C-3,-20 -10,-19 -14,-15 C-17,-12 -16,-6 -12,-3 C-9,-1 3,2 0,0 Z" fill="url(#nl2)"/><path d="M0,0 C-2,-3 -7,-9 -11,-13" stroke="#166534" strokeWidth="0.4" fill="none" opacity="0.6"/></g><g transform="translate(40,40) rotate(-135)"><path d="M0,0 C1,-2 2,-12 0,-16 C-3,-20 -10,-19 -14,-15 C-17,-12 -16,-6 -12,-3 C-9,-1 3,2 0,0 Z" fill="url(#nl3)"/><path d="M0,0 C-2,-3 -7,-9 -11,-13" stroke="#166634" strokeWidth="0.4" fill="none" opacity="0.6"/></g><g transform="translate(40,40) rotate(135)"><path d="M0,0 C1,-2 2,-12 0,-16 C-3,-20 -10,-19 -14,-15 C-17,-12 -16,-6 -12,-3 C-9,-1 3,2 0,0 Z" fill="url(#nl4)"/><path d="M0,0 C-2,-3 -7,-9 -11,-13" stroke="#166534" strokeWidth="0.4" fill="none" opacity="0.6"/></g><circle cx="40" cy="40" r="4" fill="#052e16"/><circle cx="40" cy="40" r="2.5" fill="url(#nc)"/><circle cx="39" cy="39" r="1" fill="#bbf7d0" opacity="0.9"/></svg></span>
           </span>
           <span style={{ fontFamily: "var(--font-ui)", fontSize: "0.5rem", letterSpacing: "0.4em", color: "var(--text-muted)", textTransform: "uppercase" }}>
             Tomáš Baran
@@ -112,6 +108,16 @@ export default function Navbar() {
         {/* Desktop CTA — hidden on mobile */}
         {!isMobile && (
           <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+            <a href="tel:+420778098717"
+              style={{ fontFamily: "var(--font-ui)", fontSize: "0.75rem", color: "var(--text-secondary)", textDecoration: "none", letterSpacing: "0.05em", transition: "color 0.3s" }}
+              onMouseOver={e => (e.target as HTMLElement).style.color = "var(--text-primary)"}
+              onMouseOut={e => (e.target as HTMLElement).style.color = "var(--text-secondary)"}
+            >
+              +420 778 098 717
+            </a>
+            <a href="#kontakt" className="btn-primary" style={{ padding: "0.6rem 1.4rem", fontSize: "0.6rem" }}>
+              <span>Objednat</span>
+            </a>
           </div>
         )}
 
@@ -205,6 +211,9 @@ export default function Navbar() {
             transform: menuOpen ? "translateY(0)" : "translateY(12px)",
             transition: "opacity 0.45s 0.38s ease, transform 0.45s 0.38s cubic-bezier(0.16,1,0.3,1)",
           }}>
+            <a href="tel:+420778098717" style={{ display: "block", fontFamily: "var(--font-cormorant)", fontSize: "1.7rem", fontWeight: 400, color: "var(--ember)", textDecoration: "none", marginBottom: "0.3rem" }}>
+              +420 778 098 717
+            </a>
             <div style={{ fontFamily: "var(--font-ui)", fontSize: "0.62rem", color: "var(--text-muted)", letterSpacing: "0.2em", marginBottom: "1.5rem" }}>
               Mladá Boleslav — Po–Pá 7:00–18:00
             </div>
