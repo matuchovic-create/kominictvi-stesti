@@ -255,18 +255,17 @@ export default function ChimneyBot() {
     setMood("thinking");
     setStreamingText("");
     try {
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
+      const groqMsgs = [
+        { role: "system", content: SYSTEM_PROMPT },
+        ...[...messages, userMsg].map(m=>({role:m.role,content:m.content}))
+      ];
+      const res = await fetch("/api/chat", {
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({
-          model:"claude-sonnet-4-20250514",
-          max_tokens:300,
-          system: SYSTEM_PROMPT,
-          messages:[...messages, userMsg].map(m=>({role:m.role,content:m.content})),
-        }),
+        body: JSON.stringify({ messages: groqMsgs }),
       });
       const data = await res.json();
-      const reply = data.content?.[0]?.text || "Omlouvám se, zkuste to prosím znovu.";
+      const reply = data.text || "Omlouvám se, zkuste to prosím znovu.";
       setLoading(false);
       if (isThank) { setMood("dancing"); setTimeout(() => setMood("happy"), 3000); }
       else setMood("happy");
