@@ -101,6 +101,11 @@ export default function Dashboard() {
   const maxH = Math.max(...stats.hourly, 1);
 
   const css = `
+    * { cursor: default; }
+    button, a, [role="button"] { cursor: pointer; }
+    input, textarea { cursor: text; }
+    .inp { cursor: text; }
+    .btn-p, .nav-btn, .lnk { cursor: pointer; }
     @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
     @keyframes shimmer{0%{left:-100%}100%{left:200%}}
