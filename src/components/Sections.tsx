@@ -322,7 +322,7 @@ export function Reviews() {
   }, []);
 
   return (
-    <section id="reference" style={{ background: "var(--carbon)", padding: "9rem clamp(1.5rem,5vw,5rem)", position: "relative", overflow: "hidden" }}>
+    <section id="reference" style={{ background: "#000", padding: "9rem clamp(1.5rem,5vw,5rem)", position: "relative", overflow: "hidden" }}>
       <canvas ref={canvasRef} style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }} />
       <style>{`
         .rev-card {
