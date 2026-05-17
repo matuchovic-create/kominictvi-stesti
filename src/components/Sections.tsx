@@ -247,6 +247,15 @@ export function Steps() {
 }
 
 
+const reviews = [
+  { text: 'Absolutne perfektni servis.', author: 'Martin K.', location: 'Mlada Boleslav' },
+  { text: 'Vyuzivame Kominictvi Stesti treti rok.', author: 'Jana N.', location: 'Liberec' },
+  { text: 'Urgentni vyjezd po nalezu trhlin.', author: 'Tomas B.', location: 'Mnichovo Hradiste' },
+  { text: 'Konecne kominik ktery prijde presne.', author: 'Petra H.', location: 'Mlada Boleslav' },
+  { text: 'Vlozkovani kominu na jednicku.', author: 'Radek M.', location: 'Nymburk' },
+  { text: 'Pravidelny servis pro nas penzion.', author: 'Miroslav S.', location: 'Jicin' },
+];
+
 export function Reviews() {
   return (
     <section id="reference" style={{ background: "var(--carbon)", padding: "9rem clamp(1.5rem,5vw,5rem)" }}>
