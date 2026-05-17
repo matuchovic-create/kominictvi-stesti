@@ -326,9 +326,7 @@ export default function ChimneyBot() {
       // Po prvni zprave zakaznika pridej zadost o kontakt
       const userMsgs = messages.filter(m => m.role === "user");
       if (userMsgs.length === 0) {
-        reply += "
-
-📞 Abych vám mohl Tomáš zavolat zpět, napište prosím vaše **jméno a telefon**.";
+        reply += " Abych vam mohl Tomas zavolat zpet, napiste prosim vase jmeno a telefon.";
       }
       
       // Urgency detection
