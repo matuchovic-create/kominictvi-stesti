@@ -48,7 +48,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#hero" style={{ textDecoration: "none", display: "flex", flexDirection: "column", gap: "2px", zIndex: 1001 }}>
           <span style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.1rem", fontWeight: 400, letterSpacing: "0.2em", color: "var(--text-primary)", lineHeight: 1 }}>
-            KOMINICTVÍ <span style={{ color: "var(--ember)" }}>ŠTĚSTÍ</span><Clover />
+            KOMINICTVÍ <span style={{ color: "var(--ember)", animation: "stestiGlow 3s ease-in-out infinite", display: "inline-block" }}>ŠTĚSTÍ</span><Clover />
           </span>
           <span style={{ fontFamily: "var(--font-ui)", fontSize: "0.5rem", letterSpacing: "0.4em", color: "var(--text-muted)", textTransform: "uppercase" }}>
             Tomáš Baran

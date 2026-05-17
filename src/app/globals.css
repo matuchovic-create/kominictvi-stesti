@@ -568,3 +568,21 @@ html, body {
   50% { transform: skewX(1deg) scaleY(1.04); filter: drop-shadow(0 0 18px rgba(255,120,0,1)) drop-shadow(0 0 40px rgba(255,80,0,0.8)) drop-shadow(0 0 70px rgba(255,200,0,0.3)); }
   85% { transform: skewX(0.5deg) scaleY(0.99); filter: drop-shadow(0 0 20px rgba(255,140,0,1)) drop-shadow(0 0 45px rgba(255,100,0,0.7)); }
 }
+
+@keyframes stestiGlow {
+  0%,100% { 
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(232,101,10,0.6), 0 0 20px rgba(232,101,10,0.3);
+    color: #E8650A;
+  }
+  40% { 
+    opacity: 0.55;
+    text-shadow: none;
+    color: #c45a08;
+  }
+  55% { 
+    opacity: 1;
+    text-shadow: 0 0 16px rgba(232,101,10,1), 0 0 40px rgba(232,101,10,0.6), 0 0 80px rgba(232,101,10,0.3);
+    color: #FF8C42;
+  }
+}

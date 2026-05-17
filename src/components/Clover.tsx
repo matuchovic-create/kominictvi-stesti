@@ -5,26 +5,26 @@ export default function Clover() {
         <radialGradient id="lg1" cx="38%" cy="32%" r="65%">
           <stop offset="0%" stopColor="#6ee7b7"/>
           <stop offset="45%" stopColor="#10b981"/>
-          <stop offset="100%" stopColor="#064e3b"/>
+          <stop offset="100%" stopColor="#16a34a"/>
         </radialGradient>
         <radialGradient id="lg2" cx="62%" cy="32%" r="65%">
           <stop offset="0%" stopColor="#34d399"/>
           <stop offset="45%" stopColor="#059669"/>
-          <stop offset="100%" stopColor="#064e3b"/>
+          <stop offset="100%" stopColor="#16a34a"/>
         </radialGradient>
         <radialGradient id="lg3" cx="38%" cy="68%" r="65%">
           <stop offset="0%" stopColor="#34d399"/>
           <stop offset="45%" stopColor="#059669"/>
-          <stop offset="100%" stopColor="#022c22"/>
+          <stop offset="100%" stopColor="#15803d"/>
         </radialGradient>
         <radialGradient id="lg4" cx="62%" cy="68%" r="65%">
           <stop offset="0%" stopColor="#6ee7b7"/>
           <stop offset="45%" stopColor="#10b981"/>
-          <stop offset="100%" stopColor="#022c22"/>
+          <stop offset="100%" stopColor="#15803d"/>
         </radialGradient>
         <radialGradient id="cgr" cx="40%" cy="35%" r="75%">
           <stop offset="0%" stopColor="#6ee7b7"/>
-          <stop offset="100%" stopColor="#064e3b"/>
+          <stop offset="100%" stopColor="#16a34a"/>
         </radialGradient>
       </defs>
 
@@ -57,7 +57,7 @@ export default function Clover() {
       <circle cx="10" cy="51" r="2.8" fill="#a7f3d0" opacity="0.65"/>
 
       {/* Střed */}
-      <circle cx="50" cy="50" r="8" fill="#052e16"/>
+      <circle cx="50" cy="50" r="8" fill="#14532d"/>
       <circle cx="50" cy="50" r="5" fill="url(#cgr)"/>
       <circle cx="48" cy="48" r="2" fill="#bbf7d0" opacity="0.85"/>
     </svg>
