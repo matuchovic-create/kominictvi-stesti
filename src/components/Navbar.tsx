@@ -37,7 +37,7 @@ export default function Navbar() {
     <>
   {/* Ticker bar above navbar */}
   <div style={{
-    background: 'rgba(232,101,10,0.12)',
+    background: 'rgba(232,101,10,0.12)', position: 'fixed' as const, top: 0, left: 0, right: 0, zIndex: 1001,
     borderBottom: '1px solid rgba(232,101,10,0.25)',
     overflow: 'hidden',
     height: '32px',
@@ -66,7 +66,7 @@ export default function Navbar() {
 
   {/* Ticker bar above navbar */}
   <div style={{
-    background: 'rgba(232,101,10,0.12)',
+    background: 'rgba(232,101,10,0.12)', position: 'fixed' as const, top: 0, left: 0, right: 0, zIndex: 1001,
     borderBottom: '1px solid rgba(232,101,10,0.25)',
     overflow: 'hidden',
     height: '32px',
@@ -94,7 +94,7 @@ export default function Navbar() {
   </div>
 
       <nav style={{
-        position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
+        position: "fixed", top: '32px', left: 0, right: 0, zIndex: 1000,
         padding: scrolled ? "0.9rem 1.5rem" : "1.4rem 1.5rem",
         display: "flex", justifyContent: "space-between", alignItems: "center",
         transition: "all 0.5s cubic-bezier(0.16,1,0.3,1)",
