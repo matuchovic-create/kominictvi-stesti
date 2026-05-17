@@ -35,6 +35,64 @@ export default function Navbar() {
 
   return (
     <>
+  {/* Ticker bar above navbar */}
+  <div style={{
+    background: 'rgba(232,101,10,0.12)',
+    borderBottom: '1px solid rgba(232,101,10,0.25)',
+    overflow: 'hidden',
+    height: '32px',
+    display: 'flex',
+    alignItems: 'center',
+  }}>
+    <div style={{
+      display: 'flex',
+      animation: 'tickerScroll 25s linear infinite',
+      whiteSpace: 'nowrap',
+    }}>
+      {[0,1,2].map((_, i) => (
+        <span key={i} style={{
+          fontFamily: 'var(--font-ui)',
+          fontSize: '0.58rem',
+          letterSpacing: '0.25em',
+          color: 'rgba(232,101,10,0.85)',
+          textTransform: 'uppercase',
+          paddingRight: '6rem',
+        }}>
+          ★ &nbsp; Vaše recenze na Google nám pomáhají růst — děkujeme za každou hvězdičku &nbsp; ✦ &nbsp; Certifikovaný servis · Praha, Liberec & okolí &nbsp; ✦ &nbsp; Zavolejte nám: +420 778 098 717 &nbsp; ✦ &nbsp; 5★ hodnocení · 800+ spokojených zákazníků &nbsp;
+        </span>
+      ))}
+    </div>
+  </div>
+
+  {/* Ticker bar above navbar */}
+  <div style={{
+    background: 'rgba(232,101,10,0.12)',
+    borderBottom: '1px solid rgba(232,101,10,0.25)',
+    overflow: 'hidden',
+    height: '32px',
+    display: 'flex',
+    alignItems: 'center',
+  }}>
+    <div style={{
+      display: 'flex',
+      animation: 'tickerScroll 25s linear infinite',
+      whiteSpace: 'nowrap',
+    }}>
+      {[0,1,2].map((_, i) => (
+        <span key={i} style={{
+          fontFamily: 'var(--font-ui)',
+          fontSize: '0.58rem',
+          letterSpacing: '0.25em',
+          color: 'rgba(232,101,10,0.85)',
+          textTransform: 'uppercase',
+          paddingRight: '6rem',
+        }}>
+          ★ &nbsp; Vaše recenze na Google nám pomáhají růst — děkujeme za každou hvězdičku &nbsp; ✦ &nbsp; Certifikovaný servis · Praha, Liberec & okolí &nbsp; ✦ &nbsp; Zavolejte nám: +420 778 098 717 &nbsp; ✦ &nbsp; 5★ hodnocení · 800+ spokojených zákazníků &nbsp;
+        </span>
+      ))}
+    </div>
+  </div>
+
       <nav style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
         padding: scrolled ? "0.9rem 1.5rem" : "1.4rem 1.5rem",

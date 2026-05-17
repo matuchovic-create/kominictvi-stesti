@@ -586,3 +586,13 @@ html, body {
     color: #FF8C42;
   }
 }
+
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
