@@ -1,65 +1,91 @@
 export default function Clover() {
   return (
-    <svg width="22" height="22" viewBox="0 0 100 100" style={{ display: "inline-block", verticalAlign: "middle", marginLeft: "5px" }}>
+    <svg width="56" height="56" viewBox="200 80 280 260" style={{ display: "inline-block", verticalAlign: "middle", marginLeft: "6px" }}>
       <defs>
-        <radialGradient id="lg1" cx="38%" cy="32%" r="65%">
-          <stop offset="0%" stopColor="#6ee7b7"/>
-          <stop offset="45%" stopColor="#10b981"/>
-          <stop offset="100%" stopColor="#16a34a"/>
+        <radialGradient id="cl1g" cx="35%" cy="35%" r="75%">
+          <stop offset="0%" stopColor="#bbf7d0"/>
+          <stop offset="35%" stopColor="#4ade80"/>
+          <stop offset="70%" stopColor="#16a34a"/>
+          <stop offset="100%" stopColor="#166534"/>
         </radialGradient>
-        <radialGradient id="lg2" cx="62%" cy="32%" r="65%">
-          <stop offset="0%" stopColor="#34d399"/>
-          <stop offset="45%" stopColor="#059669"/>
-          <stop offset="100%" stopColor="#16a34a"/>
+        <radialGradient id="cl2g" cx="65%" cy="35%" r="75%">
+          <stop offset="0%" stopColor="#86efac"/>
+          <stop offset="35%" stopColor="#22c55e"/>
+          <stop offset="70%" stopColor="#15803d"/>
+          <stop offset="100%" stopColor="#166534"/>
         </radialGradient>
-        <radialGradient id="lg3" cx="38%" cy="68%" r="65%">
-          <stop offset="0%" stopColor="#34d399"/>
-          <stop offset="45%" stopColor="#059669"/>
+        <radialGradient id="cl3g" cx="35%" cy="65%" r="75%">
+          <stop offset="0%" stopColor="#86efac"/>
+          <stop offset="35%" stopColor="#22c55e"/>
+          <stop offset="70%" stopColor="#15803d"/>
           <stop offset="100%" stopColor="#15803d"/>
         </radialGradient>
-        <radialGradient id="lg4" cx="62%" cy="68%" r="65%">
-          <stop offset="0%" stopColor="#6ee7b7"/>
-          <stop offset="45%" stopColor="#10b981"/>
+        <radialGradient id="cl4g" cx="65%" cy="65%" r="75%">
+          <stop offset="0%" stopColor="#bbf7d0"/>
+          <stop offset="35%" stopColor="#4ade80"/>
+          <stop offset="70%" stopColor="#16a34a"/>
           <stop offset="100%" stopColor="#15803d"/>
         </radialGradient>
-        <radialGradient id="cgr" cx="40%" cy="35%" r="75%">
-          <stop offset="0%" stopColor="#6ee7b7"/>
-          <stop offset="100%" stopColor="#16a34a"/>
+        <radialGradient id="clcg" cx="35%" cy="35%" r="80%">
+          <stop offset="0%" stopColor="#86efac"/>
+          <stop offset="100%" stopColor="#166534"/>
         </radialGradient>
       </defs>
 
-      {/* Lístek nahoře */}
-      <circle cx="50" cy="28" r="22" fill="url(#lg1)"/>
-      <path d="M50,50 Q44,38 46,22" stroke="#064e3b" strokeWidth="0.9" fill="none" opacity="0.45"/>
-      <path d="M46,34 Q40,32 36,27" stroke="#064e3b" strokeWidth="0.6" fill="none" opacity="0.3"/>
-      <ellipse cx="43" cy="20" rx="7" ry="4" fill="#a7f3d0" opacity="0.3" transform="rotate(-25 43 20)"/>
-      <circle cx="52" cy="10" r="2.8" fill="#a7f3d0" opacity="0.65"/>
+      {/* Lístek vlevo nahoře */}
+      <g transform="translate(340,200) rotate(-45)">
+        <path d="M0,0 C4,-8 10,-52 -2,-68 C-14,-84 -44,-82 -58,-66 C-72,-50 -68,-24 -52,-12 C-38,-2 14,8 0,0 Z" fill="url(#cl1g)"/>
+        <path d="M0,0 C-10,-14 -28,-36 -48,-54" stroke="#166534" strokeWidth="1.6" fill="none" opacity="0.55"/>
+        <path d="M-12,-16 C-22,-22 -30,-24 -36,-22" stroke="#166534" strokeWidth="0.9" fill="none" opacity="0.4"/>
+        <path d="M-20,-28 C-30,-32 -38,-33 -44,-30" stroke="#166534" strokeWidth="0.9" fill="none" opacity="0.4"/>
+        <path d="M-30,-42 C-38,-44 -44,-44 -48,-40" stroke="#166534" strokeWidth="0.9" fill="none" opacity="0.4"/>
+        <ellipse cx="-22" cy="-28" rx="14" ry="9" fill="#d1fae5" transform="rotate(-10 -22 -28)" opacity="0.4"/>
+        <circle cx="-42" cy="-50" r="4.2" fill="#86efac" opacity="0.7"/>
+        <circle cx="-41" cy="-51" r="1.6" fill="white" opacity="0.85"/>
+      </g>
 
-      {/* Lístek vpravo */}
-      <circle cx="72" cy="50" r="22" fill="url(#lg2)"/>
-      <path d="M50,50 Q62,44 78,46" stroke="#064e3b" strokeWidth="0.9" fill="none" opacity="0.45"/>
-      <path d="M66,46 Q68,40 72,36" stroke="#064e3b" strokeWidth="0.6" fill="none" opacity="0.3"/>
-      <ellipse cx="80" cy="43" rx="7" ry="4" fill="#a7f3d0" opacity="0.3" transform="rotate(65 80 43)"/>
-      <circle cx="90" cy="51" r="2.5" fill="#a7f3d0" opacity="0.6"/>
+      {/* Lístek vpravo nahoře */}
+      <g transform="translate(340,200) rotate(45)">
+        <path d="M0,0 C4,-8 10,-52 -2,-68 C-14,-84 -44,-82 -58,-66 C-72,-50 -68,-24 -52,-12 C-38,-2 14,8 0,0 Z" fill="url(#cl2g)"/>
+        <path d="M0,0 C-10,-14 -28,-36 -48,-54" stroke="#166534" strokeWidth="1.6" fill="none" opacity="0.55"/>
+        <path d="M-12,-16 C-22,-22 -30,-24 -36,-22" stroke="#166534" strokeWidth="0.9" fill="none" opacity="0.4"/>
+        <path d="M-20,-28 C-30,-32 -38,-33 -44,-30" stroke="#166534" strokeWidth="0.9" fill="none" opacity="0.4"/>
+        <path d="M-30,-42 C-38,-44 -44,-44 -48,-40" stroke="#166534" strokeWidth="0.9" fill="none" opacity="0.4"/>
+        <ellipse cx="-22" cy="-28" rx="14" ry="9" fill="#d1fae5" transform="rotate(-10 -22 -28)" opacity="0.45"/>
+        <circle cx="-38" cy="-56" r="3.8" fill="#4ade80" opacity="0.65"/>
+        <circle cx="-37" cy="-57" r="1.4" fill="white" opacity="0.85"/>
+      </g>
 
-      {/* Lístek dole */}
-      <circle cx="50" cy="72" r="22" fill="url(#lg3)"/>
-      <path d="M50,50 Q44,62 46,78" stroke="#064e3b" strokeWidth="0.9" fill="none" opacity="0.45"/>
-      <path d="M46,66 Q40,68 36,73" stroke="#064e3b" strokeWidth="0.6" fill="none" opacity="0.3"/>
-      <ellipse cx="43" cy="80" rx="7" ry="4" fill="#a7f3d0" opacity="0.3" transform="rotate(25 43 80)"/>
-      <circle cx="51" cy="90" r="2.5" fill="#a7f3d0" opacity="0.6"/>
+      {/* Lístek vlevo dole */}
+      <g transform="translate(340,200) rotate(-135)">
+        <path d="M0,0 C4,-8 10,-52 -2,-68 C-14,-84 -44,-82 -58,-66 C-72,-50 -68,-24 -52,-12 C-38,-2 14,8 0,0 Z" fill="url(#cl3g)"/>
+        <path d="M0,0 C-10,-14 -28,-36 -48,-54" stroke="#166534" strokeWidth="1.6" fill="none" opacity="0.55"/>
+        <path d="M-12,-16 C-22,-22 -30,-24 -36,-22" stroke="#166534" strokeWidth="0.9" fill="none" opacity="0.4"/>
+        <path d="M-20,-28 C-30,-32 -38,-33 -44,-30" stroke="#166534" strokeWidth="0.9" fill="none" opacity="0.4"/>
+        <path d="M-30,-42 C-38,-44 -44,-44 -48,-40" stroke="#166534" strokeWidth="0.9" fill="none" opacity="0.4"/>
+        <ellipse cx="-22" cy="-28" rx="14" ry="9" fill="#d1fae5" transform="rotate(-10 -22 -28)" opacity="0.26"/>
+        <circle cx="-44" cy="-48" r="3.5" fill="#22c55e" opacity="0.6"/>
+        <circle cx="-43" cy="-49" r="1.3" fill="white" opacity="0.85"/>
+      </g>
 
-      {/* Lístek vlevo */}
-      <circle cx="28" cy="50" r="22" fill="url(#lg4)"/>
-      <path d="M50,50 Q38,44 22,46" stroke="#064e3b" strokeWidth="0.9" fill="none" opacity="0.45"/>
-      <path d="M34,46 Q32,40 28,36" stroke="#064e3b" strokeWidth="0.6" fill="none" opacity="0.3"/>
-      <ellipse cx="20" cy="43" rx="7" ry="4" fill="#a7f3d0" opacity="0.3" transform="rotate(-65 20 43)"/>
-      <circle cx="10" cy="51" r="2.8" fill="#a7f3d0" opacity="0.65"/>
+      {/* Lístek vpravo dole */}
+      <g transform="translate(340,200) rotate(135)">
+        <path d="M0,0 C4,-8 10,-52 -2,-68 C-14,-84 -44,-82 -58,-66 C-72,-50 -68,-24 -52,-12 C-38,-2 14,8 0,0 Z" fill="url(#cl4g)"/>
+        <path d="M0,0 C-10,-14 -28,-36 -48,-54" stroke="#166534" strokeWidth="1.6" fill="none" opacity="0.55"/>
+        <path d="M-12,-16 C-22,-22 -30,-24 -36,-22" stroke="#166534" strokeWidth="0.9" fill="none" opacity="0.4"/>
+        <path d="M-20,-28 C-30,-32 -38,-33 -44,-30" stroke="#166534" strokeWidth="0.9" fill="none" opacity="0.4"/>
+        <path d="M-30,-42 C-38,-44 -44,-44 -48,-40" stroke="#166534" strokeWidth="0.9" fill="none" opacity="0.4"/>
+        <ellipse cx="-22" cy="-28" rx="14" ry="9" fill="#d1fae5" transform="rotate(-10 -22 -28)" opacity="0.2"/>
+        <circle cx="-40" cy="-52" r="4" fill="#86efac" opacity="0.65"/>
+        <circle cx="-39" cy="-53" r="1.5" fill="white" opacity="0.85"/>
+      </g>
 
       {/* Střed */}
-      <circle cx="50" cy="50" r="8" fill="#14532d"/>
-      <circle cx="50" cy="50" r="5" fill="url(#cgr)"/>
-      <circle cx="48" cy="48" r="2" fill="#bbf7d0" opacity="0.85"/>
+      <circle cx="340" cy="200" r="17" fill="#14532d"/>
+      <circle cx="340" cy="200" r="11" fill="url(#clcg)"/>
+      <circle cx="340" cy="200" r="6" fill="#4ade80"/>
+      <circle cx="337" cy="197" r="2.8" fill="#bbf7d0" opacity="0.9"/>
+      <circle cx="343" cy="204" r="1.6" fill="#86efac" opacity="0.5"/>
     </svg>
   );
 }
