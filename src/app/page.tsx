@@ -35,6 +35,7 @@ export default function Home() {
         <Contact />
         <MapSection />
       </main>
+      <ChimneyBot />
       <Footer />
     </>
   );
