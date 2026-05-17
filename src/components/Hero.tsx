@@ -42,7 +42,7 @@ export default function Hero() {
             letterSpacing: isMobile ? "0.3em" : "0.55em",
             color: "var(--ember)", textTransform: "uppercase",
           }}>
-            {isMobile ? "Certifikovaný servis" : "Certifikovaný servis — Praha & okolí"}
+            {isMobile ? "Certifikovaný servis" : "Certifikovaný servis — Praha, Liberec & okolí"}
           </span>
         </div>
 

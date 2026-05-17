@@ -13,7 +13,7 @@ export default function Contact() {
   const contacts = [
     { label: "Telefon", value: "+420 778 098 717", href: "tel:+420778098717", icon: "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.95 9.61a19.79 19.79 0 0 1-3.07-8.68A2 2 0 0 1 2.86 1h3a2 2 0 0 1 2 1.72A12 12 0 0 0 9.13 6.5a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12 12 0 0 0 2.78.65A2 2 0 0 1 22 16.92Z" },
     { label: "E-mail", value: "Kominicektom@email.cz", href: "mailto:Kominicektom@email.cz", icon: "M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2ZM22 6l-10 7L2 6" },
-    { label: "Oblast", value: "Praha & okolí do 50 km", href: undefined, icon: "M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0ZM12 10a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" },
+    { label: "Oblast", value: "Praha, Liberec & okolí do 50 km", href: undefined, icon: "M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0ZM12 10a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" },
     { label: "Provoz", value: "Po–Pá: 7:00–18:00", href: undefined, icon: "M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM12 6v6l4 2" },
   ];
 
