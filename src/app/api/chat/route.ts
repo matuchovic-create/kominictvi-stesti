@@ -68,5 +68,23 @@ export async function POST(req: NextRequest) {
     }).catch(console.error);
   }
 
+  // SMS notifikace pres Vonage
+  const lastUserMsg2 = [...body.messages].reverse().find((m: any) => m.role === "user");
+  if (lastUserMsg2 && process.env.VONAGE_API_KEY && process.env.VONAGE_API_SECRET && process.env.ADMIN_PHONE) {
+    const urgencyWords = ["kour", "hori", "pozar", "zapach", "praskani", "trhlina", "ucpany", "nefunguje", "kouř", "hoří", "požár", "zápach", "praskání", "trhlina", "ucpaný"];
+    const isUrgent = urgencyWords.some((w: string) => lastUserMsg2.content.toLowerCase().includes(w));
+    const smsText = `${isUrgent ? "URGENTNI! " : ""}Novy dotaz: ${lastUserMsg2.content.slice(0, 100)} | Kominictvi Stesti bot`;
+    
+    const params = new URLSearchParams({
+      api_key: process.env.VONAGE_API_KEY,
+      api_secret: process.env.VONAGE_API_SECRET,
+      to: process.env.ADMIN_PHONE,
+      from: "KomStesti",
+      text: smsText,
+    });
+
+    await fetch(`https://rest.nexmo.com/sms/json?${params.toString()}`).catch(console.error);
+  }
+
   return NextResponse.json({ text });
 }
