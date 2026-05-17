@@ -321,7 +321,15 @@ export default function ChimneyBot() {
         body: JSON.stringify({ messages: groqMsgs }),
       });
       const data = await res.json();
-      const reply = data.text || "Omlouvám se, zkuste to prosím znovu.";
+      let reply = data.text || "Omlouvám se, zkuste to prosím znovu.";
+      
+      // Po prvni zprave zakaznika pridej zadost o kontakt
+      const userMsgs = messages.filter(m => m.role === "user");
+      if (userMsgs.length === 0) {
+        reply += "
+
+📞 Abych vám mohl Tomáš zavolat zpět, napište prosím vaše **jméno a telefon**.";
+      }
       
       // Urgency detection
       const urgencyWords: {[key: string]: number} = {
