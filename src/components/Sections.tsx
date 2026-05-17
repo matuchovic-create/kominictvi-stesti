@@ -258,7 +258,7 @@ const reviews = [
 
 export function Reviews() {
   return (
-    <section id="reference" style={{ background: "var(--carbon)", padding: "9rem clamp(1.5rem,5vw,5rem)", position: "relative", overflow: "hidden" }}>
+    <section id="reference" style={{ background: "var(--carbon)", padding: "9rem clamp(1.5rem,5vw,5rem)", position: "relative", overflow: "hidden", backgroundImage: "url('/chimney-bg.svg')", backgroundSize: "cover", backgroundPosition: "center top" }}>
       <style>{`
         .rev-card {
           background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
