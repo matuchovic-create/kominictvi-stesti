@@ -37,32 +37,205 @@ export function WhyUs() {
   );
 }
 
-export function Steps() {
-  const steps = [
-    { num: "1", title: "Kontaktujte nás", text: "Zavolejte na +420 778 098 717 nebo napište. Tomáš Baran vám poradí a domluvíme vhodný termín výjezdu." },
-    { num: "2", title: "Prohlídka a nabídka", text: "Přijedeme přesně v domluvený čas, prověříme stav komínu a sdělíme jasné doporučení s cenovou nabídkou předem." },
-    { num: "3", title: "Odborné provedení", text: "Provádíme čištění, revize, opravy i instalace s maximální pečlivostí. Po práci vždy dokonale uklidíme." },
-    { num: "4", title: "Dokumentace a klid", text: "Obdržíte kompletní revizní zprávu a dokumentaci dle platných norem. Váš komín je bezpečný na roky dopředu." },
-  ];
+const steps = [
+  { num: "1", title: "Kontaktujte nás", text: "Zavolejte na +420 778 098 717 nebo napište. Tomáš Baran vám poradí a domluvíme vhodný termín výjezdu.", icon: "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" },
+  { num: "2", title: "Prohlídka a nabídka", text: "Přijedeme přesně v domluvený čas, prověříme stav komínu a sdělíme jasné doporučení s cenovou nabídkou předem.", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" },
+  { num: "3", title: "Odborné provedení", text: "Provádíme čištění, revize, opravy i instalace s maximální pečlivostí. Po práci vždy dokonale uklidíme.", icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z" },
+  { num: "4", title: "Dokumentace a klid", text: "Obdržíte kompletní revizní zprávu a dokumentaci dle platných norem. Váš komín je bezpečný na roky dopředu.", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
+];
+
+function StepItem({ step, index, isVisible }: { step: typeof steps[0]; index: number; isVisible: boolean }) {
+  const [hovered, setHovered] = useState(false);
+
   return (
-    <section id="postup" style={{ background: "var(--black)", padding: "9rem clamp(1.5rem,5vw,5rem)" }}>
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        display: "flex", gap: "3rem", paddingBottom: "4rem",
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translateX(0)" : "translateX(-40px)",
+        transition: `opacity 0.7s ${index * 0.2}s ease, transform 0.7s ${index * 0.2}s cubic-bezier(0.16,1,0.3,1)`,
+        cursor: "default",
+      }}
+    >
+      {/* Number bubble */}
+      <div style={{ position: "relative", flexShrink: 0 }}>
+        <div style={{
+          width: 48, height: 48, borderRadius: "50%",
+          border: `1px solid ${hovered ? "rgba(232,101,10,0.9)" : "rgba(232,101,10,0.4)"}`,
+          display: "flex", alignItems: "center", justifyContent: "center",
+          fontFamily: "var(--font-cormorant)", fontSize: "1.1rem", fontWeight: 600,
+          color: "var(--ember)", background: hovered ? "rgba(232,101,10,0.12)" : "var(--black)",
+          zIndex: 1, position: "relative",
+          boxShadow: hovered ? "0 0 20px rgba(232,101,10,0.4), 0 0 40px rgba(232,101,10,0.2)" : "none",
+          transition: "all 0.4s ease",
+        }}>
+          {step.num}
+        </div>
+        {/* Pulse ring on hover */}
+        {hovered && (
+          <div style={{
+            position: "absolute", inset: -8, borderRadius: "50%",
+            border: "1px solid rgba(232,101,10,0.3)",
+            animation: "stepPulse 1s ease-out infinite",
+          }} />
+        )}
+      </div>
+
+      {/* Content */}
+      <div style={{ paddingTop: "0.4rem", flex: 1 }}>
+        <div style={{
+          display: "flex", alignItems: "center", gap: "1rem", marginBottom: "0.8rem",
+        }}>
+          {/* Icon */}
+          <div style={{
+            opacity: hovered ? 1 : 0,
+            transform: hovered ? "scale(1) rotate(0deg)" : "scale(0.5) rotate(-20deg)",
+            transition: "all 0.4s cubic-bezier(0.34,1.56,0.64,1)",
+            filter: "drop-shadow(0 0 6px rgba(232,101,10,0.6))",
+          }}>
+            <svg viewBox="0 0 24 24" style={{ width: 18, height: 18, stroke: "var(--ember)", fill: "none", strokeWidth: 1.5, strokeLinecap: "round", strokeLinejoin: "round" }}>
+              {step.icon.split("M").filter(Boolean).map((d, j) => <path key={j} d={"M" + d} />)}
+            </svg>
+          </div>
+
+          <div style={{
+            fontFamily: "var(--font-cormorant)", fontSize: "1.7rem", fontWeight: 400,
+            color: hovered ? "#fff" : "var(--text-primary)",
+            transition: "color 0.3s ease",
+            textShadow: hovered ? "0 0 30px rgba(232,101,10,0.3)" : "none",
+          }}>
+            {step.title}
+          </div>
+        </div>
+
+        {/* Animated underline */}
+        <div style={{
+          height: 1,
+          background: "linear-gradient(90deg, var(--ember), transparent)",
+          width: hovered ? "100%" : "0%",
+          transition: "width 0.5s cubic-bezier(0.16,1,0.3,1)",
+          marginBottom: "0.9rem",
+        }} />
+
+        <p style={{
+          fontFamily: "var(--font-ui)", fontSize: "0.85rem", lineHeight: 1.9,
+          color: hovered ? "rgba(255,255,255,0.7)" : "var(--text-secondary)",
+          fontWeight: 300, maxWidth: 560,
+          transition: "color 0.3s ease",
+        }}>
+          {step.text}
+        </p>
+
+        {/* Ember sparks on hover */}
+        {hovered && (
+          <div style={{ display: "flex", gap: "0.5rem", marginTop: "1rem" }}>
+            {[...Array(3)].map((_, i) => (
+              <div key={i} style={{
+                width: 4, height: 4, borderRadius: "50%",
+                background: i === 1 ? "#FFD166" : "var(--ember)",
+                animation: `sparkFloat 1.2s ${i * 0.2}s ease-out infinite`,
+                boxShadow: "0 0 6px rgba(232,101,10,0.8)",
+              }} />
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export function Steps() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  const [lineHeight, setLineHeight] = useState(0);
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        setVisible(true);
+        // Animate line growing
+        let h = 0;
+        const target = 85;
+        const tick = () => {
+          h = Math.min(h + 1.2, target);
+          setLineHeight(h);
+          if (h < target) requestAnimationFrame(tick);
+        };
+        setTimeout(() => requestAnimationFrame(tick), 300);
+      }
+    }, { threshold: 0.2 });
+    if (sectionRef.current) obs.observe(sectionRef.current);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <section ref={sectionRef} id="postup" style={{ background: "var(--black)", padding: "9rem clamp(1.5rem,5vw,5rem)", position: "relative", overflow: "hidden" }}>
+      <style>{`
+        @keyframes stepPulse {
+          0% { transform: scale(1); opacity: 0.6; }
+          100% { transform: scale(1.8); opacity: 0; }
+        }
+        @keyframes sparkFloat {
+          0% { transform: translateY(0) scale(1); opacity: 1; }
+          100% { transform: translateY(-16px) scale(0.3); opacity: 0; }
+        }
+        @keyframes lineGlow {
+          0%,100% { box-shadow: 0 0 4px rgba(232,101,10,0.4); }
+          50% { box-shadow: 0 0 12px rgba(232,101,10,0.8), 0 0 24px rgba(232,101,10,0.4); }
+        }
+        @keyframes ambientDrift {
+          0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.04; }
+          50% { transform: translateY(-30px) translateX(15px) scale(1.1); opacity: 0.07; }
+          100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.04; }
+        }
+      `}</style>
+
+      {/* Ambient background blobs */}
+      <div style={{ position: "absolute", left: "60%", top: "20%", width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(232,101,10,1), transparent 70%)", animation: "ambientDrift 8s ease-in-out infinite", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", left: "10%", bottom: "15%", width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(232,101,10,1), transparent 70%)", animation: "ambientDrift 11s 2s ease-in-out infinite", pointerEvents: "none" }} />
+
       <div style={{ maxWidth: 900, margin: "0 auto" }}>
-        <div className="reveal" style={{ marginBottom: "5rem" }}>
+        <div style={{
+          marginBottom: "5rem",
+          opacity: visible ? 1 : 0,
+          transform: visible ? "translateY(0)" : "translateY(30px)",
+          transition: "opacity 0.8s ease, transform 0.8s ease",
+        }}>
           <div className="section-label" style={{ marginBottom: "1.5rem" }}>Postup spolupráce</div>
           <h2 className="display-title" style={{ fontSize: "clamp(2.8rem,5vw,5rem)" }}>
             Jednoduše, rychle<br />a <em>bezpečně</em>
           </h2>
         </div>
+
         <div style={{ position: "relative" }}>
-          <div style={{ position: "absolute", left: 23, top: 0, bottom: "4rem", width: 1, background: "linear-gradient(180deg, var(--ember) 0%, rgba(232,101,10,0.1) 100%)" }} />
+          {/* Animated vertical line */}
+          <div style={{
+            position: "absolute", left: 23, top: 0,
+            width: 1,
+            height: `${lineHeight}%`,
+            background: "linear-gradient(180deg, #FF8C42 0%, rgba(232,101,10,0.6) 60%, rgba(232,101,10,0.1) 100%)",
+            animation: lineHeight > 10 ? "lineGlow 2s ease-in-out infinite" : "none",
+            transition: "height 0.05s linear",
+            zIndex: 0,
+          }} />
+
+          {/* Fire dot at line top */}
+          {lineHeight > 5 && (
+            <div style={{
+              position: "absolute", left: 19, top: `calc(${lineHeight}% - 4px)`,
+              width: 8, height: 8, borderRadius: "50%",
+              background: "#FF8C42",
+              boxShadow: "0 0 8px #FF8C42, 0 0 16px rgba(232,101,10,0.6)",
+              zIndex: 2,
+              transition: "top 0.05s linear",
+            }} />
+          )}
+
           {steps.map((s, i) => (
-            <div key={s.num} className="step-item" style={{ display: "flex", gap: "3rem", paddingBottom: "4rem", transitionDelay: `${i*0.15}s` }}>
-              <div style={{ width: 47, height: 47, minWidth: 47, borderRadius: "50%", border: "1px solid rgba(232,101,10,0.4)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-cormorant)", fontSize: "1rem", fontWeight: 500, color: "var(--ember)", background: "var(--black)", zIndex: 1 }}>{s.num}</div>
-              <div style={{ paddingTop: "0.6rem" }}>
-                <div style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.6rem", fontWeight: 400, color: "var(--text-primary)", marginBottom: "0.8rem" }}>{s.title}</div>
-                <p style={{ fontFamily: "var(--font-ui)", fontSize: "0.82rem", lineHeight: 1.9, color: "var(--text-secondary)", fontWeight: 300 }}>{s.text}</p>
-              </div>
-            </div>
+            <StepItem key={s.num} step={s} index={i} isVisible={visible} />
           ))}
         </div>
       </div>
@@ -70,14 +243,6 @@ export function Steps() {
   );
 }
 
-const reviews = [
-  { text: "Absolutně perfektní servis. Tomáš přijel přesně, pracoval profesionálně a vše po sobě uklidil. Revizní zprávu jsem dostal do druhého dne. Vřele doporučuji!", author: "Martin K.", location: "Mladá Boleslav" },
-  { text: "Využíváme Kominictví Štěstí pro náš rodinný dům již třetím rokem. Vždy spolehliví, vždy kvalitní práce za rozumnou cenu. Naprostá spokojenost.", author: "Jana N.", location: "Liberec" },
-  { text: "Urgentní výjezd po nálezu trhlin v komínu. Tomáš přijel do hodiny a vyřešil vše okamžitě. Díky němu jsem mohl dál bezpečně topit. Skvělý člověk!", author: "Tomáš B.", location: "Mnichovo Hradiště" },
-  { text: "Konečně kominík, který přijde přesně a pracuje precizně. Sousedé se mě ptají, koho doporučit — vždy říkám Kominictví Štěstí. TOP firma.", author: "Petra H.", location: "Mladá Boleslav" },
-  { text: "Vložkování komínu bylo provedeno na jedničku. Skvělá práce, skvělý přístup. Pojišťovna byla nadšena z dokumentace. Moc děkuji za profesionální přístup!", author: "Radek M.", location: "Nymburk" },
-  { text: "Pravidelný servis pro náš penzion. Vždy bez komplikací, vždy dle termínu. Dokumentace na perfektní úrovni. Oceňuji naprostou spolehlivost a poctivost.", author: "Miroslav Š.", location: "Jičín" },
-];
 
 export function Reviews() {
   return (
