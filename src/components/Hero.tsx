@@ -55,7 +55,7 @@ export default function Hero() {
           <span style={{ display: "block", color: "var(--text-primary)" }}>Bezpečnost,</span>
           <span style={{ display: "block" }}>
             která{" "}
-            <em style={{ fontStyle: "italic", background: "linear-gradient(135deg, #E8650A 0%, #FF8C42 45%, #C9A96E 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>hoří</em>
+            <em style={{ fontStyle: "italic", background: "linear-gradient(135deg, #E8650A 0%, #FF8C42 45%, #C9A96E 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", animation: "fireFlicker 0.8s ease-in-out infinite, fireGlow 1.5s ease-in-out infinite", display: "inline-block", filter: "drop-shadow(0 0 8px rgba(232,101,10,0.8))" }}>hoří</em>
           </span>
           <span style={{ display: "block", color: "var(--text-primary)", fontWeight: 300, opacity: 0.5 }}>vášní</span>
         </h1>
