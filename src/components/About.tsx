@@ -82,16 +82,7 @@ export default function About() {
           <div className="reveal">
             <div className="section-label" style={{ marginBottom: "1.8rem" }}>O nás</div>
             <h2 className="display-title" style={{ fontSize: "clamp(2.8rem,5vw,5rem)", marginBottom: "1.5rem" }}>
-              Kominictví<br />jako <em style={{
-                fontStyle: "italic",
-                background: "linear-gradient(135deg, #E8650A 0%, #FF8C42 45%, #C9A96E 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                animation: "fireFlicker 1.2s ease-in-out infinite",
-                display: "inline-block",
-                filter: "drop-shadow(0 0 6px rgba(232,101,10,0.6))"
-              }}>umění</em>
+              Kominictví<br />jako <em>umění</em>
             </h2>
             <div style={{ width: 48, height: 1, background: "linear-gradient(90deg, var(--ember), transparent)", marginBottom: "2rem", animation: "lineExpand 1s 0.5s ease-out both" }} />
             <p style={{ fontFamily: "var(--font-ui)", fontSize: "0.9rem", lineHeight: 1.9, color: "var(--text-secondary)", fontWeight: 300 }}>
