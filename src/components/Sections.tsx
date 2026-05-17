@@ -20,11 +20,12 @@ export function WhyUs() {
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1px", background: "rgba(232,101,10,0.08)" }} className="why-grid-inner">
           {items.map((item, i) => (
-            <div key={item.num} className={`why-card glow-card reveal reveal-delay-${(i%3)+1}`} style={{ background: "#050505" }}>
-              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg,transparent,rgba(232,101,10,0.3),transparent)", opacity: 0, transition: "opacity 0.4s" }} className="why-top-line" />
-              <div style={{ fontFamily: "var(--font-cormorant)", fontSize: "3rem", fontWeight: 300, color: "rgba(232,101,10,0.15)", lineHeight: 1, marginBottom: "1.5rem" }} className="why-num">{item.num}</div>
-              <div style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.4rem", fontWeight: 400, color: "var(--text-primary)", marginBottom: "1rem" }}>{item.title}</div>
-              <p style={{ fontFamily: "var(--font-ui)", fontSize: "0.8rem", lineHeight: 1.85, color: "var(--text-secondary)", fontWeight: 300 }}>{item.text}</p>
+            <div key={item.num} className={`why-card glow-card reveal reveal-delay-${(i%3)+1}`} style={{ background: "transparent", padding: 0 }}>
+              <div className="card-inner">
+                <div style={{ fontFamily: "var(--font-cormorant)", fontSize: "3rem", fontWeight: 300, lineHeight: 1, marginBottom: "1.5rem" }} className="why-num">{item.num}</div>
+                <div style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.4rem", fontWeight: 400, color: "var(--text-primary)", marginBottom: "1rem" }}>{item.title}</div>
+                <p style={{ fontFamily: "var(--font-ui)", fontSize: "0.8rem", lineHeight: 1.85, color: "var(--text-secondary)", fontWeight: 300 }}>{item.text}</p>
+              </div>
             </div>
           ))}
         </div>
