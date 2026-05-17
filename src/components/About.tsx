@@ -32,7 +32,7 @@ function CountUp({ target, suffix = "" }: { target: number | string; suffix?: st
 
 export default function About() {
   return (
-    <section id="o-nas" style={{ background: "var(--carbon)", padding: "9rem clamp(1.5rem,5vw,5rem)", position: "relative", overflow: "hidden" }}>
+    <section id="o-nas" style={{ background: "#000", padding: "9rem clamp(1.5rem,5vw,5rem)", position: "relative", overflow: "hidden" }}>
       <style>{`
         @keyframes aboutGlow {
           0%,100% { box-shadow: 0 0 20px rgba(232,101,10,0.15), inset 0 0 20px rgba(232,101,10,0.05); }

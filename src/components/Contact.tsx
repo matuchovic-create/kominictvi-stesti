@@ -18,7 +18,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="kontakt" style={{ background: "var(--anthracite)", padding: "9rem clamp(1.5rem,5vw,5rem)" }}>
+    <section id="kontakt" style={{ background: "#000", padding: "9rem clamp(1.5rem,5vw,5rem)" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <div className="reveal" style={{ marginBottom: "5rem" }}>
           <div className="section-label" style={{ marginBottom: "1.5rem" }}>Kontakt</div>
