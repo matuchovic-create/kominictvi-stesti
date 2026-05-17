@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         from: "Kominictví Štěstí Bot <onboarding@resend.dev>",
-        to: process.env.ADMIN_EMAIL,
+        to: [process.env.ADMIN_EMAIL, process.env.ADMIN_EMAIL_2].filter(Boolean) as string[],
         subject: `${isUrgent ? "🚨 URGENTNÍ" : "💬 Nový dotaz"} — ${lastUserMsg.content.slice(0, 60)}`,
         html: `
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto">
