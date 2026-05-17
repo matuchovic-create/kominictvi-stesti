@@ -399,6 +399,11 @@ export default function ChimneyBot() {
         .mwrap{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column}
         .mwrap::-webkit-scrollbar{width:4px}.mwrap::-webkit-scrollbar-thumb{background:rgba(232,101,10,.2);border-radius:2px}
         @keyframes urgentPulse{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,0.4)}50%{box-shadow:0 0 0 8px rgba(220,38,38,0)}}
+        @keyframes hatBounce{0%,100%{transform:translateY(0) rotate(0deg)}25%{transform:translateY(-4px) rotate(-5deg)}75%{transform:translateY(-2px) rotate(3deg)}}
+        @keyframes typingPulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:1;transform:scale(1.15)}}
+        @keyframes penWrite{0%{transform:rotate(-20deg) translateX(0)}50%{transform:rotate(-15deg) translateX(3px)}100%{transform:rotate(-20deg) translateX(0)}}
+        .typing-hat{animation:hatBounce .6s ease-in-out infinite}
+        .typing-pen{animation:penWrite .4s ease-in-out infinite}
       `}</style>
 
       {showBubble && !open && (
@@ -465,7 +470,35 @@ export default function ChimneyBot() {
                 )}
               </div>
             ))}
-            {loading && <div className="bmsg assistant" style={{display:"flex",gap:5,alignItems:"center"}}><span className="td"/><span className="td"/><span className="td"/></div>}
+            {loading && (
+              <div className="bmsg assistant" style={{display:"flex",alignItems:"center",gap:"0.6rem",padding:".6rem 1rem"}}>
+                <svg width="32" height="40" viewBox="0 0 80 100" style={{flexShrink:0}}>
+                  <g className="typing-hat">
+                    <rect x="24" y="12" width="32" height="22" rx="2" fill="#0d0d0d" stroke="#E8650A" strokeWidth="1"/>
+                    <rect x="20" y="33" width="40" height="6" rx="1" fill="#111"/>
+                    <rect x="24" y="28" width="32" height="4" fill="#E8650A" opacity=".8"/>
+                  </g>
+                  <ellipse cx="40" cy="58" rx="17" ry="16" fill="#C9A96E"/>
+                  <ellipse cx="33" cy="56" rx="3" ry="2" fill="#1a0a04" opacity=".4"/>
+                  <circle cx="34" cy="54" r="3" fill="#1a0804"/>
+                  <circle cx="46" cy="54" r="3" fill="#1a0804"/>
+                  <circle cx="35" cy="53" r="1" fill="white" opacity=".9"/>
+                  <circle cx="47" cy="53" r="1" fill="white" opacity=".9"/>
+                  <path d="M34 64 Q40 68 46 64" stroke="#5a3010" strokeWidth="1.5" fill="none"/>
+                  <path d="M23,74 Q24,68 40,66 Q56,68 57,74 L58,88 Q40,92 22,88 Z" fill="#0d0d0d"/>
+                  <g className="typing-pen">
+                    <line x1="52" y1="72" x2="64" y2="58" stroke="#C9A96E" strokeWidth="2" strokeLinecap="round"/>
+                    <ellipse cx="65" cy="57" rx="3" ry="2" fill="#E8650A" opacity=".8"/>
+                  </g>
+                </svg>
+                <div style={{display:"flex",flexDirection:"column",gap:3}}>
+                  <span style={{fontFamily:"sans-serif",fontSize:".65rem",color:"rgba(232,101,10,.7)",letterSpacing:".08em"}}>Tomáš píše...</span>
+                  <div style={{display:"flex",gap:4}}>
+                    <span className="td" style={{animationDelay:"0s"}}/><span className="td" style={{animationDelay:".2s"}}/><span className="td" style={{animationDelay:".4s"}}/>
+                  </div>
+                </div>
+              </div>
+            )}
             {streamingText && <div className="bmsg assistant">{streamingText}<span style={{opacity:.5}}>▌</span></div>}
             <div ref={messagesEndRef}/>
           </div>
