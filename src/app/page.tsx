@@ -1,4 +1,4 @@
-"use client";
+'"use client";
 import { useEffect } from "react";
 import Cursor from "@/components/Cursor";
 import Loader from "@/components/Loader";
@@ -12,7 +12,6 @@ import MapSection from "@/components/MapSection";
 import Footer from "@/components/Footer";
 import { WhyUs, Steps, Reviews, Gallery, Certs } from "@/components/Sections";
 import { useReveal } from "@/hooks/useReveal";
-import ChimneyBot from "@/components/ChimneyBot";
 
 export default function Home() {
   useReveal();
@@ -35,7 +34,6 @@ export default function Home() {
         <Contact />
         <MapSection />
       </main>
-      <ChimneyBot />
       <Footer />
     </>
   );
