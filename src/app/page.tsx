@@ -1,4 +1,4 @@
-'"use client";
+"use client";
 import { useEffect } from "react";
 import Cursor from "@/components/Cursor";
 import Loader from "@/components/Loader";
