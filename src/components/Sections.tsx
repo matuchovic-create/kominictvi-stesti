@@ -172,7 +172,7 @@ export function Reviews() {
   );
 }
 
-const TOTAL_PHOTOS = 66;
+const TOTAL_PHOTOS = 46;
 const gallery = Array.from({ length: TOTAL_PHOTOS }, (_, i) => ({
   src: `/gallery/photo-${i + 1}.jpg`,
 }));
