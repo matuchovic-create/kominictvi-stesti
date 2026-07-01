@@ -1,3 +1,6 @@
+"use client";
+import { useState, useEffect } from "react";
+
 export function WhyUs() {
   const items = [
     { num: "01", title: "Certifikace a normy", text: "Pracujeme výhradně dle platných ČSN a EU norem. Všechny práce jsou doloženy řádnou revizní dokumentací." },
@@ -169,42 +172,160 @@ export function Reviews() {
   );
 }
 
-const gallery = [
-  { label: "Vložkování nerezové — Praha 5 — 2024", bg: "linear-gradient(135deg,#1a0e06,#2d1a08)", span: true },
-  { label: "Kamerová revize — Bytový dům Praha 2", bg: "linear-gradient(135deg,#06120e,#0a1c16)", span: false },
-  { label: "Čištění komínu — Rodinný dům Říčany", bg: "linear-gradient(135deg,#140808,#200e0a)", span: false },
-  { label: "Kontrola kotlů — Hotel Průhonice", bg: "linear-gradient(135deg,#080a14,#0c1020)", span: false },
-  { label: "Revizní zpráva — Novostavba Kladno", bg: "linear-gradient(135deg,#0a1208,#10180a)", span: false },
-];
+const TOTAL_PHOTOS = 66;
+const gallery = Array.from({ length: TOTAL_PHOTOS }, (_, i) => ({
+  src: `/gallery/photo-${i + 1}.jpg`,
+}));
+// Curated opening rhythm: wide, normal, normal | normal, normal, normal | wide, normal, normal
+const FEATURED_COUNT = 9;
+const spanPattern = [true, false, false, false, false, false, true, false, false];
+
+function ZoomIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="11" cy="11" r="7" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      <line x1="11" y1="8" x2="11" y2="14" />
+      <line x1="8" y1="11" x2="14" y2="11" />
+    </svg>
+  );
+}
+
+function GalleryTile({ index, wide, onOpen }: { index: number; wide?: boolean; onOpen: (i: number) => void }) {
+  return (
+    <div className="gallery-item" style={{ gridColumn: wide ? "span 2" : "span 1" }} onClick={() => onOpen(index)}>
+      <div className="gallery-inner-wrap" style={{ paddingBottom: wide ? "44%" : "68%" }}>
+        <div style={{ position: "absolute", inset: 0, backgroundImage: `url('${gallery[index].src}')`, backgroundSize: "cover", backgroundPosition: "center" }} />
+        <div className="gallery-overlay" style={{ alignItems: "center", justifyContent: "center" }}>
+          <ZoomIcon />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function Gallery() {
+  const [showAll, setShowAll] = useState(false);
+  const [lightbox, setLightbox] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (lightbox === null) return;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(null);
+      if (e.key === "ArrowRight") setLightbox((v) => (v === null ? v : (v + 1) % TOTAL_PHOTOS));
+      if (e.key === "ArrowLeft") setLightbox((v) => (v === null ? v : (v - 1 + TOTAL_PHOTOS) % TOTAL_PHOTOS));
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [lightbox]);
+
   return (
     <section id="galerie" style={{ background: "#000" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "9rem clamp(1.5rem,5vw,5rem) 3rem" }}>
-        <div className="reveal" style={{ marginBottom: "3rem" }}>
-          <div className="section-label" style={{ marginBottom: "1.5rem" }}>Naše práce</div>
-          <h2 className="display-title" style={{ fontSize: "clamp(2.8rem,5vw,5rem)" }}>
-            Realizované<br /><em>projekty</em>
-          </h2>
+        <div className="reveal" style={{ marginBottom: "3rem", display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "1.5rem" }}>
+          <div>
+            <div className="section-label" style={{ marginBottom: "1.5rem" }}>Naše práce</div>
+            <h2 className="display-title" style={{ fontSize: "clamp(2.8rem,5vw,5rem)" }}>
+              Realizované<br /><em>projekty</em>
+            </h2>
+          </div>
+          <div style={{ fontFamily: "var(--font-ui)", fontSize: "0.68rem", letterSpacing: "0.15em", color: "var(--text-muted)", textTransform: "uppercase", paddingBottom: "0.6rem" }}>
+            {TOTAL_PHOTOS} fotografií z realizací
+          </div>
         </div>
       </div>
+
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 2 }} className="gal-grid">
-        {gallery.map((item, i) => (
-          <div key={i} className="gallery-item" style={{ gridColumn: item.span ? "span 2" : "span 1" }}>
-            <div className="gallery-inner-wrap" style={{ paddingBottom: item.span ? "44%" : "68%", background: item.bg }}>
-              <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <svg width="40" height="40" viewBox="0 0 48 48" style={{ stroke: "rgba(232,101,10,0.3)", fill: "none", strokeWidth: 1.2 }}>
-                  <rect x="16" y="8" width="16" height="32" rx="2"/><rect x="12" y="6" width="24" height="6" rx="1"/>
-                </svg>
-              </div>
-              <div className="gallery-overlay">
-                <div style={{ fontFamily: "var(--font-cormorant)", fontSize: "1rem", color: "#fff", letterSpacing: "0.05em" }}>{item.label}</div>
-              </div>
-            </div>
-          </div>
+        {spanPattern.map((wide, i) => (
+          <GalleryTile key={i} index={i} wide={wide} onOpen={setLightbox} />
         ))}
       </div>
-      <style>{`@media(max-width:700px){.gal-grid{grid-template-columns:1fr!important} .gallery-item{grid-column:span 1!important}}`}</style>
+
+      {showAll && (
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 2, marginTop: 2 }} className="gal-grid-all">
+          {gallery.slice(FEATURED_COUNT).map((_, i) => (
+            <GalleryTile key={i + FEATURED_COUNT} index={i + FEATURED_COUNT} onOpen={setLightbox} />
+          ))}
+        </div>
+      )}
+
+      <div style={{ display: "flex", justifyContent: "center", padding: "3.5rem clamp(1.5rem,5vw,5rem) 1rem" }}>
+        <button className="btn-ghost" onClick={() => setShowAll((v) => !v)} style={{ background: "transparent" }}>
+          <span>{showAll ? "Zobrazit méně" : `Zobrazit všech ${TOTAL_PHOTOS} fotografií`}</span>
+        </button>
+      </div>
+
+      {lightbox !== null && (
+        <div className="lightbox-backdrop" onClick={() => setLightbox(null)}>
+          <button className="lightbox-close" onClick={() => setLightbox(null)} aria-label="Zavřít">✕</button>
+          <button
+            className="lightbox-arrow lightbox-arrow-left"
+            onClick={(e) => { e.stopPropagation(); setLightbox((lightbox - 1 + TOTAL_PHOTOS) % TOTAL_PHOTOS); }}
+            aria-label="Předchozí"
+          >‹</button>
+          <img
+            src={gallery[lightbox].src}
+            alt={`Realizace ${lightbox + 1}`}
+            className="lightbox-img"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <button
+            className="lightbox-arrow lightbox-arrow-right"
+            onClick={(e) => { e.stopPropagation(); setLightbox((lightbox + 1) % TOTAL_PHOTOS); }}
+            aria-label="Další"
+          >›</button>
+          <div className="lightbox-counter">{lightbox + 1} / {TOTAL_PHOTOS}</div>
+        </div>
+      )}
+
+      <style>{`
+        @media(max-width:700px){
+          .gal-grid, .gal-grid-all { grid-template-columns: 1fr!important; }
+          .gal-grid .gallery-item, .gal-grid-all .gallery-item { grid-column: span 1!important; }
+          .gal-grid .gallery-inner-wrap { padding-bottom: 68%!important; }
+        }
+        @media(max-width:900px) and (min-width:701px){
+          .gal-grid-all { grid-template-columns: repeat(2,1fr)!important; }
+        }
+        .lightbox-backdrop {
+          position: fixed; inset: 0; z-index: 10000;
+          background: rgba(4,2,1,0.94);
+          display: flex; align-items: center; justify-content: center;
+          animation: lbFadeIn 0.25s ease;
+        }
+        @keyframes lbFadeIn { from{opacity:0} to{opacity:1} }
+        .lightbox-img {
+          max-width: min(88vw, 1200px); max-height: 86vh;
+          object-fit: contain;
+          box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+          border: 1px solid rgba(232,101,10,0.15);
+        }
+        .lightbox-close, .lightbox-arrow {
+          position: absolute; background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(255,255,255,0.12); color: var(--text-primary);
+          cursor: pointer; display: flex; align-items: center; justify-content: center;
+          transition: all 0.25s;
+        }
+        .lightbox-close:hover, .lightbox-arrow:hover { border-color: var(--ember); color: var(--ember); background: rgba(232,101,10,0.08); }
+        .lightbox-close { top: 1.5rem; right: 1.5rem; width: 44px; height: 44px; font-size: 1rem; border-radius: 50%; }
+        .lightbox-arrow { top: 50%; transform: translateY(-50%); width: 52px; height: 52px; font-size: 1.8rem; border-radius: 50%; }
+        .lightbox-arrow-left { left: 1.5rem; }
+        .lightbox-arrow-right { right: 1.5rem; }
+        .lightbox-counter {
+          position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+          font-family: var(--font-ui); font-size: 0.68rem; letter-spacing: 0.2em;
+          color: var(--text-muted); text-transform: uppercase;
+        }
+        @media(max-width:700px){
+          .lightbox-arrow { width: 40px; height: 40px; font-size: 1.4rem; }
+          .lightbox-arrow-left { left: 0.6rem; } .lightbox-arrow-right { right: 0.6rem; }
+          .lightbox-close { top: 0.8rem; right: 0.8rem; }
+        }
+      `}</style>
     </section>
   );
 }
