@@ -122,15 +122,63 @@ export function Steps() {
 }
 
 const reviews = [
-  { text: "Absolutně perfektní servis. Přijeli přesně, pracovali profesionálně a vše po sobě uklidili. Revizní zprávu jsme dostali do druhého dne. Doporučuji všem!", author: "Ing. Martin Kovář", location: "Praha 6 — Rodinný dům" },
-  { text: "Využíváme Kominictví Štěstí pro náš bytový dům již čtvrtým rokem. Vždy spolehliví, vždy kvalitní práce. Cena odpovídá špičkové kvalitě.", author: "Jana Nováková", location: "Praha 2 — Bytový dům" },
-  { text: "Urgentní oprava po nálezu trhlin v komínu. Přijeli do hodiny a vyřešili vše okamžitě. Díky nim jsem mohl dál topit bez obav. Profesionálové!", author: "Tomáš Blažek", location: "Beroun — Chalupa" },
-  { text: "Konečně kominík, který přijde přesně a pracuje precizně. Sousedi se mě ptají, kdo čistil komín — vždy odkazuji na Kominictví Štěstí.", author: "Petra Horáčková", location: "Praha-západ — Rodinný dům" },
-  { text: "Vložkování komínu na jedničku. Skvělá práce, skvělý přístup, výborná komunikace. Pojišťovna byla nadšena z dokumentace.", author: "Radek Mašek", location: "Kladno — Novostavba" },
-  { text: "Pravidelný smluvní servis pro náš hotel. Vždy bez komplikací, vždy dle termínu. Dokumentace na perfektní úrovni. Absolutní spolehlivost.", author: "Miroslav Šimánek", location: "Průhonice — Hotel" },
+  { text: "Přijeli přesně v domluvený čas, komín vyčistili a revizní zprávu jsme měli v mailu hned druhý den. Žádné čekání, žádné dohadování o ceně.", author: "Ing. Martin Kovář", location: "Praha 6 — Rodinný dům" },
+  { text: "Využíváme Kominictví Štěstí pro náš bytový dům už čtvrtý rok. Šest spalinových cest mají perfektně zmapovaných a vždy dorazí ve slíbeném termínu.", author: "Jana Nováková", location: "Praha 2 — Bytový dům" },
+  { text: "Při revizi našli trhliny v komíně a opravu zvládli během dvou dnů. Díky nim jsem mohl dál topit bez obav, že mi něco projde do obytné části.", author: "Tomáš Blažek", location: "Beroun — Chalupa" },
+  { text: "Vložkování proběhlo za jediný den. Po sobě uklidili tak důkladně, že nebylo poznat, že tu někdo byl.", author: "Petra Svobodová", location: "Liberec — Rodinný dům" },
+  { text: "Ocenil jsem, že mi všechno vysvětlili srozumitelně a bez zbytečného strašení. Cena seděla přesně podle nabídky, ani korunu navíc.", author: "Ing. Jiří Málek", location: "Praha 9 — Novostavba" },
+  { text: "Objednávala jsem na poslední chvíli před topnou sezónou a přesto si našli termín už za tři dny. Rychle, čistě, milé jednání.", author: "Lucie Horáková", location: "Kladno — Řadový dům" },
+  { text: "Frézování komínu v chalupě z roku 1908. Práce jako od hodinářů, nikde ani smítko prachu. Přesně tohle jsem od řemeslníka čekal.", author: "Pavel Doležal", location: "Jablonec nad Nisou — Chalupa" },
+  { text: "Revize pro pojišťovnu bez nervů. Dokumentace v pořádku, všechno orazítkované, pojišťovna nic nevracela k doplnění.", author: "Marie Vlčková", location: "Praha 4 — Bytový dům" },
+  { text: "Hlava komínu byla po zimě rozpadlá. Opravili ji tak, že vypadá líp než předtím, a ještě mi poradili, jak ji chránit dál.", author: "Radek Pospíšil", location: "Turnov — Rodinný dům" },
+  { text: "U novostavby řešili prostup střechou včetně oplechování. Vše sedí na milimetr a střechař po nich nemusel nic upravovat.", author: "Veronika Šímová", location: "Říčany — Novostavba" },
+  { text: "Na chatu k nám jezdí každý rok. Domluva po telefonu je otázka minuty a vždy dorazí, i když je to kus cesty.", author: "Josef Král", location: "Mladá Boleslav — Chata" },
+  { text: "Výborná komunikace od prvního telefonátu. Poslali předem seznam, co mají nájemníci připravit, a všechno šlo jako po másle.", author: "Hana Benešová", location: "Praha 10 — Bytový dům" },
+  { text: "Starý komín byl netěsný a hrozilo, že budeme muset stavět nový. Navrhli vložkování, ušetřili nám desítky tisíc a funguje to bezvadně.", author: "Michal Sedláček", location: "Černošice — Rodinný dům" },
+  { text: "Po vyhoření sazí jsem čekal nejhorší. Přijeli ještě týž den, zkontrolovali celou spalinovou cestu a dali mi to písemně.", author: "Zdeněk Urban", location: "Semily — Chalupa" },
+  { text: "Tři komíny ve vile, všechny odlišné, a měli hotovo za dopoledne. Naprostá profesionalita od začátku do konce.", author: "Tereza Marková", location: "Praha 5 — Vila" },
+  { text: "Pro penzion potřebuji papíry v naprostém pořádku. Tady mám jistotu, že při kontrole nic nechybí a termín revize mi hlídají sami.", author: "Ing. Ondřej Fiala", location: "Nymburk — Penzion" },
+  { text: "Přišli, udělali, uklidili. Žádné překvapení v ceně, žádné prodávání služeb, které nepotřebuji.", author: "Kateřina Dvořáková", location: "Česká Lípa — Rodinný dům" },
+  { text: "Průměr komínu byl malý pro nový kotel. Vyfrézovali ho a vyvložkovali během dvou dnů, kotel od té doby šlape jako hodinky.", author: "Libor Šťastný", location: "Roztoky u Prahy — Rodinný dům" },
+  { text: "Jako předsedkyně SVJ řeším revize pro dvanáct bytů. Domluva je vždy rychlá a zpráva přijde v termínu, který slíbí.", author: "Alena Procházková", location: "Praha 8 — Bytový dům" },
+  { text: "Poradili mi s výběrem systému ještě před stavbou a ušetřili mi tím spoustu peněz i starostí. Montáž pak byla formalita.", author: "Vít Hrubý", location: "Brandýs nad Labem — Novostavba" },
+  { text: "Zatékalo mi kolem komínu do půdy. Našli příčinu za deset minut a opravili ji tak, že je už rok sucho.", author: "Miroslav Čermák", location: "Kolín — Chalupa" },
+  { text: "Ve staré zástavbě umí poradit, co se smí a nesmí. Nejlepší je, že mluví lidsky a ne v paragrafech.", author: "Denisa Kučerová", location: "Praha 3 — Činžovní dům" },
+  { text: "Deset let jsem měnil kominíky, tady jsem konečně zůstal. Spolehlivost, která se dneska nevidí.", author: "Stanislav Němec", location: "Rakovník — Rodinný dům" },
+  { text: "Před koupí chalupy mi zkontrolovali komín a našli závadu, o které prodávající mlčel. Ušetřili mi tím odhadem sto tisíc.", author: "Barbora Veselá", location: "Frýdlant — Chalupa" },
+  { text: "Materiály prvotřídní, práce rychlá, po sobě uklizeno. Přesně za tohle člověk rád zaplatí.", author: "Jakub Richter", location: "Nový Bor — Rodinný dům" },
+  { text: "Skvělá domluva i pro celý dům najednou. Nájemníci byli spokojení, nikdo si nestěžoval na nepořádek ani na zdržení.", author: "Ing. Eva Tichá", location: "Neratovice — Bytový dům" },
+  { text: "Napojení kamen v podkroví včetně prostupu stropem. Všechno podle normy a ještě mi ukázali, jak správně zatápět.", author: "Roman Bartoš", location: "Praha 7 — Podkrovní byt" },
+  { text: "Dorazili i přes sněhovou kalamitu, protože to měli slíbené. Takový přístup se dneska cení.", author: "Simona Ryšavá", location: "Hodkovice nad Mohelkou — Chalupa" },
+  { text: "Vše podle předpisů, zpráva do mailu ve formátu, který pojišťovna hned přijala. Bez jediného telefonátu navíc.", author: "Karel Zeman", location: "Příbram — Rodinný dům" },
+  { text: "Objednání přes web, potvrzení do hodiny, příjezd na minutu přesně. Konečně firma, která funguje.", author: "Lenka Machová", location: "Praha-Zbraslav — Rodinný dům" },
+  { text: "Řešili nám odtah v kuchyni restaurace. Poradili si i s tím, s čím si dvě předchozí firmy nevěděly rady.", author: "Filip Konečný", location: "Benešov — Restaurace" },
+  { text: "Jezdí k nám pravidelně už třetí sezónu. Vždy přijdou upravení, v návlecích, a po práci je čisto.", author: "Monika Šálková", location: "Liberec — Bytový dům" },
+  { text: "Volal jsem v neděli večer, kdy mi začalo kouřit do místnosti. V pondělí ráno už to řešili.", author: "Václav Kopecký", location: "Mělník — Rodinný dům" },
+  { text: "Milá komunikace, rozumná cena a žádné strašení, že musím hned něco měnit. Doporučuji dál bez váhání.", author: "Iveta Holubová", location: "Praha 13 — Řadový dům" },
+  { text: "Horská chalupa, těžký přístup, mráz. Přesto všechno stihli za den a odvedli práci, za kterou se nemusí stydět.", author: "Daniel Kraus", location: "Tanvald — Chalupa" },
+  { text: "Zkontrolovali mi komín i napojení kotle a vysvětlili, proč mi dosud špatně táhlo. Od té doby topím o třetinu míň.", author: "Petr Vaněk", location: "Slaný — Rodinný dům" },
+  { text: "V domě v památkové zóně je každý zásah složitý. Poradili si s tím elegantně a bez škodlivých zásahů do konstrukce.", author: "Jitka Sýkorová", location: "Praha 1 — Historický dům" },
+  { text: "Dva kotle, čtyři spalinové cesty, jeden termín. Žádné přestávky v provozu penzionu, hosté nic nepoznali.", author: "Ing. Luboš Matoušek", location: "Jilemnice — Penzion" },
+  { text: "Všechno od návrhu po revizní zprávu pod jednou střechou. Nemusela jsem obvolávat pět firem a koordinovat termíny.", author: "Martina Holá", location: "Čelákovice — Novostavba" },
+  { text: "Na chatu jezdí dvakrát ročně a nikdy nezklamali. Když řeknou čtvrtek v devět, je to čtvrtek v devět.", author: "Aleš Hruška", location: "Vrchlabí — Horská chata" },
+  { text: "Poctivá práce za rozumné peníze. Navíc mi ukázali fotky z inspekční kamery, takže jsem viděla, za co platím.", author: "Šárka Bláhová", location: "Praha 12 — Rodinný dům" },
+  { text: "Historická cihlová hlava vypadala na zbourání. Zachránili ji a dnes je hezčí než zbytek střechy.", author: "Ladislav Šimek", location: "Kutná Hora — Historický dům" },
+  { text: "Potřebovali jsme revizi ke kolaudaci a stihli nám ji do týdne. Úřadu všechno sedělo napoprvé.", author: "Nikola Pokorná", location: "Hostivice — Novostavba" },
+  { text: "Vysvětlili mi rozdíl mezi variantami a nechali mě rozhodnout, nic netlačili. Výsledek předčil očekávání.", author: "Marek Skála", location: "Liberec-Vratislavice — Rodinný dům" },
+  { text: "Pro dům s osmi jednotkami je klíčová organizace a ta tu funguje na jedničku. Vše oznámeno předem a dodrženo.", author: "Dagmar Rychlá", location: "Praha 11 — Bytový dům" },
+  { text: "Profesionální výstup, měřicí přístroje, jasný protokol. Konečně někdo, kdo nepracuje od oka.", author: "Ing. Tomáš Beran", location: "Poděbrady — Penzion" },
+  { text: "Přijeli i na samotu na konci lesní cesty a ještě se usmívali. Práce odvedena poctivě, cena přesně podle domluvy.", author: "Klára Janoušková", location: "Dobříš — Chalupa" },
+  { text: "Frézování, vložkování i revize v jednom termínu. Za dva dny hotovo a mohl jsem zatopit.", author: "Vojtěch Panáček", location: "Železný Brod — Rodinný dům" },
+  { text: "Zpráva přišla druhý den v PDF i papírově. Nemusela jsem nic řešit, nic urgovat, nic dovysvětlovat.", author: "Renata Kadlecová", location: "Praha 14 — Bytový dům" },
+  { text: "Chodí k nám už pátý rok a pokaždé odejdou až ve chvíli, kdy je všechno opravdu v pořádku. Tomu říkám řemeslo.", author: "Jaroslav Hejda", location: "Lysá nad Labem — Rodinný dům" },
 ];
 
+const REVIEWS_PREVIEW = 6;
+
 export function Reviews() {
+  const [showAllReviews, setShowAllReviews] = useState(false);
+  const shown = showAllReviews ? reviews : reviews.slice(0, REVIEWS_PREVIEW);
   return (
     <section id="reference" style={{ background: "#000", padding: "9rem clamp(1.5rem,5vw,5rem)" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -152,7 +200,7 @@ export function Reviews() {
           </div>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1px", background: "rgba(255,255,255,0.04)" }} className="reviews-inner">
-          {reviews.map((r, i) => (
+          {shown.map((r, i) => (
             <div key={i} className={`review-card reveal reveal-delay-${(i%3)+1}`} style={{ background: "#000" }}>
               <div style={{ fontFamily: "var(--font-cormorant)", fontSize: "3.5rem", fontWeight: 300, color: "rgba(232,101,10,0.1)", lineHeight: 1, position: "absolute", top: "1.5rem", right: "1.8rem" }}>"</div>
               <div style={{ display: "flex", gap: 3, marginBottom: "1.5rem" }}>
@@ -165,6 +213,11 @@ export function Reviews() {
               </div>
             </div>
           ))}
+        </div>
+        <div style={{ display: "flex", justifyContent: "center", paddingTop: "3.5rem" }}>
+          <button className="btn-ghost" onClick={() => setShowAllReviews((v) => !v)} style={{ background: "transparent" }}>
+            <span>{showAllReviews ? "Zobrazit méně" : `Zobrazit všech ${reviews.length} recenzí`}</span>
+          </button>
         </div>
       </div>
       <style>{`@media(max-width:900px){.reviews-inner{grid-template-columns:1fr!important}}`}</style>
