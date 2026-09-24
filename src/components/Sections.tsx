@@ -201,7 +201,7 @@ export function Reviews() {
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1px", background: "rgba(255,255,255,0.04)" }} className="reviews-inner">
           {shown.map((r, i) => (
-            <div key={i} className={`review-card reveal reveal-delay-${(i%3)+1}`} style={{ background: "#000" }}>
+            <div key={i} className={`review-card${i < REVIEWS_PREVIEW ? ` reveal reveal-delay-${(i % 3) + 1}` : ""}`} style={{ background: "#000" }}>
               <div style={{ fontFamily: "var(--font-cormorant)", fontSize: "3.5rem", fontWeight: 300, color: "rgba(232,101,10,0.1)", lineHeight: 1, position: "absolute", top: "1.5rem", right: "1.8rem" }}>"</div>
               <div style={{ display: "flex", gap: 3, marginBottom: "1.5rem" }}>
                 {Array(5).fill(0).map((_,j) => <div key={j} style={{ width: 10, height: 10, background: "var(--ember)", clipPath: "polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)" }} />)}
